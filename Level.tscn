@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Level.gd" type="Script" id=1]
+[ext_resource path="res://player/RobotPlayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://goodTiles.tres" type="TileSet" id=3]
+[ext_resource path="res://evilTiles.tres" type="TileSet" id=4]
+[ext_resource path="res://goalTiles.tres" type="TileSet" id=5]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://art/freescifiplatform/png/Objects/Box.png" type="Texture" id=7]
+
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 0, 256, 0, 256, 256, 0, 256 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "Box.png 0"
+0/texture = ExtResource( 7 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 256, 256 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[node name="Level" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+zoom = 0.5
+
+[node name="GoodTiles" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+format = 1
+tile_data = PoolIntArray( 327696, 1, 0, 393232, 1, 0, 720910, 1, 0, 851984, 1, 0 )
+
+[node name="EvilTiles" type="TileMap" parent="." groups=[
+"evil_tile",
+]]
+tile_set = ExtResource( 4 )
+format = 1
+tile_data = PoolIntArray( 327683, 1, 0, 327696, 1, 0, 393232, 1, 0, 720910, 1, 0, 851984, 1, 0 )
+
+[node name="GoalTiles" type="TileMap" parent="." groups=[
+"goal_tile",
+]]
+tile_set = ExtResource( 5 )
+format = 1
+
+[node name="HUD" parent="." instance=ExtResource( 6 )]
+pause_mode = 2
+
+[node name="Crates" type="TileMap" parent="."]
+scale = Vector2( 0.25, 0.25 )
+tile_set = SubResource( 2 )
+cell_size = Vector2( 256, 256 )
+format = 1
+

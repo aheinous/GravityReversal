@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://elements/saw/SawBlade.gd" type="Script" id=1]
+[ext_resource path="res://art/freescifiplatform/png/Objects/Saw.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "spin"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path/Follow/Blade/Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -360.0 ]
+}
+
+[sub_resource type="Curve2D" id=2]
+bake_interval = 0.01
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -90, 0, 0, 0, 0, 0, 90, 0 )
+}
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 179.0
+
+[node name="SawBlade" type="Node2D" groups=[
+"resettable",
+]]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/spin = SubResource( 1 )
+
+[node name="Path" type="Path2D" parent="."]
+curve = SubResource( 2 )
+
+[node name="Follow" type="PathFollow2D" parent="Path"]
+position = Vector2( 15.0381, 0 )
+offset = 82.76
+loop = false
+
+[node name="Blade" type="Area2D" parent="Path/Follow" groups=[
+"evil",
+]]
+rotation = 3.07161
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Path/Follow/Blade"]
+rotation = -1.59664
+scale = Vector2( 1, -1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path/Follow/Blade"]
+shape = SubResource( 3 )
+
