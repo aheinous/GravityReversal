@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://elements/MissleSpawner.gd" type="Script" id=1]
+[ext_resource path="res://art/custom/angryMissleLancher.png" type="Texture" id=2]
+
+[node name="MissleSpawner" type="Node2D" groups=[
+"resettable",
+]]
+position = Vector2( 1024, 384 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+missleSpeed = 100.0
+interval = 10.0
+phase = 0.8
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="launcher" type="Sprite" parent="."]
+position = Vector2( 32, 32 )
+scale = Vector2( 0.25, 0.25 )
+z_index = 1
+texture = ExtResource( 2 )
+
+[node name="spawnPoint" type="Position2D" parent="."]
+position = Vector2( 32, 32 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
