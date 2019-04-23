@@ -4,6 +4,7 @@ onready var pauseScreen = $pauseScreen
 onready var msgLabel = $msgLabel
 onready var msgTimer = $msgTimer
 onready var coinCntLbl = $CoinCounter/Panel/Number
+onready var gemIndicator = $MarginContainer/GemIndicator
 
 #func _enter_tree():
 #	level_manager.HUD = self
@@ -57,4 +58,5 @@ func _on_quitButton_pressed():
 
 
 func setGems(gems):
-	print('HUD.setGems(',gems, ') -- not implemented')
+	print('HUD.setGems(',gems, ')')
+	gemIndicator.setGems(gems)

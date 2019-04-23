@@ -55,6 +55,7 @@ func _process(delta):
 
 func _ready():
 	HUD.setCoinCount(0)
+	HUD.setGems(gems)
 	HUD.show_msg(level_manager.getCurLevelName() + ":\nSTART!")
 	yield(HUD.get_node("msgTimer"), "timeout")
 	player.start_moving()
