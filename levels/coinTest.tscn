@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://elements/Coin.tscn" type="PackedScene" id=2]
+[ext_resource path="res://elements/BlueGem.tscn" type="PackedScene" id=3]
+[ext_resource path="res://elements/RedGem.tscn" type="PackedScene" id=4]
+[ext_resource path="res://elements/YellowGem.tscn" type="PackedScene" id=5]
+[ext_resource path="res://elements/GreenGem.tscn" type="PackedScene" id=6]
 
 [node name="Level" instance=ExtResource( 1 )]
 
@@ -46,4 +50,21 @@ position = Vector2( 1181.27, 334.888 )
 
 [node name="Coin11" parent="." index="16" instance=ExtResource( 2 )]
 position = Vector2( 1142.5, 371.073 )
+
+[node name="BlueGem" parent="." index="17" instance=ExtResource( 3 )]
+
+[node name="RedGem" parent="." index="18" groups=[
+"coin",
+] instance=ExtResource( 4 )]
+position = Vector2( 1141.27, 466.876 )
+
+[node name="YellowGem" parent="." index="19" groups=[
+"coin",
+] instance=ExtResource( 5 )]
+position = Vector2( 1413.14, 458.199 )
+
+[node name="GreenGem" parent="." index="20" groups=[
+"coin",
+] instance=ExtResource( 6 )]
+position = Vector2( 1629.91, 457.747 )
 

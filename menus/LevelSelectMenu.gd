@@ -9,6 +9,7 @@ func _ready():
 
 	var buttonScene = load("res://menus/LevelButton.tscn")
 	var coinCountScene = load('res://menus/MenuCoinCount.tscn')
+	var gemIndicatorScene = load('res://menus/GemIndicator.tscn')
 	var levels = level_manager.levels
 
 	for n in range(levels.size()):
@@ -19,7 +20,13 @@ func _ready():
 		buttonContainer.add_child(button)
 
 		var coinCnt = coinCountScene.instance()
+		var gemsIndicator = gemIndicatorScene.instance()
+
 		buttonContainer.add_child(coinCnt)
+		buttonContainer.add_child(gemsIndicator)
+
+		gemsIndicator.setGems(metaData.gems)
+
 		if metaData.maxCoinsCollected == null:
 			coinCnt.setBlank(true)
 		else:

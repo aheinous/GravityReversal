@@ -7,6 +7,16 @@ onready var player = $Player
 var coinsCollected = 0
 onready var coinsAtStart = get_tree().get_nodes_in_group('coin').size()
 
+onready var gems = initGems()
+
+
+func initGems():
+	# WARNING: only valid before any gems are collected.
+	var gems = {}
+	for gem in get_tree().get_nodes_in_group('gem'):
+		gems[gem.color] = false
+	return gems
+
 func player_died():
 	HUD.show_msg("You died.")
 	yield(HUD.get_node("msgTimer"), "timeout")
@@ -17,7 +27,7 @@ func player_reached_goal():
 	print('_on_Player_reached_goal()')
 	HUD.show_msg("GOAL")
 	yield(HUD.get_node("msgTimer"), "timeout")
-	level_manager.onCurLevelComplete(coinsCollected, coinsAtStart)
+	level_manager.onCurLevelComplete(coinsCollected, coinsAtStart, gems)
 
 
 func togglePause():
@@ -53,3 +63,8 @@ func _ready():
 func onCoin(count):
 	coinsCollected += count
 	HUD.setCoinCount(coinsCollected)
+
+func onGem(color):
+	print("A ", color, " gem was collected.")
+	gems[color] = true
+	HUD.setGems(gems)

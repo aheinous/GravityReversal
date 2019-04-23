@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://menus/GemIndicator.gd" type="Script" id=1]
+[ext_resource path="res://art/platformerPack/Items/gemBlue.png" type="Texture" id=2]
+[ext_resource path="res://art/platformerPack/Items/gemGreen.png" type="Texture" id=3]
+[ext_resource path="res://art/platformerPack/Items/gemRed.png" type="Texture" id=4]
+[ext_resource path="res://art/platformerPack/Items/gemYellow.png" type="Texture" id=5]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+[node name="GemIndicator" type="Panel"]
+margin_right = 536.0
+margin_bottom = 159.0
+rect_min_size = Vector2( 600, 65 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="hbox" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+
+[node name="Blue" type="TextureRect" parent="hbox"]
+modulate = Color( 1, 1, 1, 0.105882 )
+margin_right = 147.0
+margin_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 7
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="Green" type="TextureRect" parent="hbox"]
+margin_left = 151.0
+margin_right = 298.0
+margin_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 7
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="Red" type="TextureRect" parent="hbox"]
+margin_left = 302.0
+margin_right = 449.0
+margin_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 7
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="Yellow" type="TextureRect" parent="hbox"]
+material = SubResource( 1 )
+margin_left = 453.0
+margin_right = 600.0
+margin_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 7
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+

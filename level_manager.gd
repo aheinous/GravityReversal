@@ -6,6 +6,7 @@ class LevelMetaData:
 	var scenePath
 	var maxCoinsCollected
 	var coinsAvail
+	var gems = null
 
 	func _init(name, path, maxCoinsCollected=null, coinsAvail=null):
 		self.name = name
@@ -20,23 +21,15 @@ var highestLevelCompleted = null
 var curLevelNum = null
 
 
-func initDefaults():
-	levels = [
-		LevelMetaData.new('Straight Level', 'levels/straight.tscn'),
-		LevelMetaData.new('Level No. 3', 'levels/level3.tscn'),
-	]
-	highestLevelCompleted = -1
-
-
-
 func getHUD():
 	return get_tree().get_current_scene().get_node('HUD')
 
 #func getHUD():
 #	return get_tree().get_current_scene().get_node('HUD')
 
-func onCurLevelComplete(coinsCollected, coinsTotal):
+func onCurLevelComplete(coinsCollected, coinsTotal, gems):
 	print('onCurLevelComplete. got ', coinsCollected, ' / ', coinsTotal, ' coins')
+	print(gems)
 
 	# should only happen when running scenes as opposed to whole game
 	if curLevelNum == null:
@@ -49,6 +42,15 @@ func onCurLevelComplete(coinsCollected, coinsTotal):
 		oldMaxCoins = 0
 	levels[curLevelNum].maxCoinsCollected = max(coinsCollected, oldMaxCoins)
 	levels[curLevelNum].coinsAvail = coinsTotal
+
+	# update gems
+	if levels[curLevelNum].gems == null:
+		levels[curLevelNum].gems = gems
+	else:
+		var newGems = {}
+		for color in gems.keys():
+			newGems[color] = gems[color] or levels[curLevelNum].gems[color]
+		levels[curLevelNum].gems = newGems
 
 	# update highest level completed
 	highestLevelCompleted = max(highestLevelCompleted, curLevelNum)
@@ -96,6 +98,16 @@ func loadLevelNum(n):
 
 const SAVE_PATH = 'user://savefile'
 
+
+func initDefaults():
+	# data to be loaded when no save file is present
+	levels = [
+		LevelMetaData.new('Straight Level', 'levels/straight.tscn'),
+		LevelMetaData.new('Level No. 3', 'levels/level3.tscn'),
+	]
+	highestLevelCompleted = -1
+
+
 func clearSaveData():
 	Directory.new().remove(SAVE_PATH)
 	initDefaults()
@@ -111,6 +123,7 @@ func saveGame():
 	for metaData in levels:
 		save[metaData.scenePath + ': maxCoinsCollected'] = metaData.maxCoinsCollected
 		save[metaData.scenePath + ': coinsAvail'] = metaData.coinsAvail
+		save[metaData.scenePath + ': gems'] = metaData.gems
 
 
 	var saveFile = File.new()
@@ -133,6 +146,7 @@ func loadGame():
 	for metaData in levels:
 		metaData.maxCoinsCollected = save[metaData.scenePath + ': maxCoinsCollected']
 		metaData.coinsAvail = save[metaData.scenePath + ': coinsAvail']
+		metaData.gems = save[metaData.scenePath + ': gems']
 
 func _ready():
 	initDefaults()

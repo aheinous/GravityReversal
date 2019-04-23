@@ -54,3 +54,7 @@ func _on_continueButton_pressed():
 
 func _on_quitButton_pressed():
 	owner.quitToMainMenu()
+
+
+func setGems(gems):
+	print('HUD.setGems(',gems, ') -- not implemented')
