@@ -31,7 +31,7 @@ func togglePause():
 
 
 func quitToMainMenu():
-	get_tree().change_scene("Menu.tscn")
+	get_tree().change_scene("menus/Menu.tscn")
 	get_tree().paused = false
 
 

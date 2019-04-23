@@ -1,11 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://menus/LevelSelectMenu.gd" type="Script" id=1]
 [ext_resource path="res://menus/MenuBG.tscn" type="PackedScene" id=2]
 [ext_resource path="res://CenterContainer.gd" type="Script" id=3]
 [ext_resource path="res://menus/LevelButton.tscn" type="PackedScene" id=4]
-
-
+[ext_resource path="res://menus/MenuCoinCount.tscn" type="PackedScene" id=5]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -19,37 +18,59 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="CenterContainer" type="CenterContainer" parent="ScrollContainer"]
-margin_right = 600.0
-margin_bottom = 1090.0
+margin_right = 1050.0
+margin_bottom = 1060.0
 script = ExtResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/CenterContainer"]
-margin_right = 600.0
-margin_bottom = 1090.0
+margin_right = 1050.0
+margin_bottom = 1060.0
 custom_constants/margin_top = 100
 custom_constants/margin_bottom = 100
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/CenterContainer/MarginContainer"]
+[node name="LevelGrid" type="GridContainer" parent="ScrollContainer/CenterContainer/MarginContainer"]
 margin_top = 100.0
-margin_right = 600.0
-margin_bottom = 990.0
-custom_constants/separation = 30
-alignment = 1
-__meta__ = {
-"_edit_group_": true
-}
+margin_right = 1050.0
+margin_bottom = 960.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 30
+columns = 2
 
-[node name="LevelButton" parent="ScrollContainer/CenterContainer/MarginContainer/VBoxContainer" instance=ExtResource( 4 )]
+[node name="LevelButton" parent="ScrollContainer/CenterContainer/MarginContainer/LevelGrid" instance=ExtResource( 4 )]
 
-[node name="LevelButton2" parent="ScrollContainer/CenterContainer/MarginContainer/VBoxContainer" instance=ExtResource( 4 )]
-margin_top = 230.0
-margin_bottom = 430.0
+[node name="MenuCoinCount" parent="ScrollContainer/CenterContainer/MarginContainer/LevelGrid" instance=ExtResource( 5 )]
+margin_left = 630.0
+margin_top = 0.0
+margin_right = 1050.0
+margin_bottom = 200.0
 
-[node name="LevelButton3" parent="ScrollContainer/CenterContainer/MarginContainer/VBoxContainer" instance=ExtResource( 4 )]
-margin_top = 460.0
-margin_bottom = 660.0
+[node name="LevelButton2" parent="ScrollContainer/CenterContainer/MarginContainer/LevelGrid" instance=ExtResource( 4 )]
+margin_top = 220.0
+margin_bottom = 420.0
 
-[node name="LevelButton4" parent="ScrollContainer/CenterContainer/MarginContainer/VBoxContainer" instance=ExtResource( 4 )]
-margin_top = 690.0
-margin_bottom = 890.0
+[node name="MenuCoinCount2" parent="ScrollContainer/CenterContainer/MarginContainer/LevelGrid" instance=ExtResource( 5 )]
+margin_left = 630.0
+margin_top = 220.0
+margin_right = 1050.0
+margin_bottom = 420.0
+
+[node name="LevelButton3" parent="ScrollContainer/CenterContainer/MarginContainer/LevelGrid" instance=ExtResource( 4 )]
+margin_top = 440.0
+margin_bottom = 640.0
+
+[node name="MenuCoinCount3" parent="ScrollContainer/CenterContainer/MarginContainer/LevelGrid" instance=ExtResource( 5 )]
+margin_left = 630.0
+margin_top = 440.0
+margin_right = 1050.0
+margin_bottom = 640.0
+
+[node name="LevelButton4" parent="ScrollContainer/CenterContainer/MarginContainer/LevelGrid" instance=ExtResource( 4 )]
+margin_top = 660.0
+margin_bottom = 860.0
+
+[node name="MenuCoinCount4" parent="ScrollContainer/CenterContainer/MarginContainer/LevelGrid" instance=ExtResource( 5 )]
+margin_left = 630.0
+margin_top = 660.0
+margin_right = 1050.0
+margin_bottom = 860.0
 

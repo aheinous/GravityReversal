@@ -3,8 +3,6 @@
 [ext_resource path="res://art/buttonFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://menus/LevelButton.gd" type="Script" id=2]
 
-
-
 [node name="LevelButton" type="Button"]
 margin_right = 600.0
 margin_bottom = 200.0

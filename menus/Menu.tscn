@@ -31,9 +31,9 @@ anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 211.0
-margin_top = 293.0
+margin_top = 208.0
 margin_right = 2348.0
-margin_bottom = 1146.0
+margin_bottom = 1232.0
 custom_constants/separation = 50
 alignment = 1
 
@@ -47,7 +47,7 @@ align = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 360.0
 margin_right = 2137.0
-margin_bottom = 853.0
+margin_bottom = 1024.0
 custom_constants/separation = 20
 alignment = 2
 
@@ -64,13 +64,21 @@ margin_bottom = 322.0
 custom_fonts/font = ExtResource( 3 )
 text = "Level Select"
 
-[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
 margin_top = 342.0
 margin_right = 2137.0
 margin_bottom = 493.0
+custom_fonts/font = ExtResource( 3 )
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_top = 513.0
+margin_right = 2137.0
+margin_bottom = 664.0
 custom_fonts/font = SubResource( 4 )
 text = "Quit Game"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/NewGameButton" to="." method="_on_NewGameButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/LevelSelectButton" to="." method="_on_LevelSelectButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

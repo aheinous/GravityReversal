@@ -29,3 +29,7 @@ func _notification(what):
 
 func _on_LevelSelectButton_pressed():
 	get_tree().change_scene("menus/LevelSelectMenu.tscn")
+
+
+func _on_OptionsButton_pressed():
+	get_tree().change_scene("menus/Options.tscn")
