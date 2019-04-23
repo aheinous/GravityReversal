@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/noisecreations_SFX-NCFREE02_Flabby-Burd.wav-8a2ebaef4e9cc8a81fee86fd79e3177a.sample"
+
+[deps]
+
+source_file="res://art/soundfx/noisecreations_SFX-NCFREE02_Flabby-Burd.wav"
+dest_files=[ "res://.import/noisecreations_SFX-NCFREE02_Flabby-Burd.wav-8a2ebaef4e9cc8a81fee86fd79e3177a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

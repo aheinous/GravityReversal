@@ -27,8 +27,8 @@ func getHUD():
 #func getHUD():
 #	return get_tree().get_current_scene().get_node('HUD')
 
-func onCurLevelComplete():
-	print('onCurLevelComplete')
+func onCurLevelComplete(coinsCollected, coinsTotal):
+	print('onCurLevelComplete. got ', coinsCollected, ' / ', coinsTotal, ' coins')
 	if curLevelNum == null:
 		get_tree().change_scene("menus/Menu.tscn")
 		return

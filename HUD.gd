@@ -3,6 +3,7 @@ extends CanvasLayer
 onready var pauseScreen = $pauseScreen
 onready var msgLabel = $msgLabel
 onready var msgTimer = $msgTimer
+onready var coinCntLbl = $CoinCounter/Panel/Number
 
 #func _enter_tree():
 #	level_manager.HUD = self
@@ -10,6 +11,10 @@ onready var msgTimer = $msgTimer
 #func _exit_tree():
 #	level_manager.HUD = null
 
+
+func setCoinCount(cnt):
+	print('setCoinCount(', cnt, ')')
+	coinCntLbl.text = str(cnt)
 
 func _ready():
 	clear_msg()

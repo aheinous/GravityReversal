@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/PM_ATG_3_110BPM_B.ogg-91277ae5a76451c54ab2d288a7d90301.oggstr"
+
+[deps]
+
+source_file="res://art/music/PM_ATG_3_110BPM_B.ogg"
+dest_files=[ "res://.import/PM_ATG_3_110BPM_B.ogg-91277ae5a76451c54ab2d288a7d90301.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -4,6 +4,9 @@ extends Node
 onready var HUD = $HUD
 onready var player = $Player
 
+var coinsCollected = 0
+onready var coinsAtStart = get_tree().get_nodes_in_group('coin').size()
+
 func player_died():
 	HUD.show_msg("You died.")
 	yield(HUD.get_node("msgTimer"), "timeout")
@@ -14,7 +17,7 @@ func player_reached_goal():
 	print('_on_Player_reached_goal()')
 	HUD.show_msg("GOAL")
 	yield(HUD.get_node("msgTimer"), "timeout")
-	level_manager.onCurLevelComplete()
+	level_manager.onCurLevelComplete(coinsCollected, coinsAtStart)
 
 
 func togglePause():
@@ -41,6 +44,12 @@ func _process(delta):
 		togglePause()
 
 func _ready():
+	HUD.setCoinCount(0)
 	HUD.show_msg(level_manager.getCurLevelName() + ":\nSTART!")
 	yield(HUD.get_node("msgTimer"), "timeout")
 	player.start_moving()
+
+
+func onCoin(count):
+	coinsCollected += count
+	HUD.setCoinCount(coinsCollected)
