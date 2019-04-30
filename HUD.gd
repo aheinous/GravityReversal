@@ -60,3 +60,5 @@ func _on_quitButton_pressed():
 func setGems(gems):
 	print('HUD.setGems(',gems, ')')
 	gemIndicator.setGems(gems)
+	if gems.size() == 0:
+		gemIndicator.visible = false
