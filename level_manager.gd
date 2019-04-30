@@ -104,6 +104,8 @@ func initDefaults():
 	levels = [
 		LevelMetaData.new('Straight Level', 'levels/straight.tscn'),
 		LevelMetaData.new('Level No. 3', 'levels/level3.tscn'),
+		LevelMetaData.new('Super Meat Ripoff', 'levels/SuperMeatRippoff.tscn'),
+
 	]
 	highestLevelCompleted = -1
 
@@ -132,7 +134,6 @@ func saveGame():
 	saveFile.close()
 
 
-
 func loadGame():
 	var saveFile = File.new()
 	if not saveFile.file_exists(SAVE_PATH):
@@ -144,9 +145,9 @@ func loadGame():
 	highestLevelCompleted = save['highestLevelCompleted']
 
 	for metaData in levels:
-		metaData.maxCoinsCollected = save[metaData.scenePath + ': maxCoinsCollected']
-		metaData.coinsAvail = save[metaData.scenePath + ': coinsAvail']
-		metaData.gems = save[metaData.scenePath + ': gems']
+		metaData.maxCoinsCollected = save.get(metaData.scenePath + ': maxCoinsCollected')
+		metaData.coinsAvail = save.get(metaData.scenePath + ': coinsAvail')
+		metaData.gems = save.get(metaData.scenePath + ': gems', {})
 
 func _ready():
 	initDefaults()
