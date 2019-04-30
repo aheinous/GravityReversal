@@ -39,7 +39,6 @@ color = Color( 0.917647, 0.921569, 0.588235, 1 )
 [node name="Coin" type="Area2D" groups=[
 "coin",
 ]]
-position = Vector2( 822, 468 )
 script = ExtResource( 1 )
 
 [node name="CoinAnimation" type="AnimatedSprite" parent="."]
