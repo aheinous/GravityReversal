@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Level.gd" type="Script" id=1]
 [ext_resource path="res://player/RobotPlayer.tscn" type="PackedScene" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://goalTiles.tres" type="TileSet" id=5]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=6]
 [ext_resource path="res://art/freescifiplatform/png/Objects/Box.png" type="Texture" id=7]
-
+[ext_resource path="res://scienceTiles.tres" type="TileSet" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 256, 0, 256, 256, 0, 256 )
@@ -62,4 +62,9 @@ scale = Vector2( 0.25, 0.25 )
 tile_set = SubResource( 2 )
 cell_size = Vector2( 256, 256 )
 format = 1
+
+[node name="ScienceTiles" type="TileMap" parent="."]
+scale = Vector2( 0.25, 0.25 )
+tile_set = ExtResource( 8 )
+cell_size = Vector2( 256, 256 )
 
