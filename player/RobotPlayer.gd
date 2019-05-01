@@ -55,6 +55,15 @@ func _physics_process(delta):
 	velocity += acceleration
 	velocity = move_and_slide(velocity, -fallDir)
 
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		# print('player collision no. ', i, ': ', collision)
+		# print("Collided with: ", collision.collider.name)
+		if collision.collider.is_in_group('bomb'):
+			collision.collider.onPlayerHit(self, collision)
+
+
+
 	if  state != DEAD and state != DYING:
 		if is_on_floor():
 			animatedSprite.play('run' if state == MOVING else 'idle')
@@ -65,6 +74,7 @@ func _physics_process(delta):
 
 
 func die():
+	print('dying!!!!')
 	if state != STALLED and state != MOVING:
 		return
 	# start death animation first to avoid race condition of _on_AnimatedSprite_animation_finished()
@@ -85,11 +95,15 @@ func reach_goal():
 
 
 func _on_Sense_body_entered(body):
-#	print('sense body entered by: ', body, body.is_in_group("evil_tile"), body.is_in_group("good_tile"))
+	# print('sense body entered by: ', body, body.is_in_group("evil"))
 
-	if body.is_in_group("evil_tile"):
+	# if body.is_in_group('bomb'):
+	# 	print('hit bomb!')
+	# 	# body.onPlayerHit(self)
+
+	if body.is_in_group("evil"):
 		die()
-	elif body.is_in_group("goal_tile"):
+	elif body.is_in_group("goal"):
 		reach_goal()
 
 
