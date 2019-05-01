@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://elements/Missle.gd" type="Script" id=1]
 [ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Explosion_000.png" type="Texture" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_007.png" type="Texture" id=18]
 [ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_008.png" type="Texture" id=19]
 [ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_009.png" type="Texture" id=20]
+[ext_resource path="res://art/soundfx/smallExplosion.wav" type="AudioStream" id=21]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -51,7 +52,6 @@ __meta__ = {
 scale = Vector2( 0.125, 0.125 )
 frames = SubResource( 1 )
 animation = "fly"
-frame = 8
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -62,6 +62,11 @@ shape = SubResource( 2 )
 position = Vector2( 0, -0.356743 )
 scale = Vector2( 1, 3.31882 )
 
+[node name="ExplosionSound2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 21 )
+max_distance = 1000.0
+
 [connection signal="body_entered" from="." to="." method="_on_Missle_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="finished" from="ExplosionSound2D" to="." method="_on_ExplosionSound2D_finished"]
