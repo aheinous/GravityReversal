@@ -47,7 +47,6 @@
 [ext_resource path="res://art/robotfree/png/Run (7).png" type="Texture" id=45]
 [ext_resource path="res://art/robotfree/png/Run (8).png" type="Texture" id=46]
 
-
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 27.0
 height = 40.0
@@ -146,7 +145,6 @@ position = Vector2( 4.96851, -4.21106 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 3 )
 animation = "idle"
-frame = 6
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
