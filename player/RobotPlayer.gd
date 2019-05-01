@@ -57,10 +57,9 @@ func _physics_process(delta):
 
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		# print('player collision no. ', i, ': ', collision)
-		# print("Collided with: ", collision.collider.name)
 		if collision.collider.is_in_group('bomb'):
 			collision.collider.onPlayerHit(self, collision)
+		collideWith(collision.collider)
 
 
 
@@ -70,6 +69,12 @@ func _physics_process(delta):
 		else:
 			var fallSpeed = abs(velocity.dot(fallDir))
 			animatedSprite.play('jump')
+
+func collideWith(other):
+	if other.is_in_group('evil'):
+		die()
+	if other.is_in_group('goal'):
+		reach_goal()
 
 
 
@@ -89,37 +94,9 @@ func reach_goal():
 	if state != MOVING:
 		return
 	print("player reached goal")
-#	emit_signal("reached_goal")
 	state = REACHED_GOAL
 	owner.player_reached_goal()
 
-
-func _on_Sense_body_entered(body):
-	# print('sense body entered by: ', body, body.is_in_group("evil"))
-
-	# if body.is_in_group('bomb'):
-	# 	print('hit bomb!')
-	# 	# body.onPlayerHit(self)
-
-	if body.is_in_group("evil"):
-		die()
-	elif body.is_in_group("goal"):
-		reach_goal()
-
-
-#func _on_Sense_body_exited(body):
-#	pass # Replace with function body.
-#	#print('sense body exited by: ', body)
-#
-#
-#func _on_Sense_body_shape_entered(body_id, body, body_shape, area_shape):
-#	pass # Replace with function body.
-#	#print('sense body shape entered by: ', body)
-#
-#
-#func _on_Sense_body_shape_exited(body_id, body, body_shape, area_shape):
-#	pass # Replace with function body.
-#	#print('sense body shape exited by: ', body)
 
 
 func _on_AnimatedSprite_animation_finished():
@@ -127,13 +104,8 @@ func _on_AnimatedSprite_animation_finished():
 		state = DEAD
 
 
-
 func _on_Sense_area_entered(area):
-#	print('_on_Sense_area_entered(area): area = ', area)
-	if area.is_in_group('evil'):
-		die()
+	# for saws/ missles
+	# print('_on_Sense_area_entered(area): area = ', area)
+	collideWith(area)
 
-
-#
-#func _on_Sense_area_shape_entered(area_id, area, area_shape, self_shape):
-#	print('_on_Sense_area_shape_entered(area_id, area, area_shape, self_shape): ', area_id, ', ', area, ', ', area_shape, ', ', self_shape)
