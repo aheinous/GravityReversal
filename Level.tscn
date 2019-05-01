@@ -5,16 +5,16 @@
 [ext_resource path="res://goodTiles.tres" type="TileSet" id=3]
 [ext_resource path="res://evilTiles.tres" type="TileSet" id=4]
 [ext_resource path="res://goalTiles.tres" type="TileSet" id=5]
-[ext_resource path="res://HUD.tscn" type="PackedScene" id=6]
-[ext_resource path="res://art/freescifiplatform/png/Objects/Box.png" type="Texture" id=7]
-[ext_resource path="res://scienceTiles.tres" type="TileSet" id=8]
+[ext_resource path="res://art/freescifiplatform/png/Objects/Box.png" type="Texture" id=6]
+[ext_resource path="res://scienceTiles.tres" type="TileSet" id=7]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 256, 0, 256, 256, 0, 256 )
 
 [sub_resource type="TileSet" id=2]
 0/name = "Box.png 0"
-0/texture = ExtResource( 7 )
+0/texture = ExtResource( 6 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 256, 256 )
@@ -54,9 +54,6 @@ tile_data = PoolIntArray( 327683, 1, 0, 327696, 1, 0, 393232, 1, 0, 720910, 1, 0
 tile_set = ExtResource( 5 )
 format = 1
 
-[node name="HUD" parent="." instance=ExtResource( 6 )]
-pause_mode = 2
-
 [node name="Crates" type="TileMap" parent="."]
 scale = Vector2( 0.25, 0.25 )
 tile_set = SubResource( 2 )
@@ -65,6 +62,10 @@ format = 1
 
 [node name="ScienceTiles" type="TileMap" parent="."]
 scale = Vector2( 0.25, 0.25 )
-tile_set = ExtResource( 8 )
+tile_set = ExtResource( 7 )
 cell_size = Vector2( 256, 256 )
+format = 1
+
+[node name="HUD" parent="." instance=ExtResource( 8 )]
+pause_mode = 2
 

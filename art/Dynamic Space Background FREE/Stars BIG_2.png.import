@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Stars-Big_1_2_PC.png-b50a47324f8f437f36943867cac4a549.stex"
+path="res://.import/Stars BIG_2.png-fe87396e99435153eafbec398a046c1f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Dynamic Space Background FREE/Stars-Big_1_2_PC.png"
-dest_files=[ "res://.import/Stars-Big_1_2_PC.png-b50a47324f8f437f36943867cac4a549.stex" ]
+source_file="res://art/Dynamic Space Background FREE/Stars BIG_2.png"
+dest_files=[ "res://.import/Stars BIG_2.png-fe87396e99435153eafbec398a046c1f.stex" ]
 
 [params]
 
