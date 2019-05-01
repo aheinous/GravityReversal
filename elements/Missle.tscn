@@ -1,36 +1,36 @@
 [gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://elements/Missle.gd" type="Script" id=1]
-[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_000.png" type="Texture" id=2]
-[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_001.png" type="Texture" id=3]
-[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_002.png" type="Texture" id=4]
-[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_003.png" type="Texture" id=5]
-[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_004.png" type="Texture" id=6]
-[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_005.png" type="Texture" id=7]
-[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_006.png" type="Texture" id=8]
-[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_007.png" type="Texture" id=9]
-[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_008.png" type="Texture" id=10]
-[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_009.png" type="Texture" id=11]
-[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Explosion_000.png" type="Texture" id=12]
-[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Explosion_001.png" type="Texture" id=13]
-[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Explosion_002.png" type="Texture" id=14]
-[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Explosion_003.png" type="Texture" id=15]
-[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Explosion_004.png" type="Texture" id=16]
-[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Explosion_005.png" type="Texture" id=17]
-[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Explosion_006.png" type="Texture" id=18]
-[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Explosion_007.png" type="Texture" id=19]
-[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Explosion_008.png" type="Texture" id=20]
+[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Explosion_000.png" type="Texture" id=2]
+[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Explosion_001.png" type="Texture" id=3]
+[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Explosion_002.png" type="Texture" id=4]
+[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Explosion_003.png" type="Texture" id=5]
+[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Explosion_004.png" type="Texture" id=6]
+[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Explosion_005.png" type="Texture" id=7]
+[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Explosion_006.png" type="Texture" id=8]
+[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Explosion_007.png" type="Texture" id=9]
+[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Explosion_008.png" type="Texture" id=10]
+[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_000.png" type="Texture" id=11]
+[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_001.png" type="Texture" id=12]
+[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_002.png" type="Texture" id=13]
+[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_003.png" type="Texture" id=14]
+[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_004.png" type="Texture" id=15]
+[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_005.png" type="Texture" id=16]
+[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_006.png" type="Texture" id=17]
+[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_007.png" type="Texture" id=18]
+[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_008.png" type="Texture" id=19]
+[ext_resource path="res://art/craftpix-781145-free-space-shooter-game-objects/PNG/Sprites/Missile/Missile_1_Flying_009.png" type="Texture" id=20]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "fly",
-"speed": 20.0
-}, {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": false,
 "name": "explode",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "fly",
 "speed": 20.0
 } ]
 
@@ -51,7 +51,7 @@ __meta__ = {
 scale = Vector2( 0.125, 0.125 )
 frames = SubResource( 1 )
 animation = "fly"
-frame = 6
+frame = 7
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
