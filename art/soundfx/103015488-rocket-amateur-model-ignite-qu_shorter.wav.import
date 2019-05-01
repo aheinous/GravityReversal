@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/103015488-rocket-amateur-model-ignite-qu_shorter.wav-262df773bd5ff36fda0d911b3b403f13.sample"
+
+[deps]
+
+source_file="res://art/soundfx/103015488-rocket-amateur-model-ignite-qu_shorter.wav"
+dest_files=[ "res://.import/103015488-rocket-amateur-model-ignite-qu_shorter.wav-262df773bd5ff36fda0d911b3b403f13.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

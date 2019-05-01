@@ -107,5 +107,6 @@ func _on_AnimatedSprite_animation_finished():
 func _on_Sense_area_entered(area):
 	# for saws/ missles
 	# print('_on_Sense_area_entered(area): area = ', area)
-	collideWith(area)
+	print('skipping ')
+#	collideWith(area)
 

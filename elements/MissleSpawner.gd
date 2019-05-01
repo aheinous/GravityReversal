@@ -1,6 +1,6 @@
 extends Node2D
 
-export var missleSpeed : float = 0
+export var missleSpeed : float = 1000
 export var interval : float = 1
 export var phase : float = 0
 
@@ -9,6 +9,7 @@ const missleScene = preload('res://elements/Missle.tscn')
 
 onready var spawnPos = $'spawnPoint'.global_position
 onready var timer = $Timer
+onready var launchSound = $LaunchSoundPlayer2D
 
 func _ready():
 	assert(phase >= 0 and phase <= 1)
@@ -32,6 +33,8 @@ func reset():
 
 func spawn():
 #	print('[',totalTime, '] spawn')
+	launchSound.play()
+
 	var missleInstance = missleScene.instance()
 	missleInstance.position = spawnPos
 	missleInstance.rotation_degrees = self.rotation_degrees - 90

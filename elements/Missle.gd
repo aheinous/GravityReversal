@@ -21,6 +21,10 @@ func _physics_process(delta):
 	self.position += velocity * delta
 
 func _on_Missle_body_entered(body):
+	print('missle body entered' )
+	if body.is_in_group('player'):
+		print('hit player')
+		body.collideWith(self)
 	animatedSprite.play('explode')
 	exploding = true
 	velocity = Vector2()

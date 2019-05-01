@@ -94,6 +94,7 @@ pause_mode = 2
 
 [node name="Bombs" type="TileMap" parent="." groups=[
 "evil",
+"bomb",
 ]]
 tile_set = SubResource( 4 )
 format = 1
