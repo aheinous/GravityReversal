@@ -14,6 +14,7 @@ var velocity = Vector2()
 var state = STALLED
 
 export var zoom = 1.0 setget setZoom, getZoom
+export var invincible := false
 
 
 func setZoom(newZoom):
@@ -58,10 +59,10 @@ func _physics_process(delta):
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider.is_in_group('bomb'):
-			collision.collider.onPlayerHit(self, collision)
-		collideWith(collision.collider)
-
-
+			var validHit = collision.collider.onPlayerHit(self, collision)
+			if validHit: collideWith(collision.collider)
+		else:
+			collideWith(collision.collider)
 
 	if  state != DEAD and state != DYING:
 		if is_on_floor():
@@ -70,6 +71,7 @@ func _physics_process(delta):
 			var fallSpeed = abs(velocity.dot(fallDir))
 			animatedSprite.play('jump')
 
+
 func collideWith(other):
 	if other.is_in_group('evil'):
 		die()
@@ -77,9 +79,10 @@ func collideWith(other):
 		reach_goal()
 
 
-
 func die():
 	print('dying!!!!')
+	if invincible:
+		return
 	if state != STALLED and state != MOVING:
 		return
 	# start death animation first to avoid race condition of _on_AnimatedSprite_animation_finished()
@@ -107,6 +110,7 @@ func _on_AnimatedSprite_animation_finished():
 func _on_Sense_area_entered(area):
 	# for saws/ missles
 	# print('_on_Sense_area_entered(area): area = ', area)
-	print('skipping ')
+#	print('skipping ')
 #	collideWith(area)
+	pass
 
