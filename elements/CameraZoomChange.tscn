@@ -3,7 +3,6 @@
 [ext_resource path="res://levels/cameraChange.gd" type="Script" id=1]
 
 [node name="CameraZoomChange" type="Area2D"]
-position = Vector2( 5120, 582 )
 script = ExtResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]
