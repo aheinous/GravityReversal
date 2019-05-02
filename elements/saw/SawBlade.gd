@@ -1,17 +1,22 @@
 extends Node2D
 
 
-export var speed = 1000
-export var phase = 0.0
+export var speed := 100
+export var phase := 0.0
+#export var pauseTime := 0.0
 
 onready var animationPlayer = $AnimationPlayer
 onready var follow = $Path/Follow
 onready var path = $Path
+onready var runningSound = $'RunningSound2D'
+onready var hitSound = $'HitSound2D'
 
 var pathDir = 1
+var overlapping = {}
 
 func _ready():
 	animationPlayer.play('spin')
+	runningSound.play()
 
 	for child in get_children():
 		if child is Path2D and child.name != 'Path':
@@ -47,3 +52,27 @@ func _physics_process(delta):
 			continue
 		break
 
+
+func onOverlappingChange():
+	if overlapping.size() > 0:
+		hitSound.play()
+	else:
+		hitSound.stop()
+
+
+
+func _on_Blade_body_entered(body):
+#	hitSound.play()
+#	print('saw body collide: ', body)
+	if body.is_in_group('player'):
+		print('saw hit player')
+		body.collideWith(self)
+	overlapping[body] = true
+	onOverlappingChange()
+
+
+
+func _on_Blade_body_exited(body):
+	pass # Replace with function body.
+	overlapping.erase(body)
+	onOverlappingChange()

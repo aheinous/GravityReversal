@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://elements/saw/SparkSpot.gd" type="Script" id=1]
+[ext_resource path="res://art/capsuleVert.png" type="Texture" id=2]
+[ext_resource path="res://art/icon.png" type="Texture" id=3]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.533088, 0.856618, 0.992647, 0.996324, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.992188, 0.936232, 0.0968933, 1, 1, 0.666667, 0, 0.356863, 1, 0.27451, 0.00392157, 0, 1, 0, 0, 0, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="GradientTexture" id=3]
+
+[sub_resource type="ParticlesMaterial" id=4]
+trail_color_modifier = SubResource( 3 )
+flag_align_y = true
+flag_rotate_y = true
+flag_disable_z = true
+spread = 3.62
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 274.92
+initial_velocity_random = 0.21
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+tangential_accel = 12.37
+scale = 0.2
+scale_random = 0.1
+color_ramp = SubResource( 2 )
+hue_variation_random = 1.0
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 5.0
+
+[node name="SparkSpot" type="Area2D"]
+position = Vector2( 0, 45.125 )
+script = ExtResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+emitting = false
+amount = 80
+explosiveness = 0.5
+local_coords = false
+process_material = SubResource( 4 )
+texture = ExtResource( 2 )
+
+[node name="Indicator" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 5 )
+
+[connection signal="body_entered" from="." to="." method="_on_SparkSpot_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_SparkSpot_body_exited"]

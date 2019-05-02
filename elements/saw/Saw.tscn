@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://elements/saw/SawBlade.gd" type="Script" id=1]
-[ext_resource path="res://art/freescifiplatform/png/Objects/Saw.png" type="Texture" id=2]
+[ext_resource path="res://elements/saw/Blade.gd" type="Script" id=2]
+[ext_resource path="res://art/freescifiplatform/png/Objects/Saw.png" type="Texture" id=3]
+[ext_resource path="res://art/soundfx/TableSawBuzz-SoundBible.com-1560233300_LOOP.wav" type="AudioStream" id=4]
+[ext_resource path="res://art/soundfx/Buzzsaw-jaymz-1831379074_CUT_LOOP.wav" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "spin"
@@ -20,47 +23,51 @@ tracks/0/keys = {
 "values": [ 0.0, -360.0 ]
 }
 
-[sub_resource type="Curve2D" id=2]
-bake_interval = 0.01
+[sub_resource type="Curve2D" id=4]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -90, 0, 0, 0, 0, 0, 90, 0 )
+"points": PoolVector2Array(  )
 }
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 179.0
 
 [node name="SawBlade" type="Node2D" groups=[
+"evil",
 "resettable",
 ]]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/spin = SubResource( 1 )
 
 [node name="Path" type="Path2D" parent="."]
-curve = SubResource( 2 )
+curve = SubResource( 4 )
 
 [node name="Follow" type="PathFollow2D" parent="Path"]
-position = Vector2( 15.0381, 0 )
-offset = 82.76
+rotate = false
 loop = false
 
-[node name="Blade" type="Area2D" parent="Path/Follow" groups=[
-"evil",
-]]
-rotation = 3.07161
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="Blade" type="Area2D" parent="Path/Follow"]
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Path/Follow/Blade"]
-rotation = -1.59664
-scale = Vector2( 1, -1 )
-texture = ExtResource( 2 )
+scale = Vector2( 0.25, -0.25 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path/Follow/Blade"]
+scale = Vector2( 0.25, 0.25 )
 shape = SubResource( 3 )
 
+[node name="RunningSound2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+max_distance = 1000.0
+bus = "fx"
+
+[node name="HitSound2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+max_distance = 1000.0
+bus = "fx"
+
+[connection signal="body_entered" from="Path/Follow/Blade" to="." method="_on_Blade_body_entered"]
+[connection signal="body_exited" from="Path/Follow/Blade" to="." method="_on_Blade_body_exited"]
