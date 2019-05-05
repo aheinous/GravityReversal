@@ -1,23 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://HUD.gd" type="Script" id=1]
-[ext_resource path="res://art/buttonFont.tres" type="DynamicFont" id=2]
-[ext_resource path="res://art/CoinsByLexassets/PNG/GOLD/MEDIUM/MEDIUM_0000_Capa-1.png" type="Texture" id=3]
-[ext_resource path="res://art/Commanders.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://menus/GemIndicator.tscn" type="PackedScene" id=5]
-
-[sub_resource type="DynamicFontData" id=1]
-font_path = "res://art/majorforce.ttf"
-
-[sub_resource type="DynamicFont" id=2]
-size = 200
-outline_size = 3
-outline_color = Color( 0, 0, 0, 1 )
-font_data = SubResource( 1 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 45
-font_data = ExtResource( 4 )
+[ext_resource path="res://menus/SectionFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://menus/buttonFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://art/CoinsByLexassets/PNG/GOLD/MEDIUM/MEDIUM_0000_Capa-1.png" type="Texture" id=4]
+[ext_resource path="res://menus/IndicatorFont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://menus/GemIndicator.tscn" type="PackedScene" id=6]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -26,7 +14,7 @@ script = ExtResource( 1 )
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 2 )
 text = "The Quick brown fox jumps over the lazy dog."
 align = 1
 valign = 1
@@ -53,10 +41,10 @@ custom_constants/separation = 60
 alignment = 1
 
 [node name="pauseLabel" type="Label" parent="pauseScreen/VBoxContainer"]
-margin_top = 375.0
+margin_top = 379.0
 margin_right = 765.0
-margin_bottom = 582.0
-custom_fonts/font = SubResource( 2 )
+margin_bottom = 583.0
+custom_fonts/font = ExtResource( 2 )
 text = "PAUSED"
 align = 1
 valign = 1
@@ -64,20 +52,21 @@ autowrap = true
 
 [node name="continueButton" type="Button" parent="pauseScreen/VBoxContainer"]
 pause_mode = 2
-margin_top = 642.0
+margin_top = 643.0
 margin_right = 765.0
-margin_bottom = 793.0
-custom_fonts/font = ExtResource( 2 )
+margin_bottom = 792.0
+custom_fonts/font = ExtResource( 3 )
 text = "Continue"
 
 [node name="quitButton" type="Button" parent="pauseScreen/VBoxContainer"]
 pause_mode = 2
-margin_top = 853.0
-margin_right = 765.0
-margin_bottom = 1004.0
+margin_left = 78.0
+margin_top = 852.0
+margin_right = 687.0
+margin_bottom = 1001.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Quit To Menu"
 
 [node name="CoinCounter" type="MarginContainer" parent="."]
@@ -102,14 +91,14 @@ margin_left = 80.0
 margin_top = 10.0
 margin_right = 121.0
 margin_bottom = 52.0
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Number" type="Label" parent="CoinCounter/Panel"]
 margin_left = 20.0
 margin_top = 10.0
 margin_right = 72.0
 margin_bottom = 58.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = ExtResource( 5 )
 text = "132"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -118,7 +107,7 @@ margin_bottom = 40.0
 custom_constants/margin_top = 20
 custom_constants/margin_left = 20
 
-[node name="GemIndicator" parent="MarginContainer" instance=ExtResource( 5 )]
+[node name="GemIndicator" parent="MarginContainer" instance=ExtResource( 6 )]
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 620.0

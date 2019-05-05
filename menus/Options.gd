@@ -1,7 +1,17 @@
 extends Control
 
 
+const confirmScn = preload('res://menus/ConfirmDialog.tscn')
+
 func _on_ResetButton_pressed():
+	var confirm = confirmScn.instance()
+	add_child(confirm)
+	confirm.setup("Really reset save data?",
+				"Yes", self, "onYesPressed",
+				"No")
+
+
+func onYesPressed():
 	level_manager.clearSaveData()
 
 
