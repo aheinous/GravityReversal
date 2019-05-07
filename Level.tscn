@@ -8,9 +8,10 @@
 [ext_resource path="res://art/freescifiplatform/png/Objects/Box.png" type="Texture" id=6]
 [ext_resource path="res://art/flag.png" type="Texture" id=7]
 [ext_resource path="res://scienceTiles.tres" type="TileSet" id=8]
-[ext_resource path="res://HUD.tscn" type="PackedScene" id=9]
+[ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=9]
 [ext_resource path="res://art/game_items_pack_2_free/PNG/64px/bomb.png" type="Texture" id=10]
 [ext_resource path="res://elements/Bombs.gd" type="Script" id=11]
+
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 256, 0, 256, 256, 0, 256 )

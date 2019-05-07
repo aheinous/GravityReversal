@@ -1,8 +1,8 @@
 extends Panel
 
 
-onready var icon = $CoinIcon
-onready var label = $CoinCount
+onready var icon = $HBoxContainer/CoinIcon
+onready var label = $HBoxContainer/CoinCount
 
 var blank = false setget setBlank, getBlank
 

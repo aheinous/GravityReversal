@@ -3,7 +3,7 @@ extends CanvasLayer
 onready var pauseScreen = $pauseScreen
 onready var msgLabel = $msgLabel
 onready var msgTimer = $msgTimer
-onready var coinCntLbl = $CoinCounter/Panel/Number
+onready var coinCntLbl = $CoinCounter/Panel/HBoxContainer/Number
 onready var gemIndicator = $MarginContainer/GemIndicator
 
 #func _enter_tree():

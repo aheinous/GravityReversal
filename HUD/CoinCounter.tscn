@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://menus/IndicatorFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://art/CoinsByLexassets/PNG/GOLD/BIG/BIG_0000_Capa-1.png" type="Texture" id=2]
+
+[node name="CoinCounter" type="MarginContainer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -310.0
+margin_bottom = 160.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="Panel" type="ColorRect" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 290.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 270, 120 )
+color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 30
+alignment = 1
+
+[node name="Number" type="Label" parent="Panel/HBoxContainer"]
+margin_left = 28.0
+margin_top = 28.0
+margin_right = 130.0
+margin_bottom = 91.0
+custom_fonts/font = ExtResource( 1 )
+text = "132"
+align = 1
+
+[node name="CoinIcon" type="TextureRect" parent="Panel/HBoxContainer"]
+margin_left = 160.0
+margin_right = 242.0
+margin_bottom = 120.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+

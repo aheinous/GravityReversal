@@ -27,3 +27,5 @@ func setGems(gems):
 			indicators[color].modulate = COLLECTED_MODULATE if gems[color] else NOT_COLLECTED_MODULATE
 		else:
 			indicators[color].visible = false
+
+#	self.rect_size = $hbox.rect_size

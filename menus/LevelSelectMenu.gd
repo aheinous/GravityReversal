@@ -1,6 +1,9 @@
 extends Control
 
-onready var buttonContainer = $ScrollContainer/CenterContainer/MarginContainer/LevelGrid
+#onready var buttonContainer = $ScrollContainer/CenterContainer/MarginContainer/LevelGrid
+#onready var buttonContainer = $ScrollContainer/MarginContainer/LevelGrid
+onready var buttonContainer = $ScrollContainer/CenterContainer/MarginContainer/VBoxContainer/LevelGrid
+
 
 func _ready():
 	for child in buttonContainer.get_children():

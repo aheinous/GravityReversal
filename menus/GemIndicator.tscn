@@ -9,9 +9,9 @@
 [sub_resource type="CanvasItemMaterial" id=1]
 
 [node name="GemIndicator" type="Panel"]
-margin_right = 536.0
-margin_bottom = 159.0
-rect_min_size = Vector2( 600, 65 )
+margin_right = 300.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 610, 210 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -20,36 +20,40 @@ __meta__ = {
 [node name="hbox" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 12.0
 alignment = 1
 
 [node name="Blue" type="TextureRect" parent="hbox"]
 modulate = Color( 1, 1, 1, 0.105882 )
-margin_right = 147.0
-margin_bottom = 159.0
+margin_right = 152.0
+margin_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
+rect_min_size = Vector2( 150, 150 )
 size_flags_horizontal = 7
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
 
 [node name="Green" type="TextureRect" parent="hbox"]
-margin_left = 151.0
-margin_right = 298.0
-margin_bottom = 159.0
+margin_left = 156.0
+margin_right = 308.0
+margin_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
+rect_min_size = Vector2( 150, 150 )
 size_flags_horizontal = 7
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 
 [node name="Red" type="TextureRect" parent="hbox"]
-margin_left = 302.0
-margin_right = 449.0
-margin_bottom = 159.0
+margin_left = 312.0
+margin_right = 464.0
+margin_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
+rect_min_size = Vector2( 150, 150 )
 size_flags_horizontal = 7
 texture = ExtResource( 4 )
 expand = true
@@ -57,11 +61,12 @@ stretch_mode = 6
 
 [node name="Yellow" type="TextureRect" parent="hbox"]
 material = SubResource( 1 )
-margin_left = 453.0
-margin_right = 600.0
-margin_bottom = 159.0
+margin_left = 468.0
+margin_right = 622.0
+margin_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
+rect_min_size = Vector2( 150, 150 )
 size_flags_horizontal = 7
 texture = ExtResource( 5 )
 expand = true

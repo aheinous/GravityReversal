@@ -1,15 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://menus/Options.gd" type="Script" id=1]
 [ext_resource path="res://menus/MenuBG.tscn" type="PackedScene" id=2]
-[ext_resource path="res://menus/buttonFont.tres" type="DynamicFont" id=3]
-
-[sub_resource type="DynamicFontData" id=1]
-font_path = "res://art/majorforce.ttf"
-
-[sub_resource type="DynamicFont" id=2]
-size = 200
-font_data = SubResource( 1 )
+[ext_resource path="res://menus/SectionFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://menus/buttonFont.tres" type="DynamicFont" id=4]
 
 [node name="Options" type="Control"]
 anchor_right = 1.0
@@ -23,31 +17,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 806.0
-margin_top = 516.0
-margin_right = 1753.0
-margin_bottom = 924.0
+margin_left = 899.0
+margin_top = 573.0
+margin_right = 1660.0
+margin_bottom = 866.0
 custom_constants/separation = 50
 alignment = 1
 
 [node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 947.0
-margin_bottom = 207.0
-custom_fonts/font = SubResource( 2 )
+margin_right = 761.0
+margin_bottom = 139.0
+custom_fonts/font = ExtResource( 3 )
 text = "Options"
 align = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
-margin_top = 257.0
-margin_right = 947.0
-margin_bottom = 408.0
+margin_top = 189.0
+margin_right = 761.0
+margin_bottom = 293.0
 custom_constants/separation = 20
 alignment = 2
 
 [node name="ResetButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
-margin_right = 947.0
-margin_bottom = 151.0
-custom_fonts/font = ExtResource( 3 )
+margin_right = 761.0
+margin_bottom = 104.0
+custom_fonts/font = ExtResource( 4 )
 text = "Reset Save Data"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/ResetButton" to="." method="_on_ResetButton_pressed"]
