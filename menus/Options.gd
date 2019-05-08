@@ -9,6 +9,9 @@ onready var musicSlider = $'CenterContainer/VBoxContainer/VBoxContainer/Music_HB
 func _ready():
 	initVolumeSliderValues()
 
+func _exit_tree():
+	level_manager.saveGame()
+
 func _on_ResetButton_pressed():
 	var confirm = confirmScn.instance()
 	add_child(confirm)
@@ -66,12 +69,9 @@ func onNewVolumeSliderValue(busName, value):
 
 
 func _on_music_slider_value_changed(value):
-	pass # Replace with function body.
-	print('new music slider value: ', value)
 	onNewVolumeSliderValue("music", value)
+#	print(value)
 
 
 func _on_fx_slider_value_changed(value):
-	pass # Replace with function body.
-	print('new music slider value: ', value)
 	onNewVolumeSliderValue("fx", value)

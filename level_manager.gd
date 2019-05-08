@@ -129,6 +129,11 @@ func saveGame():
 		save[metaData.scenePath + ': gems'] = metaData.gems
 
 
+
+	save['fxVolume'] = AudioServer.get_bus_volume_db(AudioServer.get_bus_index('fx'))
+	save['musicVolume'] = AudioServer.get_bus_volume_db(AudioServer.get_bus_index('music'))
+
+
 	var saveFile = File.new()
 	saveFile.open(SAVE_PATH, File.WRITE)
 	saveFile.store_line(to_json(save))
@@ -149,6 +154,11 @@ func loadGame():
 		metaData.maxCoinsCollected = save.get(metaData.scenePath + ': maxCoinsCollected')
 		metaData.coinsAvail = save.get(metaData.scenePath + ': coinsAvail')
 		metaData.gems = save.get(metaData.scenePath + ': gems', {})
+
+
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index('fx'), save['fxVolume'])
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index('music'), save['musicVolume'])
+
 
 func _ready():
 	initDefaults()
