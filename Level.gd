@@ -1,6 +1,10 @@
 extends Node
 
 
+export (String, FILE) var songPath
+
+onready var songScn = load(songPath)
+
 onready var HUD = $HUD
 onready var player = $Player
 
@@ -54,6 +58,8 @@ func _process(delta):
 		togglePause()
 
 func _ready():
+
+	MusicPlayer.setSong(self.songScn)
 	HUD.setCoinCount(0)
 	HUD.setGems(gems)
 	HUD.show_msg(level_manager.getCurLevelName() + ":\nSTART!")

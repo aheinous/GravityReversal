@@ -23,6 +23,7 @@ config/version="0.0.1"
 [autoload]
 
 level_manager="*res://level_manager.gd"
+MusicPlayer="*res://MusicPlayer.tscn"
 
 [display]
 

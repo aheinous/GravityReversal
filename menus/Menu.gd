@@ -2,6 +2,10 @@ extends Control
 
 
 
+func _ready():
+	var songScn = preload("res://songs/TitleSong.tscn")
+	MusicPlayer.setSong(songScn)
+
 func _on_NewGameButton_pressed():
 #	get_tree().change_scene("level1.tscn")
 	level_manager.loadLevelNum(0)

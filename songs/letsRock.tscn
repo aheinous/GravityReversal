@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://art/music/music_zapsplat_lets_rock.ogg" type="AudioStream" id=1]
+
+[node name="Music" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+volume_db = 3.589
+bus = "music"
+

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://art/music/PM_ATG_3_110BPM_B.ogg" type="AudioStream" id=1]
+
+[node name="TitleSong" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+bus = "music"
+
