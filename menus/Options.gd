@@ -3,6 +3,12 @@ extends Control
 
 const confirmScn = preload('res://menus/ConfirmDialog.tscn')
 
+onready var fxSlider = $'CenterContainer/VBoxContainer/VBoxContainer/FX_HBoxContainer/fx_slider'
+onready var musicSlider = $'CenterContainer/VBoxContainer/VBoxContainer/Music_HBoxContainer/music_slider'
+
+func _ready():
+	initVolumeSliderValues()
+
 func _on_ResetButton_pressed():
 	var confirm = confirmScn.instance()
 	add_child(confirm)
@@ -25,3 +31,47 @@ func _process(delta):
 
 func goBack():
 	get_tree().change_scene("menus/Menu.tscn")
+
+
+func initVolumeSliderValues():
+
+	var busIdx
+	var dB
+	var sliderValue
+
+	# Music
+	busIdx = AudioServer.get_bus_index("music")
+	dB = AudioServer.get_bus_volume_db(busIdx)
+	sliderValue = inverse_lerp(-70, 0, dB) * 100
+	if AudioServer.is_bus_mute(busIdx):
+		sliderValue = 0
+	musicSlider.value = sliderValue
+
+	# FX
+	busIdx = AudioServer.get_bus_index("fx")
+	dB = AudioServer.get_bus_volume_db(busIdx)
+	sliderValue = inverse_lerp(-70, 0, dB) * 100
+	if AudioServer.is_bus_mute(busIdx):
+		sliderValue = 0
+	fxSlider.value = sliderValue
+
+
+
+
+func onNewVolumeSliderValue(busName, value):
+	var dB = lerp(-70.0, 0.0, value/100.0)
+	var busIdx = AudioServer.get_bus_index(busName)
+	AudioServer.set_bus_mute(busIdx, value == 0)
+	AudioServer.set_bus_volume_db(busIdx, dB)
+
+
+func _on_music_slider_value_changed(value):
+	pass # Replace with function body.
+	print('new music slider value: ', value)
+	onNewVolumeSliderValue("music", value)
+
+
+func _on_fx_slider_value_changed(value):
+	pass # Replace with function body.
+	print('new music slider value: ', value)
+	onNewVolumeSliderValue("fx", value)
