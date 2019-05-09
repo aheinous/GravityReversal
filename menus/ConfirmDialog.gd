@@ -19,6 +19,11 @@ onready var NoButton = $'CenterContainer/VBoxContainer/HBoxContainer/NoButton'
 
 
 
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().set_input_as_handled()
+		_on_NoButton_pressed()
+
 
 
 func setup(text, yesText, yesTgt, yesMethod, noText, noTgt=null, noMethod=null):
