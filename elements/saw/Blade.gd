@@ -5,7 +5,7 @@ const sparkSpotScn = preload('res://elements/saw/SparkSpot.tscn')
 
 func _ready():
 	var radius = 44
-	var count = 16
+	var count = 32
 
 	for i in range(count):
 		var rotRad = 2*PI*i/count

@@ -54,7 +54,3 @@ func _on_OptionsButton_pressed():
 	var optionsScn = preload("res://menus/Options.tscn")
 	self.add_child(optionsScn.instance())
 
-
-func _on_StartMenu_gui_input(event):
-	pass # Replace with function body.
-	print('gui input event: ', event)
