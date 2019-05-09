@@ -6,6 +6,8 @@ onready var msgTimer = $msgTimer
 onready var coinCntLbl = $CoinCounter/Panel/HBoxContainer/Number
 onready var gemIndicator = $MarginContainer/GemIndicator
 
+const confirmPkdScn = preload('res://menus/ConfirmDialog.tscn')
+
 
 
 func togglePause():
@@ -66,9 +68,16 @@ func _on_continueButton_pressed():
 	togglePause()
 
 
-func _on_quitButton_pressed():
+func onQuitConfirmed():
 	owner.quitToMainMenu()
 
+
+func _on_quitButton_pressed():
+	var confirm = confirmPkdScn.instance()
+	add_child(confirm)
+	confirm.setup("Quit to main menu?",
+				"Yes", self, "onQuitConfirmed",
+				"No")
 
 func _on_optionsButton_pressed():
 	var optionsPkdScn = preload("res://menus/Options.tscn")
