@@ -63,7 +63,7 @@ func _on_msgTimer_timeout():
 
 
 func _on_continueButton_pressed():
-	owner.togglePause()
+	togglePause()
 
 
 func _on_quitButton_pressed():
