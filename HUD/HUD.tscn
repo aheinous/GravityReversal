@@ -25,7 +25,6 @@ wait_time = 2.0
 one_shot = true
 
 [node name="pauseScreen" type="MarginContainer" parent="."]
-visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
@@ -40,9 +39,9 @@ custom_constants/separation = 60
 alignment = 1
 
 [node name="pauseLabel" type="Label" parent="pauseScreen/VBoxContainer"]
-margin_top = 456.0
+margin_top = 374.0
 margin_right = 765.0
-margin_bottom = 595.0
+margin_bottom = 513.0
 custom_fonts/font = ExtResource( 2 )
 text = "PAUSED"
 align = 1
@@ -51,20 +50,25 @@ autowrap = true
 
 [node name="continueButton" type="Button" parent="pauseScreen/VBoxContainer"]
 pause_mode = 2
-margin_top = 655.0
+margin_top = 573.0
 margin_right = 765.0
-margin_bottom = 759.0
+margin_bottom = 677.0
 custom_fonts/font = ExtResource( 3 )
-text = "Continue"
+text = "Resume"
+
+[node name="optionsButton" type="Button" parent="pauseScreen/VBoxContainer"]
+pause_mode = 2
+margin_top = 737.0
+margin_right = 765.0
+margin_bottom = 841.0
+custom_fonts/font = ExtResource( 3 )
+text = "Options"
 
 [node name="quitButton" type="Button" parent="pauseScreen/VBoxContainer"]
 pause_mode = 2
-margin_left = 73.0
-margin_top = 819.0
-margin_right = 691.0
-margin_bottom = 923.0
-size_flags_horizontal = 4
-size_flags_vertical = 0
+margin_top = 901.0
+margin_right = 765.0
+margin_bottom = 1005.0
 custom_fonts/font = ExtResource( 3 )
 text = "Quit To Menu"
 
@@ -84,4 +88,5 @@ margin_bottom = 180.0
 
 [connection signal="timeout" from="msgTimer" to="." method="_on_msgTimer_timeout"]
 [connection signal="pressed" from="pauseScreen/VBoxContainer/continueButton" to="." method="_on_continueButton_pressed"]
+[connection signal="pressed" from="pauseScreen/VBoxContainer/optionsButton" to="." method="_on_optionsButton_pressed"]
 [connection signal="pressed" from="pauseScreen/VBoxContainer/quitButton" to="." method="_on_quitButton_pressed"]

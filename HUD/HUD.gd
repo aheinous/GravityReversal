@@ -70,6 +70,11 @@ func _on_quitButton_pressed():
 	owner.quitToMainMenu()
 
 
+func _on_optionsButton_pressed():
+	var optionsPkdScn = preload("res://menus/Options.tscn")
+	self.add_child(optionsPkdScn.instance())
+
+
 func setGems(gems):
 	print('HUD.setGems(',gems, ')')
 	gemIndicator.setGems(gems)
