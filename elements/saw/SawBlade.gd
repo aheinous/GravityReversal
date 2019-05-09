@@ -3,7 +3,7 @@ extends Node2D
 
 export var speed := 100
 export var phase := 0.0
-#export var pauseTime := 0.0
+export var pauseTime := 0.0
 
 onready var animationPlayer = $AnimationPlayer
 onready var follow = $Path/Follow
@@ -13,6 +13,11 @@ onready var hitSound = $'HitSound2D'
 
 var pathDir = 1
 var overlapping = {}
+
+enum State {FWD_PAUSE, FWD, REV_PAUSE, REV}
+
+var state = State.FWD_PAUSE
+var curPauseRemaining
 
 func _ready():
 	animationPlayer.play('spin')
@@ -25,32 +30,52 @@ func _ready():
 
 	reset()
 
-
 func reset():
-	assert(phase >= 0 and phase <= 1)
-	if phase < 0.5:
-		pathDir = 1
-		follow.unit_offset = phase*2.0
-	else:
-		pathDir = -1
-		follow.unit_offset = 1.0 - (phase*2.0 - 1.0)
-
+	curPauseRemaining = pauseTime
+	var totalPeriodTime = 2*pauseTime + 2*path.curve.get_baked_length()/speed
+	_physics_process(totalPeriodTime * phase)
 
 func _physics_process(delta):
-	while true:
+	while delta > 0:
 		var startOffset = follow.offset
-		follow.offset += speed*delta*pathDir
-		if follow.unit_offset <= 0:
-			follow.unit_offset = 0
-			delta -= (startOffset-follow.offset) / speed
-			pathDir = 1
-			continue
-		elif follow.unit_offset >= 1:
-			follow.unit_offset = 1
-			delta -= (follow.offset-startOffset) / speed
-			pathDir = -1
-			continue
-		break
+		match state:
+			State.FWD_PAUSE:
+				if curPauseRemaining >= delta:
+					curPauseRemaining -= delta
+					delta = 0
+				else:
+					delta -= curPauseRemaining
+					curPauseRemaining = 0
+				if curPauseRemaining <= 0.0:
+					state = State.FWD
+					curPauseRemaining = pauseTime
+			State.FWD:
+				follow.offset += speed*delta
+				if follow.unit_offset >= 1:
+					follow.unit_offset = 1
+					delta -= (follow.offset-startOffset) / speed
+					state = State.REV_PAUSE
+				else:
+					delta = 0
+			State.REV_PAUSE:
+				if curPauseRemaining >= delta:
+					curPauseRemaining -= delta
+					delta = 0
+				else:
+					delta -= curPauseRemaining
+					curPauseRemaining = 0
+				if curPauseRemaining <= 0.0:
+					state = State.REV
+					curPauseRemaining = pauseTime
+			State.REV:
+				follow.offset -= speed*delta
+				if follow.unit_offset <= 0:
+					follow.unit_offset = 0
+					delta -= (startOffset-follow.offset) / speed
+					state = State.FWD_PAUSE
+				else:
+					delta = 0
+
 
 
 func onOverlappingChange():
