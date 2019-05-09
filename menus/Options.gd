@@ -83,3 +83,7 @@ func _on_music_slider_value_changed(value):
 
 func _on_fx_slider_value_changed(value):
 	onNewVolumeSliderValue("fx", value)
+
+
+func _on_AttributionsButton_pressed():
+	add_child(preload("res://menus/attributions.tscn").instance())
