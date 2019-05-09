@@ -24,8 +24,6 @@ var curLevelNum = null
 func getHUD():
 	return get_tree().get_current_scene().get_node('HUD')
 
-#func getHUD():
-#	return get_tree().get_current_scene().get_node('HUD')
 
 func onCurLevelComplete(coinsCollected, coinsTotal, gems):
 	print('onCurLevelComplete. got ', coinsCollected, ' / ', coinsTotal, ' coins')
@@ -88,12 +86,10 @@ func loadLevel(metaData):
 	loadLevelNum(getLevelNum(metaData))
 
 func loadLevelNum(n):
-
 	print('loading level: ', n)
 	curLevelNum = n
 
-	get_tree().change_scene( levels[n].scenePath )
-	var curScene = get_tree().get_current_scene()
+	SceneLoader.loadScene(levels[n].scenePath)
 
 
 const SAVE_PATH = 'user://savefile'

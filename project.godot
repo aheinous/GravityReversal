@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="GravityReversal"
 run/main_scene="res://menus/Menu.tscn"
+boot_splash/image="res://art/custom/bootScreen_loading.png"
 config/icon="res://art/icon.png"
 config/auto_accept_quit=false
 config/quit_on_go_back=false
@@ -27,6 +28,7 @@ config/version="0.0.1"
 level_manager="*res://level_manager.gd"
 MusicPlayer="*res://MusicPlayer.tscn"
 Global="*res://Global.gd"
+SceneLoader="*res://SceneLoader.gd"
 
 [display]
 
