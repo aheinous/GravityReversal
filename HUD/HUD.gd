@@ -6,11 +6,24 @@ onready var msgTimer = $msgTimer
 onready var coinCntLbl = $CoinCounter/Panel/HBoxContainer/Number
 onready var gemIndicator = $MarginContainer/GemIndicator
 
-#func _enter_tree():
-#	level_manager.HUD = self
-#
-#func _exit_tree():
-#	level_manager.HUD = null
+
+
+func togglePause():
+	print('toggling pause')
+	if get_tree().paused:
+		msgLabel.show()
+		pauseScreen.hide()
+		get_tree().paused = false
+	else:
+		msgLabel.hide()
+		pauseScreen.show()
+		get_tree().paused = true
+
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().set_input_as_handled()
+		togglePause()
+
 
 
 func setCoinCount(cnt):

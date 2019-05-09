@@ -34,35 +34,11 @@ func player_reached_goal():
 	level_manager.onCurLevelComplete(coinsCollected, coinsAtStart, gems)
 
 
-func togglePause():
-	print('toggling pause')
-	if get_tree().paused:
-		HUD.unpause()
-		get_tree().paused = false
-	else:
-		HUD.pause()
-		get_tree().paused = true
 
 
 func quitToMainMenu():
 	get_tree().change_scene("menus/Menu.tscn")
 	get_tree().paused = false
-
-#
-#func _notification(what):
-#    if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
-#        togglePause()
-
-#func _process(delta):
-#	if Input.is_action_just_pressed("ui_cancel"):
-#		togglePause()
-
-
-
-func _unhandled_input(event):
-	if event.is_action_pressed("ui_cancel"):
-		get_tree().set_input_as_handled()
-		togglePause()
 
 
 
