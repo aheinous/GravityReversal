@@ -1,8 +1,5 @@
 extends Node
 
-func _ready():
-	pass
-
 
 func _notification(what):
 
