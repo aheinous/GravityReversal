@@ -6,6 +6,13 @@ const confirmScn = preload('res://menus/ConfirmDialog.tscn')
 onready var fxSlider = $'CenterContainer/VBoxContainer/VBoxContainer/FX_HBoxContainer/fx_slider'
 onready var musicSlider = $'CenterContainer/VBoxContainer/VBoxContainer/Music_HBoxContainer/music_slider'
 
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().set_input_as_handled()
+		goBack()
+
+
+
 func _ready():
 	initVolumeSliderValues()
 
@@ -24,16 +31,17 @@ func onYesPressed():
 	level_manager.clearSaveData()
 
 
-func _notification(what):
-	if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
-		goBack()
-
-func _process(delta):
-	if Input.is_action_just_pressed("ui_cancel"):
-		goBack()
+#func _notification(what):
+#	if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
+#		goBack()
+#
+#func _process(delta):
+#	if Input.is_action_just_pressed("ui_cancel"):
+#		goBack()
 
 func goBack():
-	get_tree().change_scene("menus/Menu.tscn")
+#	get_tree().change_scene("menus/Menu.tscn")
+	queue_free()
 
 
 func initVolumeSliderValues():

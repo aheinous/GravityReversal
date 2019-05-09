@@ -36,14 +36,22 @@ func _ready():
 			coinCnt.setCoinCount(metaData.maxCoinsCollected, metaData.coinsAvail)
 
 
+#
+#func _notification(what):
+#	if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
+#		goBack()
 
-func _notification(what):
-	if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
+#func _process(delta):
+#	if Input.is_action_just_pressed("ui_cancel"):
+#		goBack()
+
+
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().set_input_as_handled()
 		goBack()
 
-func _process(delta):
-	if Input.is_action_just_pressed("ui_cancel"):
-		goBack()
+
 
 func goBack():
 	get_tree().change_scene("menus/Menu.tscn")

@@ -18,12 +18,15 @@ _global_script_class_icons={
 config/name="GravityReversal"
 run/main_scene="res://menus/Menu.tscn"
 config/icon="res://art/icon.png"
+config/auto_accept_quit=false
+config/quit_on_go_back=false
 config/version="0.0.1"
 
 [autoload]
 
 level_manager="*res://level_manager.gd"
 MusicPlayer="*res://MusicPlayer.tscn"
+Global="*res://Global.gd"
 
 [display]
 
@@ -31,6 +34,11 @@ window/size/width=2560
 window/size/height=1440
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[logging]
+
+file_logging/enable_file_logging=true
+file_logging/log_path="user://logs/gravityReversalLogs.txt"
 
 [rendering]
 

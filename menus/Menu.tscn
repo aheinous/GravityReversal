@@ -65,6 +65,7 @@ margin_bottom = 476.0
 custom_fonts/font = ExtResource( 4 )
 text = "Quit Game"
 
+[connection signal="gui_input" from="." to="." method="_on_StartMenu_gui_input"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/NewGameButton" to="." method="_on_NewGameButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/LevelSelectButton" to="." method="_on_LevelSelectButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]

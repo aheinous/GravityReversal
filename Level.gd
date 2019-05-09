@@ -48,14 +48,23 @@ func quitToMainMenu():
 	get_tree().change_scene("menus/Menu.tscn")
 	get_tree().paused = false
 
+#
+#func _notification(what):
+#    if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
+#        togglePause()
 
-func _notification(what):
-    if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
-        togglePause()
+#func _process(delta):
+#	if Input.is_action_just_pressed("ui_cancel"):
+#		togglePause()
 
-func _process(delta):
-	if Input.is_action_just_pressed("ui_cancel"):
+
+
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().set_input_as_handled()
 		togglePause()
+
+
 
 func _ready():
 
