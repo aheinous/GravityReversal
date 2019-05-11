@@ -3,6 +3,7 @@
 [ext_resource path="res://art/music/music_zapsplat_ultimatum.ogg" type="AudioStream" id=1]
 
 [node name="Music" type="AudioStreamPlayer"]
+pause_mode = 2
 stream = ExtResource( 1 )
 volume_db = 4.727
 bus = "music"
