@@ -7,6 +7,7 @@ class LevelMetaData:
 	var maxCoinsCollected
 	var coinsAvail
 	var gems = null
+	var completed = false
 
 	func _init(name, path, maxCoinsCollected=null, coinsAvail=null):
 		self.name = name
@@ -16,8 +17,6 @@ class LevelMetaData:
 
 
 var levels = null
-var highestLevelCompleted = null
-
 var curLevelNum = null
 
 
@@ -51,7 +50,7 @@ func onCurLevelComplete(coinsCollected, coinsTotal, gems):
 		levels[curLevelNum].gems = newGems
 
 	# update highest level completed
-	highestLevelCompleted = max(highestLevelCompleted, curLevelNum)
+	levels[curLevelNum].completed = true
 
 	# save game
 	saveGame()
@@ -69,7 +68,8 @@ func onCurLevelComplete(coinsCollected, coinsTotal, gems):
 
 
 func isAvail(metaData):
-	return getLevelNum(metaData) <= highestLevelCompleted+1
+	var num = getLevelNum(metaData)
+	return num == 0 or levels[num-1].completed
 
 func getCurLevelName():
 	if curLevelNum == null:
@@ -104,7 +104,6 @@ func initDefaults():
 		LevelMetaData.new('Super Meat Ripoff', 'levels/SuperMeatRippoff.tscn'),
 
 	]
-	highestLevelCompleted = -1
 
 
 func clearSaveData():
@@ -117,12 +116,13 @@ func saveGame():
 
 	var save = {}
 	save['version'] = ProjectSettings.get_setting('application/config/version')
-	save['highestLevelCompleted'] = highestLevelCompleted
 
 	for metaData in levels:
 		save[metaData.scenePath + ': maxCoinsCollected'] = metaData.maxCoinsCollected
 		save[metaData.scenePath + ': coinsAvail'] = metaData.coinsAvail
 		save[metaData.scenePath + ': gems'] = metaData.gems
+		save[metaData.scenePath + ': completed'] = metaData.completed
+
 
 
 
@@ -144,12 +144,12 @@ func loadGame():
 	saveFile.open(SAVE_PATH, File.READ)
 	var save = parse_json(saveFile.get_as_text())
 	print('save file version: ', save['version'])
-	highestLevelCompleted = save['highestLevelCompleted']
 
 	for metaData in levels:
 		metaData.maxCoinsCollected = save.get(metaData.scenePath + ': maxCoinsCollected')
 		metaData.coinsAvail = save.get(metaData.scenePath + ': coinsAvail')
 		metaData.gems = save.get(metaData.scenePath + ': gems', {})
+		metaData.completed = save[metaData.scenePath + ': completed']
 
 
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index('fx'), save['fxVolume'])
