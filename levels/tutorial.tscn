@@ -1,16 +1,17 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://elements/Coin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://elements/BlueGem.tscn" type="PackedScene" id=3]
 [ext_resource path="res://elements/RedGem.tscn" type="PackedScene" id=4]
-[ext_resource path="res://BlueBackground.tscn" type="PackedScene" id=5]
-[ext_resource path="res://elements/MsgTrigger.tscn" type="PackedScene" id=6]
+[ext_resource path="res://elements/YellowGem.tscn" type="PackedScene" id=5]
+[ext_resource path="res://BlueBackground.tscn" type="PackedScene" id=6]
+[ext_resource path="res://elements/MsgTrigger.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 100, 448.326 )
 
-[node name="Level" instance=ExtResource( 1 )]
+[node name="Level" index="0" instance=ExtResource( 1 )]
 songPath = "res://songs/CoolOne.tscn"
 
 [node name="Player" parent="." index="0"]
@@ -54,48 +55,60 @@ position = Vector2( 9568, 992 )
 position = Vector2( 9792, 1088 )
 
 [node name="BlueGem" parent="Gems" index="0" instance=ExtResource( 3 )]
-position = Vector2( 10400, 1184 )
+position = Vector2( 4608, 704 )
 
 [node name="RedGem" parent="Gems" index="1" instance=ExtResource( 4 )]
 position = Vector2( 10944, 928 )
 
-[node name="BlueBackground" parent="." index="15" instance=ExtResource( 5 )]
+[node name="YellowGem" parent="Gems" index="2" instance=ExtResource( 5 )]
+position = Vector2( 10336, 1184 )
 
-[node name="MsgTriggers" parent="." index="16"]
-editor/display_folded = true
+[node name="BlueBackground" parent="." index="15" instance=ExtResource( 6 )]
 
-[node name="MsgTrigger" parent="MsgTriggers" index="0" instance=ExtResource( 6 )]
+[node name="MsgTrigger" parent="MsgTriggers" index="0" instance=ExtResource( 7 )]
 position = Vector2( 1450.11, 613.129 )
+msg = "Welcome to Gravity Reversal!!!"
+buttonTxt = "umm ...  hi"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MsgTriggers/MsgTrigger" index="0"]
 shape = SubResource( 1 )
 
-[node name="MsgTrigger2" parent="MsgTriggers" index="1" instance=ExtResource( 6 )]
+[node name="MsgTrigger2" parent="MsgTriggers" index="1" instance=ExtResource( 7 )]
 position = Vector2( 1943.65, 623.378 )
+msg = "Your character automatically moves to the side."
+buttonTxt = "I can see that"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MsgTriggers/MsgTrigger2" index="0"]
 shape = SubResource( 1 )
 
-[node name="MsgTrigger3" parent="MsgTriggers" index="2" instance=ExtResource( 6 )]
+[node name="MsgTrigger3" parent="MsgTriggers" index="2" instance=ExtResource( 7 )]
 position = Vector2( 2440.15, 627.466 )
+msg = "Press anywhere on the screen to reverse the direction of gravity."
+buttonTxt = "Okay, got it"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MsgTriggers/MsgTrigger3" index="0"]
 shape = SubResource( 1 )
 
-[node name="MsgTrigger4" parent="MsgTriggers" index="3" instance=ExtResource( 6 )]
+[node name="MsgTrigger4" parent="MsgTriggers" index="3" instance=ExtResource( 7 )]
 position = Vector2( 5279.29, 802.13 )
+msg = "Avoid shit that kills you."
+buttonTxt = "Sounds like solid advice"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MsgTriggers/MsgTrigger4" index="0"]
 shape = SubResource( 1 )
 
-[node name="MsgTrigger5" parent="MsgTriggers" index="4" instance=ExtResource( 6 )]
+[node name="MsgTrigger5" parent="MsgTriggers" index="4" instance=ExtResource( 7 )]
 position = Vector2( 8373.81, 727.77 )
+msg = "Try to collect all the coins in a level in a single run."
+buttonTxt = "okay"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MsgTriggers/MsgTrigger5" index="0"]
 shape = SubResource( 1 )
 
-[node name="MsgTrigger6" parent="MsgTriggers" index="5" instance=ExtResource( 6 )]
+[node name="MsgTrigger6" parent="MsgTriggers" index="5" instance=ExtResource( 7 )]
 position = Vector2( 9946.37, 1024.32 )
+msg = "Collect gems whenever, as long as you make it to the exit."
+buttonTxt = "yeah okay whatever fine"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MsgTriggers/MsgTrigger6" index="0"]
 shape = SubResource( 1 )
