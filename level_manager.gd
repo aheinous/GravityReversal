@@ -98,6 +98,7 @@ const SAVE_PATH = 'user://savefile'
 func initDefaults():
 	# data to be loaded when no save file is present
 	levels = [
+		LevelMetaData.new('Tutorial', 'levels/tutorial.tscn'),
 		LevelMetaData.new('Straight Level', 'levels/straight.tscn'),
 		LevelMetaData.new('All Stuff', 'levels/allStuff.tscn'),
 		LevelMetaData.new('Level No. 3', 'levels/level3.tscn'),
