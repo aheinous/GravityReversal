@@ -89,3 +89,16 @@ func setGems(gems):
 	gemIndicator.setGems(gems)
 	if gems.size() == 0:
 		gemIndicator.visible = false
+
+func _on_restartButton_pressed():
+	var confirm = confirmPkdScn.instance()
+	add_child(confirm)
+	confirm.setup("Restart level?",
+				"Yes", self, "onRestartConfirmed",
+				"No")
+
+func onRestartConfirmed():
+	get_tree().reload_current_scene()
+	get_tree().paused = false
+
+	
