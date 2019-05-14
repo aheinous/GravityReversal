@@ -28,19 +28,18 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 0, -178.875, 0, 0, 0, 0, 0, 205.125 )
 }
 
-[sub_resource type="Curve2D" id=6]
+[sub_resource type="Curve2D" id=5]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 0, -205.12, 0, 0, 0, 0, 0, 242.88 )
 }
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 32, 192 )
 
 [node name="Level" index="0" instance=ExtResource( 1 )]
-song = "res://art/music/deleteThis.ogg"
 
 [node name="Player" parent="." index="0"]
-position = Vector2( 11328, 2373.75 )
+position = Vector2( 576, 608 )
 zoom = 0.6
 
 [node name="SawBlade" parent="Saws" index="0" instance=ExtResource( 2 )]
@@ -93,7 +92,7 @@ phase = 0.3
 
 [node name="Path2D" type="Path2D" parent="Saws/SawBlade7" index="4"]
 position = Vector2( 0, -18.8799 )
-curve = SubResource( 6 )
+curve = SubResource( 5 )
 
 [node name="Finish" parent="." index="6"]
 tile_data = PoolIntArray( -1610612736, 0, 0, 0, 0, 0 )
@@ -193,7 +192,7 @@ transitionTime = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoomChanges/CameraZoomChange" index="1"]
 position = Vector2( 0, 32 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CameraZoomChange2" parent="ZoomChanges" index="1" instance=ExtResource( 7 )]
 position = Vector2( 5696, 2016 )
@@ -202,5 +201,5 @@ transitionTime = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoomChanges/CameraZoomChange2" index="1"]
 position = Vector2( 0, 32 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
