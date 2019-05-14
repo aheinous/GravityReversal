@@ -11,7 +11,7 @@ func _ready():
 
 func onPlayerHit(player, collision):
 
-	var tilePos = world_to_map(player.position) - collision.normal.round()
+	var tilePos = world_to_map(collision.position - collision.normal*(cell_size/2))
 	var celln = get_cellv(tilePos)
 	if celln == -1:
 		return false
