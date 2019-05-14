@@ -17,7 +17,7 @@ extents = Vector2( 46.5688, 311.337 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 46.5688, 311.337 )
 
-[node name="Level" index="0" instance=ExtResource( 1 )]
+[node name="Level" instance=ExtResource( 1 )]
 songPath = "res://songs/letsRock.tscn"
 
 [node name="Player" parent="." index="0"]

@@ -12,7 +12,7 @@
 [node name="Player" parent="." index="0"]
 position = Vector2( 585.249, 460.036 )
 
-[node name="GoalTiles" parent="." index="3"]
+[node name="GoalTiles" parent="." index="4"]
 tile_data = PoolIntArray( 262191, 0, 0, 327727, 0, 0, 393263, 0, 0, 458799, 0, 0 )
 
 [node name="Crates" parent="." index="5"]
