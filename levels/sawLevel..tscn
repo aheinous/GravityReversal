@@ -27,9 +27,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 100, 512 )
 
-[node name="Level" instance=ExtResource( 1 )]
+[node name="Level" index="0" instance=ExtResource( 1 )]
 
-[node name="EvilTiles" parent="." index="2"]
+[node name="EvilTiles" parent="." index="3"]
 tile_data = PoolIntArray( -65499, 0, 0, 54, 0, 0, 58, 0, 0, 65578, 0, 0, 196644, 0, 0, 196662, 0, 0, 196666, 0, 0, 262211, 0, 0, 262212, 0, 0, 327683, 1, 0, 327696, 1, 0, 327725, 0, 0, 393232, 1, 0, 393270, 0, 0, 393274, 0, 0, 458788, 0, 0, 524309, 0, 0, 524332, 0, 0, 589845, 0, 0, 589878, 0, 0, 589882, 0, 0, 655431, 0, 0, 720910, 1, 0, 851984, 1, 0, 917540, 0, 0, 917546, 0, 0, 917564, 0, 0, 917565, 0, 0, 917566, 0, 0, 917567, 0, 0, 983114, 0, 0, 1245237, 0, 0, 1245238, 0, 0, 1245239, 0, 0, 1245240, 0, 0, 1245241, 0, 0 )
 
 [node name="SawBlade" parent="." index="5" instance=ExtResource( 2 )]
