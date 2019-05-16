@@ -3,7 +3,7 @@
 [ext_resource path="res://menus/attributions.gd" type="Script" id=1]
 [ext_resource path="res://menus/MenuBG.tscn" type="PackedScene" id=2]
 [ext_resource path="res://menus/SectionFont.tres" type="DynamicFont" id=3]
-[ext_resource path="res://art/fonts/Trash-Panda.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://art/fonts/fatcow/fatcow-free-font/v1.0/PC-TT/FatCow.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
