@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://elements/saw/SparkSpot.gd" type="Script" id=1]
 [ext_resource path="res://art/capsuleVert.png" type="Texture" id=2]
-[ext_resource path="res://art/icon.png" type="Texture" id=3]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.533088, 0.856618, 0.992647, 0.996324, 1 )
@@ -43,11 +42,6 @@ amount = 80
 local_coords = false
 process_material = SubResource( 4 )
 texture = ExtResource( 2 )
-
-[node name="Indicator" type="Sprite" parent="."]
-visible = false
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 5 )
