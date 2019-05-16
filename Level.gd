@@ -22,7 +22,24 @@ func initGems():
 	return gems
 
 func player_died():
-	HUD.show_msg("You died.")
+	var msgs = ['You died.\n Try not doing that.',
+					'Oh look, you\'re dead.',
+					'Oh look, you\'re dead now.',
+					'Try not to die.',
+					'You should try not dying next time.',
+					'You\'re doing it wrong.',
+					'That\'s the end of you.',
+					'No more you.'
+
+
+					]
+
+
+
+
+	var msg = msgs[randi() % msgs.size()]
+#	HUD.show_msg("You died.")
+	HUD.show_msg(msg)
 	yield(HUD.get_node("msgTimer"), "timeout")
 	get_tree().reload_current_scene()
 
