@@ -100,8 +100,6 @@ func initDefaults():
 	# data to be loaded when no save file is present
 	levels = [
 		LevelMetaData.new('Tutorial', 'levels/tutorial.tscn'),
-		LevelMetaData.new('Test', 'levels/collisionBug.tscn'),
-
 		LevelMetaData.new('Easy Street', 'levels/easyStreet.tscn'),
 		LevelMetaData.new('Missile Command', 'levels/missileCmd.tscn'),
 		LevelMetaData.new('Saw Hallway', 'levels/SawHallway.tscn'),

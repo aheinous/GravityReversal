@@ -1,47 +1,22 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Level.gd" type="Script" id=1]
 [ext_resource path="res://player/RobotPlayer.tscn" type="PackedScene" id=2]
-[ext_resource path="res://goodTiles.tres" type="TileSet" id=3]
-[ext_resource path="res://evilTiles.tres" type="TileSet" id=4]
-[ext_resource path="res://goalTiles.tres" type="TileSet" id=5]
-[ext_resource path="res://art/freescifiplatform/png/Objects/Box.png" type="Texture" id=6]
-[ext_resource path="res://art/flag.png" type="Texture" id=7]
-[ext_resource path="res://scienceTiles.tres" type="TileSet" id=8]
-[ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=9]
-[ext_resource path="res://art/game_items_pack_2_free/PNG/64px/bomb.png" type="Texture" id=10]
-[ext_resource path="res://elements/Bombs.gd" type="Script" id=11]
+[ext_resource path="res://art/flag.png" type="Texture" id=3]
+[ext_resource path="res://scienceTiles.tres" type="TileSet" id=4]
+[ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://art/game_items_pack_2_free/PNG/64px/bomb.png" type="Texture" id=6]
+[ext_resource path="res://elements/Bombs.gd" type="Script" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 0, 0, 256, 0, 256, 256, 0, 256 )
-
-[sub_resource type="TileSet" id=2]
-0/name = "Box.png 0"
-0/texture = ExtResource( 6 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 256, 256 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 1 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-0/z_index = 0
-
-[sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 
-[sub_resource type="ConvexPolygonShape2D" id=4]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 32, 128, 32, 128, 96, 0, 96 )
 
-[sub_resource type="TileSet" id=5]
+[sub_resource type="TileSet" id=3]
 0/name = "flag.png 0"
-0/texture = ExtResource( 7 )
+0/texture = ExtResource( 3 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 128, 128 )
@@ -52,23 +27,23 @@ points = PoolVector2Array( 0, 32, 128, 32, 128, 96, 0, 96 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 3 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 4 ),
+"shape": SubResource( 2 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
 
-[sub_resource type="ConvexPolygonShape2D" id=6]
+[sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
-[sub_resource type="TileSet" id=7]
+[sub_resource type="TileSet" id=5]
 0/name = "bomb.png 0"
-0/texture = ExtResource( 10 )
+0/texture = ExtResource( 6 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 64, 64 )
@@ -79,7 +54,7 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 6 ),
+"shape": SubResource( 4 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -92,69 +67,33 @@ zoom = 0.5
 
 [node name="Saws" type="Node" parent="."]
 
-[node name="GoodTiles" type="TileMap" parent="."]
-tile_set = ExtResource( 3 )
-format = 1
-tile_data = PoolIntArray( 327696, 1, 0, 393232, 1, 0, 720910, 1, 0, 851984, 1, 0 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="EvilTiles" type="TileMap" parent="." groups=[
-"evil",
-]]
-tile_set = ExtResource( 4 )
-format = 1
-tile_data = PoolIntArray( 327683, 1, 0, 327696, 1, 0, 393232, 1, 0, 720910, 1, 0, 851984, 1, 0 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="GoalTiles" type="TileMap" parent="." groups=[
-"goal",
-]]
-tile_set = ExtResource( 5 )
-format = 1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Crates" type="TileMap" parent="."]
-scale = Vector2( 0.25, 0.25 )
-tile_set = SubResource( 2 )
-cell_size = Vector2( 256, 256 )
-format = 1
-__meta__ = {
-"_edit_lock_": true
-}
-
 [node name="Finish" type="TileMap" parent="." groups=[
 "goal",
 ]]
 scale = Vector2( 0.5, 0.5 )
-tile_set = SubResource( 5 )
+tile_set = SubResource( 3 )
 cell_size = Vector2( 128, 128 )
 format = 1
 
 [node name="ScienceTiles" type="TileMap" parent="."]
 scale = Vector2( 0.25, 0.25 )
-tile_set = ExtResource( 8 )
+tile_set = ExtResource( 4 )
 cell_size = Vector2( 256, 256 )
 format = 1
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="HUD" parent="." instance=ExtResource( 9 )]
+[node name="HUD" parent="." instance=ExtResource( 5 )]
 pause_mode = 2
 
 [node name="Bombs" type="TileMap" parent="." groups=[
-"evil",
 "bomb",
+"evil",
 ]]
-tile_set = SubResource( 7 )
+tile_set = SubResource( 5 )
 format = 1
-script = ExtResource( 11 )
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
 }
