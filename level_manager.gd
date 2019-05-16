@@ -8,6 +8,7 @@ class LevelMetaData:
 	var coinsAvail
 	var gems = null
 	var completed = false
+	var madeAvail = false
 
 	func _init(name, path, maxCoinsCollected=null, coinsAvail=null):
 		self.name = name
@@ -69,7 +70,7 @@ func onCurLevelComplete(coinsCollected, coinsTotal, gems):
 
 func isAvail(metaData):
 	var num = getLevelNum(metaData)
-	return num == 0 or levels[num-1].completed
+	return num == 0 or levels[num-1].completed or levels[num].madeAvail
 
 func getCurLevelName():
 	if curLevelNum == null:
@@ -99,7 +100,9 @@ func initDefaults():
 	# data to be loaded when no save file is present
 	levels = [
 		LevelMetaData.new('Tutorial', 'levels/tutorial.tscn'),
-		LevelMetaData.new('Missile Command', 'levels/easyStreet.tscn'),
+		LevelMetaData.new('Test', 'levels/collisionBug.tscn'),
+
+		LevelMetaData.new('Easy Street', 'levels/easyStreet.tscn'),
 		LevelMetaData.new('Missile Command', 'levels/missileCmd.tscn'),
 		LevelMetaData.new('Saw Hallway', 'levels/SawHallway.tscn'),
 		LevelMetaData.new('Floating Thru Space', 'levels/floatingThruSpace.tscn'),
@@ -125,6 +128,8 @@ func saveGame():
 		save[metaData.scenePath + ': coinsAvail'] = metaData.coinsAvail
 		save[metaData.scenePath + ': gems'] = metaData.gems
 		save[metaData.scenePath + ': completed'] = metaData.completed
+		save[metaData.scenePath + ': madeAvail'] = isAvail(metaData)
+
 
 
 
@@ -153,7 +158,7 @@ func loadGame():
 		metaData.coinsAvail = save.get(metaData.scenePath + ': coinsAvail')
 		metaData.gems = save.get(metaData.scenePath + ': gems', {})
 		metaData.completed = save.get(metaData.scenePath + ': completed', false)
-
+		metaData.madeAvail = save.get(metaData.scenePath + ": madeAvail", false)
 
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index('fx'), save['fxVolume'])
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index('music'), save['musicVolume'])
