@@ -22,14 +22,14 @@ anchor_bottom = 1.0
 
 [node name="CenterContainer" type="CenterContainer" parent="ScrollContainer"]
 margin_right = 2548.0
-margin_bottom = 20175.0
+margin_bottom = 2629.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/CenterContainer"]
 margin_left = 244.0
 margin_right = 2304.0
-margin_bottom = 20175.0
+margin_bottom = 2629.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 30
@@ -41,13 +41,13 @@ custom_constants/margin_bottom = 30
 margin_left = 30.0
 margin_top = 30.0
 margin_right = 2030.0
-margin_bottom = 20145.0
+margin_bottom = 2599.0
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="Title" type="Label" parent="ScrollContainer/CenterContainer/MarginContainer/VBoxContainer"]
 margin_right = 2000.0
-margin_bottom = 139.0
+margin_bottom = 244.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -55,59 +55,37 @@ text = "Attributions:"
 align = 1
 
 [node name="Attributions" type="Label" parent="ScrollContainer/CenterContainer/MarginContainer/VBoxContainer"]
-margin_top = 143.0
+margin_top = 248.0
 margin_right = 2000.0
-margin_bottom = 20115.0
+margin_bottom = 2569.0
 rect_min_size = Vector2( 2000, 0 )
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 1 )
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultrices urna vitae ante finibus mattis. Duis nec lobortis ex. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas consectetur tempor aliquam. Sed elementum arcu non pharetra viverra. Aliquam in lectus vulputate, facilisis quam in, fringilla sapien. Nulla facilisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec malesuada, neque et scelerisque vehicula, ligula ante consectetur est, eget semper ante quam vel neque. Mauris viverra, enim nec molestie hendrerit, leo tortor efficitur quam, vel facilisis est risus non justo. Fusce eu ipsum magna. Nulla mollis aliquet dolor vel ullamcorper.
+text = "Coin art free from from Lexassets:
+ https://www.gamedevmarket.net/member/Lexassets/
 
-Ut ipsum nulla, feugiat ac arcu in, accumsan facilisis nisi. Vivamus in rhoncus leo, non fermentum ligula. Nunc imperdiet nisl tincidunt laoreet rhoncus. Aenean nec nulla quis enim egestas dignissim vitae a dui. Nullam gravida turpis enim, at tristique felis pharetra quis. Donec tincidunt eros a ipsum lacinia consequat. Cras nec tincidunt tellus. Pellentesque ut rutrum risus. Vestibulum vel dapibus nibh. Morbi consectetur ultricies ipsum nec efficitur. Aliquam interdum libero metus, et rutrum sapien laoreet a. Suspendisse potenti. In ac purus eget mi placerat eleifend. Sed malesuada eu augue sit amet posuere.
+Missile from:
+https://craftpix.net/freebies/free-space-shooter-game-objects/
 
-Mauris quis neque eu enim aliquet aliquam non a nunc. Aliquam enim odio, mattis eget condimentum ut, porta non justo. Mauris nec iaculis erat. Proin elementum pharetra maximus. Donec imperdiet quam non placerat iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean mauris libero, sollicitudin eu maximus at, suscipit in felis. Curabitur at purus mollis, blandit mauris eget, sollicitudin diam. Fusce efficitur molestie luctus.
+Space backgrounds from:
+https://dinvstudio.itch.io/dynamic-space-background-lite-free
 
-Curabitur efficitur tortor ut turpis pellentesque ultrices. Suspendisse ullamcorper, lorem sit amet luctus dignissim, ante nunc tempus leo, ac fermentum libero nisl et justo. Etiam ut eleifend eros. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla facilisi. Duis eget nulla elit. Mauris sit amet euismod turpis. Praesent porttitor et leo id posuere. Morbi orci velit, ultrices suscipit ligula ac, rhoncus scelerisque massa. Mauris eu neque eu elit sollicitudin lobortis ultricies vitae ex. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum sapien felis, eleifend non elit id, scelerisque scelerisque purus. Cras tempor eleifend consequat. Nunc a turpis pretium, suscipit nisl quis, eleifend erat. Phasellus a efficitur augue, ut vulputate dui. Curabitur hendrerit facilisis erat id fermentum.
+Bomb:
+\"Free Game Items Pack #2\" Olga Bikmullina (http://ahninniah.graphics) Licensed under Creative Commons: By Attribution 3.0 http://creativecommons.org/licenses/by/3.0/
 
-Mauris fermentum lacus in purus tincidunt faucibus. Donec rutrum dapibus orci nec fermentum. Mauris urna nibh, ornare eget convallis at, sollicitudin in libero. Mauris nunc ipsum, vehicula nec convallis vel, faucibus sed tellus. Vestibulum laoreet tortor id sapien elementum, eget gravida nibh auctor. Morbi a augue porttitor, ullamcorper odio sit amet, scelerisque mauris. Nulla tincidunt velit ac dolor efficitur iaculis. Aliquam cursus nisi sit amet elit dapibus, viverra condimentum odio tempor. In interdum sagittis magna eu condimentum. Pellentesque a ultrices nisi. Ut et tellus sed turpis pulvinar imperdiet eget non erat. Vestibulum fringilla placerat orci mollis dapibus. Morbi sed purus eleifend, suscipit ligula sit amet, venenatis leo. Nulla lacus felis, accumsan ac semper et, porttitor ut massa.
+Music:
+	Reusenoise  (DNB Mix) by spinningmerkaba (c) copyright 2017 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/jlbrock44/56531
+	
+	\"Let's rock\", \"Ultimatum\", \"PM_ATG_3_110BPM_B\", and \"PM_ATG_3_110BPM_E\" from https://www.zapsplat.com/
+	
+Gems from https://www.kenney.nl/assets/platformer-pack-redux
 
-Nulla feugiat facilisis aliquet. Proin porta eget tellus et porta. Fusce dignissim tellus tempus dui tempus, eu ultricies ante tincidunt. Sed egestas sem mauris, ut efficitur justo tristique vel. Pellentesque euismod imperdiet massa, at eleifend ipsum finibus quis. Cras fringilla volutpat interdum. Aliquam aliquet ipsum velit, in elementum felis tincidunt hendrerit. Aenean viverra, neque a suscipit ornare, ex purus tincidunt odio, et facilisis tellus justo non turpis. Etiam vulputate neque turpis, interdum porta erat molestie hendrerit. Donec non libero mattis, rhoncus ante sit amet, auctor felis.
+Robot main character from: https://opengameart.org/content/the-robot-free-sprite
 
-Pellentesque eget scelerisque dolor. Morbi id sapien at libero ultrices maximus non at dolor. Morbi semper massa eget erat sollicitudin, a auctor odio varius. In hac habitasse platea dictumst. Donec vehicula turpis sit amet velit lobortis aliquet. Sed sed aliquet dolor. Donec magna leo, gravida non laoreet a, tempus a orci.
-
-Vestibulum feugiat est blandit velit tincidunt, non scelerisque tellus consequat. Quisque mattis tristique ex id volutpat. Praesent elementum eros bibendum mi euismod semper eget in nunc. Aenean posuere ex eget sem bibendum, ac tincidunt arcu fringilla. Etiam malesuada urna eget dapibus pulvinar. In fringilla sagittis bibendum. In a auctor nibh, in finibus nibh. Vestibulum tempus in ipsum sit amet viverra. Maecenas hendrerit ultricies dui, eu varius arcu accumsan ac. Integer ac est lorem. Proin imperdiet neque a arcu interdum interdum. Morbi sit amet ex odio. Sed ultrices lectus ex, in faucibus odio semper ut.
-
-Fusce rhoncus efficitur magna at tempor. Fusce ornare semper tincidunt. Aenean accumsan mattis nisl, vitae volutpat nunc tristique et. Cras ligula leo, eleifend id orci tincidunt, iaculis laoreet urna. Etiam quis turpis convallis, venenatis libero vel, aliquam nisl. Vestibulum a est eros. Nullam tincidunt arcu ante, id malesuada risus luctus ut.
-
-Suspendisse potenti. Praesent non nunc massa. Morbi elementum neque velit, non accumsan elit bibendum ac. Vestibulum sodales pharetra congue. Praesent sed pellentesque felis. Nulla tempor, massa eu tempor tristique, lacus quam maximus nunc, eget facilisis nisi justo in erat. Integer blandit lorem in magna lobortis, eu lobortis arcu dapibus. Pellentesque vestibulum elementum erat eu ultricies. Proin nisi eros, vestibulum sed scelerisque nec, pretium id libero. Maecenas efficitur sapien in leo semper, vel blandit felis sollicitudin. Praesent augue eros, laoreet at sem sit amet, commodo convallis magna. Donec ornare, massa quis luctus blandit, quam erat porta nunc, eu malesuada ligula massa quis diam. Vestibulum at pellentesque massa, non condimentum orci. Vivamus luctus tortor ac dolor molestie, nec tincidunt nisl fringilla. Nam id erat in diam elementum cursus sed nec sapien.
-
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent vitae lacus rhoncus, rhoncus urna feugiat, molestie tortor. Sed sed purus sed risus efficitur consequat vitae vitae ligula. Morbi vitae nulla molestie, scelerisque mi in, aliquam purus. Quisque hendrerit laoreet lectus vel tincidunt. Aenean lacus ipsum, ullamcorper vel nibh non, viverra euismod libero. Pellentesque quam ligula, vestibulum et tristique sit amet, consequat vitae purus. Integer vitae interdum nisi.
-
-Sed sed nibh odio. Nunc at sem quis purus mattis efficitur. Sed auctor leo vitae elit finibus ornare. Mauris sollicitudin justo vitae ipsum elementum aliquam. Duis nisl nibh, ullamcorper sed lectus in, pretium elementum tortor. Vestibulum eleifend nulla ac aliquet congue. Duis mattis eleifend neque, ac lobortis mauris tristique nec. Cras aliquam egestas tortor at eleifend. Maecenas tellus urna, dictum eget ligula in, egestas luctus justo. Nam eu est ante. Nam viverra nisi at congue interdum. Integer placerat et velit eget blandit.
-
-Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus euismod nunc in purus viverra, at ultricies nulla interdum. Sed suscipit urna vitae quam egestas pellentesque. Mauris id nunc eget neque consectetur mollis. Mauris volutpat tempor metus, eu euismod nibh tincidunt vitae. Curabitur nibh diam, porttitor in dolor id, gravida laoreet erat. Mauris et augue non libero gravida accumsan. Praesent risus tortor, consectetur vitae leo vitae, hendrerit rhoncus dui. Vivamus vehicula id nisl id feugiat. Aenean volutpat tellus id sapien egestas dapibus. Integer imperdiet hendrerit volutpat. Praesent in efficitur dolor. Fusce et risus sed augue pellentesque mollis posuere a lectus.
-
-Sed interdum pellentesque felis, eget accumsan justo gravida ut. Sed vestibulum non lorem id gravida. Sed vitae mi ac quam finibus pharetra non nec leo. In consectetur faucibus augue, eu condimentum risus iaculis non. Vivamus non justo justo. Donec sagittis aliquet arcu, et rutrum est imperdiet et. Etiam id euismod neque. Aliquam pharetra bibendum mi, ut ornare turpis feugiat a. Curabitur ipsum eros, semper vitae tellus ac, elementum condimentum magna. Pellentesque ornare dapibus magna vitae aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum imperdiet aliquet lectus non tincidunt. Cras ac vulputate elit.
-
-Sed accumsan placerat nisl eu placerat. Duis non condimentum nibh, a dapibus quam. Vivamus eu nibh nec libero tempor lobortis. Phasellus felis mi, bibendum vitae massa eget, rutrum pretium urna. Proin faucibus lacus leo, sit amet luctus tortor finibus et. Nunc nec blandit dolor. Vestibulum eleifend, est ac iaculis eleifend, metus orci volutpat urna, vel ornare arcu enim eget nulla. Vivamus nec metus eget lacus pulvinar semper vel at risus. Vestibulum lacus ex, volutpat quis scelerisque at, malesuada ac ligula. Maecenas vulputate diam at suscipit condimentum. Suspendisse egestas tellus vitae tellus blandit, ut hendrerit augue porttitor. Nam odio dolor, vestibulum imperdiet turpis in, iaculis placerat ante.
-
-Donec tellus odio, vestibulum sit amet tincidunt non, venenatis id nulla. Nulla facilisi. Ut id convallis ante. Donec vehicula nunc ipsum, vel rutrum ex euismod eu. Maecenas tincidunt lobortis magna. Sed sit amet sagittis ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce dignissim consequat convallis. Etiam dignissim quis metus ut tristique. Aenean rutrum fermentum sem vel lacinia.
-
-Praesent interdum, dolor vitae bibendum condimentum, sapien metus rhoncus nisl, vitae facilisis tortor mauris vitae nunc. Maecenas et tellus mi. Donec nibh leo, pulvinar non purus venenatis, luctus tincidunt velit. Curabitur rhoncus lacus et orci malesuada auctor. Aliquam maximus ex vel mattis consectetur. Pellentesque ac justo vel urna pharetra cursus. Cras mattis finibus tellus, in auctor ante pretium eu. Proin nisl tellus, commodo a sapien ut, bibendum fringilla quam.
-
-Duis luctus odio est, nec condimentum lacus lobortis a. Integer pellentesque felis vitae molestie luctus. Praesent sed magna id velit rhoncus rhoncus non eget leo. Nullam lacinia leo vitae varius eleifend. Aliquam vestibulum placerat venenatis. Sed accumsan, mi eu tempus pulvinar, turpis lacus tincidunt massa, eu hendrerit est urna aliquam nulla. Etiam non cursus justo. Donec vel ante gravida enim consequat consectetur quis iaculis mi. Nam et nisi a augue lacinia congue vel nec sapien. Etiam vel consectetur dolor. Proin posuere nisl vel odio dictum sollicitudin. Mauris id nisi gravida, finibus orci ut, vehicula purus. Quisque mattis sollicitudin ante ut elementum. Vestibulum maximus eleifend augue id pharetra.
-
-Mauris placerat erat et mi vestibulum, nec varius enim dapibus. Cras elementum, risus eget molestie fermentum, odio urna consectetur mi, quis venenatis dui sem sit amet lorem. Cras rutrum lorem accumsan libero pharetra ornare. Duis pharetra sed tellus ut pretium. Etiam congue arcu nec tempus vestibulum. Phasellus blandit, risus et lacinia cursus, erat nibh ultricies neque, sit amet tempor leo odio vel metus. Praesent placerat vestibulum magna, non scelerisque lectus ultrices vel. Cras at dignissim nibh. Sed id risus quis mauris tincidunt dapibus.
-
-Aenean odio dui, maximus eget nibh eget, dictum euismod libero. Proin luctus, orci ac suscipit blandit, tortor eros laoreet lacus, ac scelerisque dui arcu eget diam. Proin commodo urna ligula, eget congue sapien dignissim sed. Nullam et pharetra lorem. Proin at hendrerit felis. Integer tincidunt sollicitudin justo, eget malesuada augue. Donec vulputate a sapien sit amet efficitur. Aenean non nisi odio. Maecenas sollicitudin tristique odio, non rhoncus sapien rhoncus tempor. Quisque ligula ex, tincidunt a lacus non, auctor rutrum velit. In tellus elit, lacinia vitae efficitur et, euismod ac augue.
-
-Donec lobortis augue sit amet nunc tempus pharetra. Nam rhoncus quam ut sem auctor, sed euismod mi convallis. Vestibulum eros tortor, tristique in gravida non, sodales ut felis. Vivamus sit amet diam lacinia, dapibus lorem quis, molestie ex. Proin tortor ex, congue sit amet ultricies sed, rhoncus id enim. Nunc quis ipsum non nisl bibendum ornare et non purus. Sed ut semper ipsum. Mauris in pharetra dui. Nunc lorem enim, aliquet ut lacus eu, dictum scelerisque augue. Aliquam facilisis nulla non tincidunt molestie. Quisque tempor ex id orci suscipit pretium. Mauris a sodales sapien. Mauris tincidunt nisi nec eros gravida, et suscipit tortor egestas. Morbi commodo at nunc a maximus.
-
-Duis feugiat auctor mauris nec blandit. Etiam a iaculis libero. Cras lacinia sit amet orci sit amet luctus. Maecenas tellus orci, rutrum convallis porta id, congue ut orci. Vestibulum auctor quis nulla sollicitudin convallis. Nam facilisis tortor quam, quis finibus augue vehicula nec. Sed vestibulum magna eu facilisis posuere.
-
-Proin sit amet nisl nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed leo sit amet libero volutpat pellentesque. Donec at felis in risus tincidunt porttitor. Donec elementum ac sem a bibendum. Sed a libero sapien. Ut vel neque nec tortor consequat malesuada quis et ex. Vivamus interdum ultrices lectus a blandit. In scelerisque vestibulum tristique. Morbi aliquet gravida pellentesque. Sed accumsan pulvinar diam, et tincidunt turpis.
-
-Sed pretium blandit volutpat. Suspendisse potenti. Aenean lobortis nibh sit amet justo dignissim tincidunt. Nunc in posuere mauris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque viverra sapien sed mi viverra tincidunt quis et metus. In viverra, erat nec commodo accumsan, tellus dui auctor felis, at ultricies ex diam sed nisl. Maecenas hendrerit lacus vel metus feugiat tempor. Aliquam erat volutpat."
+Buzz saw sound from TableSawBuzz-SoundBible.com-1560233300_LOOP.wav: original by Mike Koenig from http://soundbible.com/1100-Table-Saw-Buzz.html
+	
+	
+"
 align = 3
 autowrap = true
 
