@@ -152,7 +152,7 @@ func loadGame():
 		metaData.maxCoinsCollected = save.get(metaData.scenePath + ': maxCoinsCollected')
 		metaData.coinsAvail = save.get(metaData.scenePath + ': coinsAvail')
 		metaData.gems = save.get(metaData.scenePath + ': gems', {})
-		metaData.completed = save[metaData.scenePath + ': completed']
+		metaData.completed = save.get(metaData.scenePath + ': completed', false)
 
 
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index('fx'), save['fxVolume'])
