@@ -11,6 +11,14 @@ func _notification(what):
 		fakeEscapePress()
 
 
+var time = 0.0 setget , getTime
+
+func getTime():
+	return time
+
+
+func _physics_process(delta):
+	time += delta
 
 
 func fakeEscapePress():
