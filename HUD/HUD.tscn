@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://HUD/HUD.gd" type="Script" id=1]
-[ext_resource path="res://menus/SectionFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://menus/msgFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://menus/buttonFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://HUD/CoinCounter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://HUD/HUDGemIndicator.tscn" type="PackedScene" id=5]
