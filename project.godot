@@ -15,10 +15,10 @@ _global_script_class_icons={
 
 [application]
 
-config/name="GravityReversal"
+config/name="Gravity Reversal"
 run/main_scene="res://menus/Menu.tscn"
 boot_splash/image="res://art/custom/bootScreen_loading.png"
-config/icon="res://art/icon.png"
+config/icon="res://art/robotfree/png/Jump (7).png"
 config/auto_accept_quit=false
 config/quit_on_go_back=false
 config/version="0.0.1"
