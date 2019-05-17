@@ -1,13 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://menus/attributions.gd" type="Script" id=1]
 [ext_resource path="res://menus/MenuBG.tscn" type="PackedScene" id=2]
-[ext_resource path="res://menus/SectionFont.tres" type="DynamicFont" id=3]
-[ext_resource path="res://art/fonts/fatcow/fatcow-free-font/v1.0/PC-TT/FatCow.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://menus/ScrollContainer.gd" type="Script" id=3]
+[ext_resource path="res://menus/SectionFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://art/fonts/fatcow/fatcow-free-font/v1.0/PC-TT/FatCow.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
-size = 80
-font_data = ExtResource( 4 )
+size = 100
+font_data = ExtResource( 5 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -19,17 +20,19 @@ script = ExtResource( 1 )
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+scroll_horizontal_enabled = false
+script = ExtResource( 3 )
 
 [node name="CenterContainer" type="CenterContainer" parent="ScrollContainer"]
 margin_right = 2548.0
-margin_bottom = 2629.0
+margin_bottom = 3292.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/CenterContainer"]
 margin_left = 244.0
 margin_right = 2304.0
-margin_bottom = 2629.0
+margin_bottom = 3292.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 30
@@ -41,7 +44,7 @@ custom_constants/margin_bottom = 30
 margin_left = 30.0
 margin_top = 30.0
 margin_right = 2030.0
-margin_bottom = 2599.0
+margin_bottom = 3262.0
 size_flags_horizontal = 3
 alignment = 1
 
@@ -49,7 +52,7 @@ alignment = 1
 margin_right = 2000.0
 margin_bottom = 244.0
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Attributions:"
 align = 1
@@ -57,7 +60,7 @@ align = 1
 [node name="Attributions" type="Label" parent="ScrollContainer/CenterContainer/MarginContainer/VBoxContainer"]
 margin_top = 248.0
 margin_right = 2000.0
-margin_bottom = 2569.0
+margin_bottom = 3232.0
 rect_min_size = Vector2( 2000, 0 )
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 1 )
