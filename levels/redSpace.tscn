@@ -39,7 +39,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 32, 192 )
 
-[node name="Level" instance=ExtResource( 1 )]
+[node name="Level" index="0" instance=ExtResource( 1 )]
 songPath = "res://songs/CoolOne.tscn"
 
 [node name="Player" parent="." index="0"]
