@@ -27,7 +27,7 @@ func player_died():
 					'Oh look, you\'re dead now.',
 					'Try not to die.',
 					'You should try not dying next time.',
-					'You\'re doing it wrong.',
+					'You\'re doing it wrong.\nTry to *avoid* death.',
 					'That\'s the end of you.',
 					'No more you.'
 
@@ -46,7 +46,7 @@ func player_died():
 
 func player_reached_goal():
 	print('_on_Player_reached_goal()')
-	HUD.show_msg("GOAL")
+	HUD.show_msg("Level Complete")
 	yield(HUD.get_node("msgTimer"), "timeout")
 	level_manager.onCurLevelComplete(coinsCollected, coinsAtStart, gems)
 
