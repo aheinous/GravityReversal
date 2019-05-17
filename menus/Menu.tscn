@@ -18,9 +18,9 @@ anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 211.0
-margin_top = 128.0
+margin_top = 176.0
 margin_right = 2348.0
-margin_bottom = 1311.0
+margin_bottom = 1263.0
 custom_constants/separation = 50
 alignment = 1
 
@@ -34,34 +34,34 @@ align = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 415.0
 margin_right = 2137.0
-margin_bottom = 1183.0
+margin_bottom = 1087.0
 custom_constants/separation = 20
 alignment = 2
 
 [node name="NewGameButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
 margin_right = 2137.0
-margin_bottom = 177.0
+margin_bottom = 153.0
 custom_fonts/font = ExtResource( 4 )
 text = "New Game"
 
 [node name="LevelSelectButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
-margin_top = 197.0
+margin_top = 173.0
 margin_right = 2137.0
-margin_bottom = 374.0
+margin_bottom = 326.0
 custom_fonts/font = ExtResource( 4 )
 text = "Level Select"
 
 [node name="OptionsButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
-margin_top = 394.0
+margin_top = 346.0
 margin_right = 2137.0
-margin_bottom = 571.0
+margin_bottom = 499.0
 custom_fonts/font = ExtResource( 4 )
 text = "Options"
 
 [node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
-margin_top = 591.0
+margin_top = 519.0
 margin_right = 2137.0
-margin_bottom = 768.0
+margin_bottom = 672.0
 custom_fonts/font = ExtResource( 4 )
 text = "Quit Game"
 
