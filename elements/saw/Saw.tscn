@@ -32,8 +32,8 @@ _data = {
 radius = 179.0
 
 [node name="SawBlade" type="Node2D" groups=[
-"evil",
 "resettable",
+"evil",
 ]]
 script = ExtResource( 1 )
 
@@ -58,13 +58,13 @@ texture = ExtResource( 3 )
 scale = Vector2( 0.25, 0.25 )
 shape = SubResource( 3 )
 
-[node name="RunningSound2D" type="AudioStreamPlayer2D" parent="."]
+[node name="RunningSound2D" type="AudioStreamPlayer2D" parent="Path/Follow/Blade"]
 stream = ExtResource( 4 )
 volume_db = -10.0
 max_distance = 1000.0
 bus = "fx"
 
-[node name="HitSound2D" type="AudioStreamPlayer2D" parent="."]
+[node name="HitSound2D" type="AudioStreamPlayer2D" parent="Path/Follow/Blade"]
 stream = ExtResource( 5 )
 volume_db = -10.692
 max_distance = 1000.0

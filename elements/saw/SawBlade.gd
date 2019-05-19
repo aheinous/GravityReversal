@@ -8,8 +8,8 @@ export var pauseTime := 0.0
 onready var animationPlayer = $AnimationPlayer
 onready var follow = $Path/Follow
 onready var path = $Path
-onready var runningSound = $'RunningSound2D'
-onready var hitSound = $'HitSound2D'
+onready var runningSound = $'Path/Follow/Blade/RunningSound2D'
+onready var hitSound = $'Path/Follow/Blade/HitSound2D'
 
 var pathDir = 1
 
