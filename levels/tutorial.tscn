@@ -89,7 +89,7 @@ shape = SubResource( 1 )
 
 [node name="MsgTrigger4" parent="MsgTriggers" index="3" instance=ExtResource( 6 )]
 position = Vector2( 5279.29, 802.13 )
-msg = "Avoid shit that kills you."
+msg = "Avoid things that kill you."
 buttonTxt = "Sounds like solid advice"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MsgTriggers/MsgTrigger4" index="0"]
