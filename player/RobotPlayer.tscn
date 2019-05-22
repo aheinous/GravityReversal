@@ -209,7 +209,7 @@ smoothing_enabled = true
 editor_draw_drag_margin = true
 
 [node name="RobotAnimations" type="AnimatedSprite" parent="."]
-position = Vector2( 4.969, 5 )
+position = Vector2( 4.96861, -2.41657 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 3 )
 animation = "idle"
