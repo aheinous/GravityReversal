@@ -3,8 +3,10 @@ extends KinematicBody2D
 const GRAVITY = 550
 const WALK_SPEED = 400
 const CAMERA_CENTER_DEFAULT = Vector2(700, 0)
+const FLIP_SPEED = 4
 
 onready var animatedSprite = $RobotAnimations
+onready var animationPlayer = $AnimationPlayer
 
 enum  {STALLED, MOVING, DYING, DEAD, REACHED_GOAL}
 
@@ -34,8 +36,18 @@ func start_moving():
 func reverse_gravity():
 	if state == DEAD or state == DYING:
 		return
+	flipAnimation()
 	fallDir *= -1
-	self.scale.y *= -1
+
+
+func isUpsideDown():
+	return (fallDir != Vector2(0,1))
+
+func flipAnimation():
+	animationPlayer.play("flip",
+							-1,
+							-FLIP_SPEED if isUpsideDown() else FLIP_SPEED,
+							isUpsideDown())
 
 
 func _input(event):
@@ -88,7 +100,8 @@ func die():
 	# start death animation first to avoid race condition of _on_AnimatedSprite_animation_finished()
 	# getting called immediately after death starts
 	animatedSprite.play("dead")
-	$AnimationPlayer.play("DeathPhysCollision")
+	animationPlayer.queue("DeathPhysCollision_flipped" if isUpsideDown() else "DeathPhysCollision")
+
 	state = DYING
 	owner.player_died()
 
