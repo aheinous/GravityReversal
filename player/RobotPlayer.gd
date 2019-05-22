@@ -3,7 +3,7 @@ extends KinematicBody2D
 const GRAVITY = 550
 const WALK_SPEED = 400
 const CAMERA_CENTER_DEFAULT = Vector2(700, 0)
-const FLIP_SPEED = 4
+const FLIP_SPEED = 6
 
 onready var animatedSprite = $RobotAnimations
 onready var animationPlayer = $AnimationPlayer
