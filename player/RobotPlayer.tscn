@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://player/RobotPlayer.gd" type="Script" id=1]
 [ext_resource path="res://art/robotfree/png/Idle (1).png" type="Texture" id=2]
@@ -46,6 +46,7 @@
 [ext_resource path="res://art/robotfree/png/Run (6).png" type="Texture" id=44]
 [ext_resource path="res://art/robotfree/png/Run (7).png" type="Texture" id=45]
 [ext_resource path="res://art/robotfree/png/Run (8).png" type="Texture" id=46]
+[ext_resource path="res://art/soundfx/flip.wav" type="AudioStream" id=47]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 27.0
@@ -115,7 +116,7 @@ tracks/1/keys = {
 "values": [ 0.0, 90.0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "DeathPhysCollision_flipped"
 tracks/0/type = "value"
 tracks/0/path = NodePath("PhysCollision:rotation_degrees")
@@ -142,8 +143,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 5, -18 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "flip"
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath("RobotAnimations:rotation_degrees")
 tracks/0/interp = 1
@@ -216,7 +216,12 @@ animation = "idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/DeathPhysCollision = SubResource( 4 )
-anims/DeathPhysCollision_flipped = SubResource( 6 )
-anims/flip = SubResource( 5 )
+anims/DeathPhysCollision_flipped = SubResource( 5 )
+anims/flip = SubResource( 6 )
+
+[node name="FlipNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 47 )
+volume_db = -8.748
+bus = "fx"
 
 [connection signal="area_entered" from="Sense" to="." method="_on_Sense_area_entered"]

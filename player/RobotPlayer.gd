@@ -7,13 +7,16 @@ const FLIP_SPEED = 6
 
 onready var animatedSprite = $RobotAnimations
 onready var animationPlayer = $AnimationPlayer
+onready var flipNoise = $FlipNoise
 
 enum  {STALLED, MOVING, DYING, DEAD, REACHED_GOAL}
 
-var fallDir = Vector2(0,1)
-var moveDir = Vector2(1,0)
-var velocity = Vector2()
+#var fallDir = Vector2(0,1)
+var moveDir = Vector2.RIGHT
+var velocity = Vector2.ZERO
 var state = STALLED
+
+var upsideDown = false
 
 export var zoom = 1.0 setget setZoom, getZoom
 export var invincible := false
@@ -37,11 +40,28 @@ func reverse_gravity():
 	if state == DEAD or state == DYING:
 		return
 	flipAnimation()
-	fallDir *= -1
+	flipNoise.play()
+#	fallDir *= -1
+	upsideDown = not upsideDown
 
+func getFallDir():
+	if upsideDown:
+		return moveDir.rotated(deg2rad(-90))
+	else:
+		return moveDir.rotated(deg2rad(90))
+
+
+func changeDirection(tileMap):
+#	print('change direction: ', tileMap)
+	self.rotation_degrees = tileMap.rotation_degrees
+	var newMoveDir = Vector2.RIGHT.rotated(deg2rad(tileMap.rotation_degrees))
+	if newMoveDir != moveDir:
+		print('moveDir: %s -> %s' % [moveDir, newMoveDir])
+	moveDir = newMoveDir
 
 func isUpsideDown():
-	return (fallDir != Vector2(0,1))
+#	return (fallDir != Vector2(0,1))
+	return upsideDown
 
 func flipAnimation():
 	animationPlayer.play("flip",
@@ -64,9 +84,9 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("ui_accept"):
 		reverse_gravity()
-	var acceleration = GRAVITY * fallDir * delta
+	var acceleration = GRAVITY * getFallDir() * delta
 	velocity += acceleration
-	velocity = move_and_slide(velocity, -fallDir)
+	velocity = move_and_slide(velocity, -getFallDir())
 
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
@@ -80,7 +100,7 @@ func _physics_process(delta):
 		if is_on_floor():
 			animatedSprite.play('run' if state == MOVING else 'idle')
 		else:
-			var fallSpeed = abs(velocity.dot(fallDir))
+			var fallSpeed = abs(velocity.dot(getFallDir()))
 			animatedSprite.play('jump')
 
 
@@ -89,6 +109,8 @@ func collideWith(other):
 		die()
 	if other.is_in_group('goal'):
 		reach_goal()
+	if other.is_in_group('good'):
+		changeDirection(other)
 
 
 func die():
