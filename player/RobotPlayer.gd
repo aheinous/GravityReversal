@@ -51,10 +51,35 @@ func getFallDir():
 		return moveDir.rotated(deg2rad(90))
 
 
+
+static func centerAngle(deg):
+	while deg > 180:
+		deg -= 360
+	while deg < -180:
+		deg += 360
+	return deg
+
 func changeDirection(tileMap):
 #	print('change direction: ', tileMap)
-	self.rotation_degrees = tileMap.rotation_degrees
-	var newMoveDir = Vector2.RIGHT.rotated(deg2rad(tileMap.rotation_degrees))
+
+	var choiceA = centerAngle(tileMap.rotation_degrees)
+	var choiceB = centerAngle(tileMap.rotation_degrees + 180)
+
+
+	var startAng = self.rotation_degrees
+	var canidate = choiceA if abs(centerAngle(choiceA-startAng)) < abs(centerAngle(choiceB-startAng)) else choiceB
+
+#	self.rotation_degrees = tileMap.rotation_degrees
+
+	if abs(centerAngle(startAng - canidate)) > 50 or startAng == canidate:
+		return
+
+
+	self.rotation_degrees = canidate
+#	print('(a, b): (%s, %s) %s -> %s' % [choiceA, choiceB, startAng, canidate])
+
+#	var newMoveDir = Vector2.RIGHT.rotated(deg2rad(tileMap.rotation_degrees))
+	var newMoveDir = Vector2.RIGHT.rotated(deg2rad(canidate))
 	if newMoveDir != moveDir:
 		print('moveDir: %s -> %s' % [moveDir, newMoveDir])
 	moveDir = newMoveDir

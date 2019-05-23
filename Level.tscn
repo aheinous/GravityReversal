@@ -66,7 +66,45 @@ tile_set = SubResource( 2 )
 cell_size = Vector2( 128, 128 )
 format = 1
 
-[node name="ScienceTiles" type="TileMap" parent="."]
+[node name="ScienceTiles" type="TileMap" parent="." groups=[
+"good",
+]]
+scale = Vector2( 0.25, 0.25 )
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 256, 256 )
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ScienceTiles_ccw1" type="TileMap" parent="." groups=[
+"good",
+]]
+rotation = -0.785398
+scale = Vector2( 0.25, 0.25 )
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 256, 256 )
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ScienceTiles_ccw2" type="TileMap" parent="." groups=[
+"good",
+]]
+rotation = -1.5708
+scale = Vector2( 0.25, 0.25 )
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 256, 256 )
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ScienceTiles_ccw3" type="TileMap" parent="." groups=[
+"good",
+]]
+rotation = -2.35619
 scale = Vector2( 0.25, 0.25 )
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 256, 256 )
