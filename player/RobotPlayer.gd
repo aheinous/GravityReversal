@@ -11,7 +11,7 @@ onready var flipNoise = $FlipNoise
 
 enum  {STALLED, MOVING, DYING, DEAD, REACHED_GOAL}
 
-#var fallDir = Vector2(0,1)
+
 var moveDir = Vector2.RIGHT
 var velocity = Vector2.ZERO
 var state = STALLED
@@ -36,11 +36,12 @@ func start_moving():
 	state = MOVING
 
 
-func reverse_gravity():
-	if state == DEAD or state == DYING:
+func reverse_gravity(stealth = false):
+	if not stealth and (state == DEAD or state == DYING):
 		return
-	flipAnimation()
-	flipNoise.play()
+	flipAnimation(stealth)
+	if not stealth:
+		flipNoise.play()
 #	fallDir *= -1
 	upsideDown = not upsideDown
 
@@ -59,40 +60,46 @@ static func centerAngle(deg):
 		deg += 360
 	return deg
 
-func changeDirection(tileMap):
-#	print('change direction: ', tileMap)
-
+func changeDirectionToMatchSurface(tileMap):
 	var choiceA = centerAngle(tileMap.rotation_degrees)
 	var choiceB = centerAngle(tileMap.rotation_degrees + 180)
-
 
 	var startAng = self.rotation_degrees
 	var canidate = choiceA if abs(centerAngle(choiceA-startAng)) < abs(centerAngle(choiceB-startAng)) else choiceB
 
-#	self.rotation_degrees = tileMap.rotation_degrees
-
 	if abs(centerAngle(startAng - canidate)) > 50 or startAng == canidate:
 		return
 
+	changeDirectionToAngle(canidate)
 
-	self.rotation_degrees = canidate
-#	print('(a, b): (%s, %s) %s -> %s' % [choiceA, choiceB, startAng, canidate])
 
-#	var newMoveDir = Vector2.RIGHT.rotated(deg2rad(tileMap.rotation_degrees))
-	var newMoveDir = Vector2.RIGHT.rotated(deg2rad(canidate))
+func changeDirectionToAngle(deg):
+	if deg == self.rotation_degrees:
+		return
+
+
+	var needGravReverse = (abs(centerAngle(deg - self.rotation_degrees)) > 90)
+
+	self.rotation_degrees = deg
+
+	var newMoveDir = Vector2.RIGHT.rotated(deg2rad(deg))
 	if newMoveDir != moveDir:
 		print('moveDir: %s -> %s' % [moveDir, newMoveDir])
 	moveDir = newMoveDir
+	if needGravReverse:
+		reverse_gravity(true)
 
 func isUpsideDown():
 #	return (fallDir != Vector2(0,1))
 	return upsideDown
 
-func flipAnimation():
+func flipAnimation(instant = false):
 	animationPlayer.play("flip",
 							-1,
 							-FLIP_SPEED if isUpsideDown() else FLIP_SPEED,
 							isUpsideDown())
+	if instant:
+		animationPlayer.seek(0 if isUpsideDown() else animationPlayer.current_animation_length)
 
 
 func _input(event):
@@ -135,7 +142,8 @@ func collideWith(other):
 	if other.is_in_group('goal'):
 		reach_goal()
 	if other.is_in_group('good'):
-		changeDirection(other)
+		changeDirectionToMatchSurface(other)
+
 
 
 func die():
@@ -168,9 +176,11 @@ func _on_AnimatedSprite_animation_finished():
 
 
 func _on_Sense_area_entered(area):
-	# for saws/ missles
 	# print('_on_Sense_area_entered(area): area = ', area)
-#	print('skipping ')
-#	collideWith(area)
-	pass
+	if area.is_in_group("directionChanger"):
+		changeDirectionToAngle(area.rotation_degrees)
+
+
+
+
 
