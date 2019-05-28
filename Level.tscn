@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Level.gd" type="Script" id=1]
 [ext_resource path="res://player/RobotPlayer.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=5]
 [ext_resource path="res://art/game_items_pack_2_free/PNG/64px/bomb.png" type="Texture" id=6]
 [ext_resource path="res://elements/Bombs.gd" type="Script" id=7]
+[ext_resource path="res://art/arrow/arrow.png" type="Texture" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 32, 128, 32, 128, 96, 0, 96 )
@@ -48,6 +49,18 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 "shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
+0/z_index = 0
+
+[sub_resource type="TileSet" id=5]
+0/name = "arrow.png 0"
+0/texture = ExtResource( 8 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 256, 256 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [  ]
 0/z_index = 0
 
 [node name="Level" type="Node"]
@@ -117,8 +130,8 @@ __meta__ = {
 pause_mode = 2
 
 [node name="Bombs" type="TileMap" parent="." groups=[
-"evil",
 "bomb",
+"evil",
 ]]
 tile_set = SubResource( 4 )
 format = 1
@@ -126,6 +139,12 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="DirectionChangers" type="TileMap" parent="."]
+scale = Vector2( 0.25, 0.25 )
+tile_set = SubResource( 5 )
+cell_size = Vector2( 256, 256 )
+format = 1
 
 [node name="MissileSpawners" type="Node" parent="."]
 
