@@ -51,7 +51,8 @@ var gameSM = StateMachine.new(
 			'waiting',
 			'moving',
 			'dead',
-			'finished'
+			'finished',
+			'dead_awaitingRestart'
 		])
 
 
@@ -59,11 +60,15 @@ var gameSM = StateMachine.new(
 func onGameStateTransition(newState, prevState):
 	match newState:
 		gameSM.states.dead:
-#			animatedSprite.play("dead")
+			animatedSprite.play("dead")
 			animationPlayer.queue("DeathPhysCollision")
 			owner.playerDied()
 		gameSM.states.finished:
 			owner.playerReachedGoal()
+
+
+func _ready():
+	gameSM.setState(gameSM.states.waiting)
 
 func startMoving():
 	gameSM.setState(gameSM.states.moving)
@@ -153,19 +158,24 @@ func _physics_process(delta):
 
 
 func selectAnimation():
-	if gameSM.state != gameSM.states.dead:
+	if not gameSM.state in [gameSM.states.dead, gameSM.states.dead_awaitingRestart]:
 		if is_on_floor():
 			animatedSprite.play('run' if gameSM.state == gameSM.states.moving else 'idle')
 		else:
 			animatedSprite.play('jump')
-	else:
-		animatedSprite.play('dead')
+
+
+func onPress():
+	if gameSM.state in [gameSM.states.waiting, gameSM.states.moving]:
+		reverseGravity()
+	elif gameSM.state == gameSM.states.dead_awaitingRestart:
+		owner.restartLevel()
 
 
 func _input(event):
 	if  ((event is InputEventScreenTouch and event.pressed)
 			or Input.is_action_just_pressed("ui_accept")):
-		reverseGravity()
+		onPress()
 
 
 func getHit():
@@ -180,7 +190,12 @@ func reachGoal():
 	if gameSM.state == gameSM.states.moving:
 		gameSM.setState(gameSM.states.finished)
 
+		
+func enableRestart():
+	assert(gameSM.state == gameSM.states.dead)
+	gameSM.setState(gameSM.states.dead_awaitingRestart)
 
+	
 func collideWith(other):
 	if other.is_in_group('evil'):
 		getHit()

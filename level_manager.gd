@@ -59,7 +59,7 @@ func onCurLevelComplete(coinsCollected, coinsTotal, gems):
 	# either load next level or inform user they beat the game
 	curLevelNum += 1
 	if curLevelNum >= levels.size():
-		getHUD().show_msg("You Beat The Game!")
+		getHUD().showMsg("You Beat The Game!")
 		yield(getHUD().get_node("msgTimer"), "timeout")
 		curLevelNum = null
 		get_tree().change_scene("menus/Menu.tscn")

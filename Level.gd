@@ -29,24 +29,20 @@ func playerDied():
 					'You should try not dying next time.',
 					'You\'re doing it wrong.\nTry to *avoid* death.',
 					'That\'s the end of you.',
-					'No more you.'
-
-
-					]
-
-
-
-
-	var msg = msgs[randi() % msgs.size()]
-#	HUD.show_msg("You died.")
-	HUD.show_msg(msg)
+					'No more you.']
+	HUD.showMsg(msgs[randi() % msgs.size()])
 	yield(HUD.get_node("msgTimer"), "timeout")
+	HUD.showMsg('Press anywhere to restart')
+	player.enableRestart()
+
+
+func restartLevel():
 	get_tree().reload_current_scene()
 
 
 func playerReachedGoal():
 	print('_on_playerReachedGoal()')
-	HUD.show_msg("Level Complete")
+	HUD.showMsg("Level Complete")
 	yield(HUD.get_node("msgTimer"), "timeout")
 	level_manager.onCurLevelComplete(coinsCollected, coinsAtStart, gems)
 
@@ -64,7 +60,8 @@ func _ready():
 	MusicPlayer.setSong(self.songScn)
 	HUD.setCoinCount(0)
 	HUD.setGems(gems)
-	HUD.show_msg(level_manager.getCurLevelName() + ":\nSTART!")
+	HUD.showMsg(level_manager.getCurLevelName() + ":\nSTART!")
+
 	yield(HUD.get_node("msgTimer"), "timeout")
 	player.startMoving()
 

@@ -33,7 +33,7 @@ func setCoinCount(cnt):
 	coinCntLbl.text = str(cnt)
 
 func _ready():
-	clear_msg()
+	clearMsg()
 	msgLabel.show()
 	pauseScreen.hide()
 
@@ -48,21 +48,38 @@ func unpause():
 	pauseScreen.hide()
 
 
-func clear_msg():
-	$msgLabel.text = ''
+var msgQueue = []
+var msgTimeoutQueue = []
+var curMsgFinishTime = 0
 
+func clearMsg():
+	msgLabel.text = ''
+	curMsgFinishTime = 0
 
-func show_msg(txt, timeout=2):
-#	print('showing message: ', txt)
+func showMsg(txt, timeout=2):
+	msgQueue.push_front(txt)
+	msgTimeoutQueue.push_front(timeout)
 	msgTimer.stop()
-	msgLabel.text = txt
-	if timeout > 0:
-		$msgTimer.start(timeout)
+	msgProcess()
 
 
 func _on_msgTimer_timeout():
-	clear_msg()
+	msgProcess()
 
+func msgProcess():
+	var timeUntilCurMsgDone = curMsgFinishTime - Global.getTime()
+	if timeUntilCurMsgDone > 0:
+		msgTimer.start(timeUntilCurMsgDone)
+		return
+
+	clearMsg()
+
+	if msgQueue.size() > 0:
+		var curMsg = msgQueue.pop_back()
+		var curTimeout = msgTimeoutQueue.pop_back()
+		msgLabel.text = curMsg
+		curMsgFinishTime = curTimeout + Global.getTime()
+		msgTimer.start(curTimeout)
 
 func _on_continueButton_pressed():
 	togglePause()
