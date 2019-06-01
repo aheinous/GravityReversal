@@ -25,59 +25,83 @@ wait_time = 2.0
 one_shot = true
 
 [node name="pauseScreen" type="MarginContainer" parent="."]
-visible = false
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -383.5
-margin_right = 381.5
+anchor_bottom = 0.5
+margin_left = -416.0
+margin_top = -720.0
+margin_right = 416.0
+margin_bottom = 720.0
+custom_constants/margin_top = 60
 custom_constants/margin_bottom = 60
 
-[node name="VBoxContainer" type="VBoxContainer" parent="pauseScreen"]
-margin_right = 765.0
-margin_bottom = 1380.0
+[node name="PanelContainer" type="PanelContainer" parent="pauseScreen"]
+self_modulate = Color( 0.580392, 0.580392, 0.580392, 1 )
+margin_top = 125.0
+margin_right = 832.0
+margin_bottom = 1315.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="pauseScreen/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 825.0
+margin_bottom = 1183.0
+custom_constants/margin_right = 40
+custom_constants/margin_top = 40
+custom_constants/margin_left = 40
+custom_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pauseScreen/PanelContainer/MarginContainer"]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 778.0
+margin_bottom = 1136.0
+grow_horizontal = 2
+grow_vertical = 2
 custom_constants/separation = 60
 alignment = 1
 
-[node name="pauseLabel" type="Label" parent="pauseScreen/VBoxContainer"]
-margin_top = 94.0
-margin_right = 861.0
-margin_bottom = 338.0
+[node name="pauseLabel" type="Label" parent="pauseScreen/PanelContainer/MarginContainer/VBoxContainer"]
+margin_right = 738.0
+margin_bottom = 244.0
 custom_fonts/font = ExtResource( 2 )
 text = "PAUSED"
 align = 1
 valign = 1
 autowrap = true
 
-[node name="continueButton" type="Button" parent="pauseScreen/VBoxContainer"]
+[node name="continueButton" type="Button" parent="pauseScreen/PanelContainer/MarginContainer/VBoxContainer"]
 pause_mode = 2
-margin_top = 398.0
-margin_right = 861.0
-margin_bottom = 575.0
+margin_top = 304.0
+margin_right = 738.0
+margin_bottom = 457.0
 custom_fonts/font = ExtResource( 3 )
 text = "Resume"
 
-[node name="restartButton" type="Button" parent="pauseScreen/VBoxContainer"]
+[node name="restartButton" type="Button" parent="pauseScreen/PanelContainer/MarginContainer/VBoxContainer"]
 pause_mode = 2
-margin_top = 635.0
-margin_right = 861.0
-margin_bottom = 812.0
+margin_top = 517.0
+margin_right = 738.0
+margin_bottom = 670.0
 custom_fonts/font = ExtResource( 3 )
 text = "Restart Level"
 
-[node name="optionsButton" type="Button" parent="pauseScreen/VBoxContainer"]
+[node name="optionsButton" type="Button" parent="pauseScreen/PanelContainer/MarginContainer/VBoxContainer"]
 pause_mode = 2
-margin_top = 872.0
-margin_right = 861.0
-margin_bottom = 1049.0
+margin_top = 730.0
+margin_right = 738.0
+margin_bottom = 883.0
 custom_fonts/font = ExtResource( 3 )
 text = "Options"
 
-[node name="quitButton" type="Button" parent="pauseScreen/VBoxContainer"]
+[node name="quitButton" type="Button" parent="pauseScreen/PanelContainer/MarginContainer/VBoxContainer"]
 pause_mode = 2
-margin_top = 1109.0
-margin_right = 861.0
-margin_bottom = 1286.0
+margin_top = 943.0
+margin_right = 738.0
+margin_bottom = 1096.0
 custom_fonts/font = ExtResource( 3 )
 text = "Quit To Menu"
 
@@ -96,7 +120,7 @@ margin_right = 40.0
 margin_bottom = 180.0
 
 [connection signal="timeout" from="msgTimer" to="." method="_on_msgTimer_timeout"]
-[connection signal="pressed" from="pauseScreen/VBoxContainer/continueButton" to="." method="_on_continueButton_pressed"]
-[connection signal="pressed" from="pauseScreen/VBoxContainer/restartButton" to="." method="_on_restartButton_pressed"]
-[connection signal="pressed" from="pauseScreen/VBoxContainer/optionsButton" to="." method="_on_optionsButton_pressed"]
-[connection signal="pressed" from="pauseScreen/VBoxContainer/quitButton" to="." method="_on_quitButton_pressed"]
+[connection signal="pressed" from="pauseScreen/PanelContainer/MarginContainer/VBoxContainer/continueButton" to="." method="_on_continueButton_pressed"]
+[connection signal="pressed" from="pauseScreen/PanelContainer/MarginContainer/VBoxContainer/restartButton" to="." method="_on_restartButton_pressed"]
+[connection signal="pressed" from="pauseScreen/PanelContainer/MarginContainer/VBoxContainer/optionsButton" to="." method="_on_optionsButton_pressed"]
+[connection signal="pressed" from="pauseScreen/PanelContainer/MarginContainer/VBoxContainer/quitButton" to="." method="_on_quitButton_pressed"]

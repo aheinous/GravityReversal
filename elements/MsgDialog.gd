@@ -2,8 +2,8 @@ extends CanvasLayer
 
 signal Closed
 
-onready var TextLabel = $'CenterContainer/VBoxContainer/MsgText'
-onready var OkayButton = $'CenterContainer/VBoxContainer/OkayButton'
+onready var TextLabel = $'CenterContainer/PanelContainer/VBoxContainer/MsgText'
+onready var OkayButton = $'CenterContainer/PanelContainer/VBoxContainer/MarginContainer/OkayButton'
 
 
 func _unhandled_input(event):
