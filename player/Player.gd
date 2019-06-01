@@ -190,12 +190,12 @@ func reachGoal():
 	if gameSM.state == gameSM.states.moving:
 		gameSM.setState(gameSM.states.finished)
 
-		
+
 func enableRestart():
 	assert(gameSM.state == gameSM.states.dead)
 	gameSM.setState(gameSM.states.dead_awaitingRestart)
 
-	
+
 func collideWith(other):
 	if other.is_in_group('evil'):
 		getHit()
