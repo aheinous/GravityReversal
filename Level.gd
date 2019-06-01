@@ -21,7 +21,7 @@ func initGems():
 		gems[gem.color] = false
 	return gems
 
-func player_died():
+func playerDied():
 	var msgs = ['You died.\n Try not doing that.',
 					'Oh look, you\'re dead.',
 					'Oh look, you\'re dead now.',
@@ -44,8 +44,8 @@ func player_died():
 	get_tree().reload_current_scene()
 
 
-func player_reached_goal():
-	print('_on_Player_reached_goal()')
+func playerReachedGoal():
+	print('_on_playerReachedGoal()')
 	HUD.show_msg("Level Complete")
 	yield(HUD.get_node("msgTimer"), "timeout")
 	level_manager.onCurLevelComplete(coinsCollected, coinsAtStart, gems)
@@ -66,7 +66,7 @@ func _ready():
 	HUD.setGems(gems)
 	HUD.show_msg(level_manager.getCurLevelName() + ":\nSTART!")
 	yield(HUD.get_node("msgTimer"), "timeout")
-	player.start_moving()
+	player.startMoving()
 
 
 func onCoin(count):

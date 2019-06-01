@@ -1,13 +1,14 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Level.gd" type="Script" id=1]
-[ext_resource path="res://player/RobotPlayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://art/flag.png" type="Texture" id=3]
 [ext_resource path="res://scienceTiles.tres" type="TileSet" id=4]
 [ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=5]
 [ext_resource path="res://art/game_items_pack_2_free/PNG/64px/bomb.png" type="Texture" id=6]
 [ext_resource path="res://elements/Bombs.gd" type="Script" id=7]
 [ext_resource path="res://art/arrow/arrow.png" type="Texture" id=8]
+[ext_resource path="res://elements/DirectionChangers.gd" type="Script" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 32, 128, 32, 128, 96, 0, 96 )
@@ -67,7 +68,6 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 script = ExtResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-zoom = 0.5
 
 [node name="Saws" type="Node" parent="."]
 
@@ -145,6 +145,7 @@ scale = Vector2( 0.25, 0.25 )
 tile_set = SubResource( 5 )
 cell_size = Vector2( 256, 256 )
 format = 1
+script = ExtResource( 9 )
 
 [node name="MissileSpawners" type="Node" parent="."]
 
