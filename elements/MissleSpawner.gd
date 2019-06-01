@@ -39,6 +39,11 @@ func spawn():
 	var missleInstance = missleScene.instance()
 	missleInstance.position = spawnPos
 	missleInstance.rotation_degrees = self.rotation_degrees - 90
+	if self.scale.x < 0:
+		missleInstance.rotation_degrees += 180
+	if self.scale.y < 0:
+		missleInstance.rotation_degrees += 180
+
 	if missleSpeed != 0:
 		missleInstance.speed = missleSpeed
 	get_tree().get_current_scene().add_child(missleInstance)
