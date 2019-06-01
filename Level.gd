@@ -31,13 +31,12 @@ func playerDied():
 					'That\'s the end of you.',
 					'No more you.']
 	HUD.showMsg(msgs[randi() % msgs.size()])
+	# TODO msg already showing??
 	yield(HUD.get_node("msgTimer"), "timeout")
-	HUD.showMsg('Press anywhere to restart')
+	HUD.showMsg('Press anywhere to continue')
 	player.enableRestart()
 
 
-func restartLevel():
-	get_tree().reload_current_scene()
 
 
 func playerReachedGoal():
@@ -47,23 +46,22 @@ func playerReachedGoal():
 	level_manager.onCurLevelComplete(coinsCollected, coinsAtStart, gems)
 
 
-
-
 func quitToMainMenu():
 	get_tree().change_scene("menus/Menu.tscn")
 	get_tree().paused = false
 
 
-
 func _ready():
-
+	print('player pos: ', player.position)
 	MusicPlayer.setSong(self.songScn)
 	HUD.setCoinCount(0)
 	HUD.setGems(gems)
+	CheckpointSys.loadCheckpointData()
 	HUD.showMsg(level_manager.getCurLevelName() + ":\nSTART!")
 
 	yield(HUD.get_node("msgTimer"), "timeout")
 	player.startMoving()
+	print('player pos: ', player.position)
 
 
 func onCoin(count):

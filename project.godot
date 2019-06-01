@@ -29,6 +29,7 @@ level_manager="*res://level_manager.gd"
 MusicPlayer="*res://MusicPlayer.tscn"
 Global="*res://Global.gd"
 SceneLoader="*res://SceneLoader.gd"
+CheckpointSys="*res://CheckpointSys.gd"
 
 [debug]
 

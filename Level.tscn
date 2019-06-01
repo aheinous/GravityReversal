@@ -159,3 +159,5 @@ script = ExtResource( 9 )
 
 [node name="MsgTriggers" type="Node" parent="."]
 
+[node name="CheckPoints" type="Node" parent="."]
+
