@@ -34,7 +34,7 @@ const CAMERA_CENTER_DEFAULT = Vector2(700, 0)
 const FLIP_SPEED = 3
 
 onready var animatedSprite = $AnimationWrapper/RobotAnimations
-onready var animationWrapper = $AnimationWrapper
+#onready var animationWrapper = $AnimationWrapper
 onready var animationPlayer = $AnimationPlayer
 onready var flipNoise = $FlipNoise
 
