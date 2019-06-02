@@ -33,6 +33,8 @@ func resetState():
 	chkpt_events = null
 	curEvents = []
 
+func levelComplete():
+	resetState()
 
 func recordEvent(obj, funcName, args=[]):
 	var event = ReplayableEvent.new(obj, funcName, args)

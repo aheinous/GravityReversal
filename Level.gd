@@ -43,6 +43,7 @@ func playerReachedGoal():
 	print('_on_playerReachedGoal()')
 	HUD.showMsg("Level Complete")
 	yield(HUD.get_node("msgTimer"), "timeout")
+	CheckpointSys.levelComplete()
 	level_manager.onCurLevelComplete(coinsCollected, coinsAtStart, gems)
 
 
