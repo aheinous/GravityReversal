@@ -33,7 +33,7 @@ func resetState():
 	chkpt_events = null
 	curEvents = []
 
-func levelComplete():
+func onLevelExit():
 	resetState()
 
 func recordEvent(obj, funcName, args=[]):
