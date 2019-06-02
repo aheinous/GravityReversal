@@ -118,3 +118,17 @@ func onRestartConfirmed():
 	CheckpointSys.restartAtBeginning()
 	get_tree().paused = false
 
+
+
+func _on_loadChkptButton_pressed():
+	var confirm = confirmPkdScn.instance()
+	add_child(confirm)
+	confirm.setup("Load last checkpoint?",
+				"Yes", self, "onLoadChkptConfirmed",
+				"No")
+
+
+func onLoadChkptConfirmed():
+	CheckpointSys.restartLevelOrCheckpoint()
+	get_tree().paused = false
+
