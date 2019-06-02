@@ -33,3 +33,8 @@ func fakeEscapePress():
 	releaseEvent.pressed = false
 	Input.parse_input_event(releaseEvent)
 
+func getHUD():
+	return $'/root/Level/HUD'
+
+func getPlayer():
+	return $'/root/Level/Player'

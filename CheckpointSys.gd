@@ -30,13 +30,6 @@ func resetState():
 	curEvents = []
 
 
-func getHUD():
-	return $'/root/Level/HUD'
-
-func getPlayer():
-	return $'/root/Level/Player'
-
-
 func recordEvent(obj, funcName, args=[]):
 	var event = ReplayableEvent.new(obj, funcName, args)
 	curEvents.push_back(event)
