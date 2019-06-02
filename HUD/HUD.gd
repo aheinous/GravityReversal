@@ -115,7 +115,6 @@ func _on_restartButton_pressed():
 				"No")
 
 func onRestartConfirmed():
-	get_tree().reload_current_scene()
 	CheckpointSys.restartAtBeginning()
 	get_tree().paused = false
 
