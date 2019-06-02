@@ -37,8 +37,10 @@ position = Vector2( 0, 45.125 )
 script = ExtResource( 1 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 5, 0 )
 emitting = false
 amount = 80
+speed_scale = 3.46
 local_coords = false
 process_material = SubResource( 4 )
 texture = ExtResource( 2 )
