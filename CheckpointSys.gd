@@ -20,12 +20,16 @@ var curEvents = []
 
 var chkpt_pos = null
 var chkpt_nodePath = null
+var chkpt_angleDegrees = null
+var chkpt_upsideDown = null
 var chkpt_events = null
 
 
 func resetState():
 	chkpt_pos = null
 	chkpt_nodePath = null
+	chkpt_angleDegrees = null
+	chkpt_upsideDown = null
 	chkpt_events = null
 	curEvents = []
 
@@ -51,17 +55,20 @@ func loadCheckpointData():
 		resetState()
 		return
 #	print('player pos: %s --> %s' % [getPlayer().position, chkpt_pos])
-	getPlayer().position = chkpt_pos
+	Global.getPlayer().position = chkpt_pos
+	Global.getPlayer().setMovement(chkpt_angleDegrees, chkpt_upsideDown, false)
 	curEvents = chkpt_events.duplicate()
 	for event in curEvents:
 		event.play(self)
 
 
-func playerReachedCheckpoint(pos, nodePath):
+func playerReachedCheckpoint(pos, nodePath, angleDegrees, upsideDown):
 #	print('playerReachedCheckpoint(%s, %s)' % [pos, nodePath])
 	if chkpt_nodePath == nodePath:
 		return
 	chkpt_pos = pos
 	chkpt_nodePath = nodePath
+	chkpt_angleDegrees = angleDegrees
+	chkpt_upsideDown = upsideDown
 	chkpt_events = curEvents.duplicate()
-	getHUD().showMsg("Checkpoint", 0.5)
+	Global.getHUD().showMsg("Checkpoint", 0.8)
