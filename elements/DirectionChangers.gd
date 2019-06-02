@@ -30,9 +30,9 @@ func switchTilesToDirChanges():
 
 
 func addDirChange(pos, deg):
-	print('adding dir change at %s' % pos)
+#	print('adding dir change at %s' % pos)
 	var dirChange = dirChangePackedScene.instance()
 	dirChange.position = pos
 	dirChange.rotation_degrees = deg
-	print(dirChange.position)
+#	print(dirChange.position)
 	get_tree().get_current_scene().add_child(dirChange)
