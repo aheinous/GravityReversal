@@ -41,8 +41,8 @@ func recordEvent(obj, funcName, args=[]):
 	curEvents.push_back(event)
 	event.play(self)
 
-func restartLevelOrCheckpoint():
-#	print('restartLevelOrCheckpoint()')
+func restartAtBeginningOrCheckpoint():
+#	print('restartAtBeginningOrCheckpoint()')
 	get_tree().reload_current_scene()
 
 func restartAtBeginning():

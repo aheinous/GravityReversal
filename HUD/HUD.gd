@@ -129,6 +129,6 @@ func _on_loadChkptButton_pressed():
 
 
 func onLoadChkptConfirmed():
-	CheckpointSys.restartLevelOrCheckpoint()
+	CheckpointSys.restartAtBeginningOrCheckpoint()
 	get_tree().paused = false
 
