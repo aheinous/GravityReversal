@@ -25,6 +25,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="pauseScreen" type="MarginContainer" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
@@ -33,9 +34,10 @@ margin_right = 479.5
 
 [node name="PanelContainer" type="PanelContainer" parent="pauseScreen"]
 self_modulate = Color( 0.580392, 0.580392, 0.580392, 1 )
-margin_top = 68.0
-margin_right = 1035.0
-margin_bottom = 1371.0
+margin_left = 510.0
+margin_top = 713.0
+margin_right = 524.0
+margin_bottom = 727.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
