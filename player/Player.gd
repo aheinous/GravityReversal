@@ -244,7 +244,7 @@ func changeDirectionToAngle(angleDeg):
 	# if angle change is close to 90 degrees set upsideDown in the way most consistant with current velocity
 	if 89 < absDeltaDegrees and absDeltaDegrees < 91:
 		var fallDir = Vector2.RIGHT.rotated(deg2rad(angleDeg-90 if upsideDown else angleDeg+90))
-		if fallDir.dot(velocity) < 0:
+		if fallDir.dot(velocity + moveDir) < 0: # adding moveDir gives prefence to direction we're trying to move if stalled
 			upsideDown = not upsideDown
 
 	setMovement(angleDeg, upsideDown, true)
