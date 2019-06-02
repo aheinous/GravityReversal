@@ -89,7 +89,6 @@ func loadLevel(metaData):
 func loadLevelNum(n):
 	print('loading level: ', n)
 	curLevelNum = n
-
 	SceneLoader.loadScene(levels[n].scenePath)
 
 
@@ -106,8 +105,6 @@ func initDefaults():
 		LevelMetaData.new('Saw Hallway', 'levels/SawHallway.tscn'),
 		LevelMetaData.new('Floating Thru Space', 'levels/floatingThruSpace.tscn'),
 		LevelMetaData.new('Red Space', 'levels/redSpace.tscn'),
-
-
 	]
 
 
@@ -155,7 +152,7 @@ func loadGame():
 	for metaData in levels:
 		metaData.maxCoinsCollected = save.get(metaData.scenePath + ': maxCoinsCollected')
 		metaData.coinsAvail = save.get(metaData.scenePath + ': coinsAvail')
-		metaData.gems = save.get(metaData.scenePath + ': gems', {})
+		metaData.gems = save.get(metaData.scenePath + ': gems')
 		metaData.completed = save.get(metaData.scenePath + ': completed', false)
 		metaData.madeAvail = save.get(metaData.scenePath + ": madeAvail", false)
 
