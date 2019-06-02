@@ -102,6 +102,8 @@ func setMovement(angle, upsideDown, animate = false):
 	if upsideDown:
 		rot = -rot
 	rot = centerAnglePos(rot)
+	if rot == 0:
+		return
 
 #	print('rot: %s, prevAngle: %s, angle: %s, isFlip: %s, upsideDown: %s' % [rot, prevAngle, angle, isFlip, upsideDown ])
 
