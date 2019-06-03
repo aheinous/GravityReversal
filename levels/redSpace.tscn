@@ -1,15 +1,21 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://elements/saw/Saw.tscn" type="PackedScene" id=2]
 [ext_resource path="res://elements/MissleSpawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://elements/Coin.tscn" type="PackedScene" id=4]
-[ext_resource path="res://RedBackground.tscn" type="PackedScene" id=5]
-[ext_resource path="res://elements/RedGem.tscn" type="PackedScene" id=6]
-[ext_resource path="res://elements/BlueGem.tscn" type="PackedScene" id=7]
-[ext_resource path="res://elements/YellowGem.tscn" type="PackedScene" id=8]
-[ext_resource path="res://elements/GreenGem.tscn" type="PackedScene" id=9]
+[ext_resource path="res://elements/backgrounds/RedBackground.tscn" type="PackedScene" id=5]
+[ext_resource path="res://elements/gems/RedGem.tscn" type="PackedScene" id=6]
+[ext_resource path="res://elements/gems/BlueGem.tscn" type="PackedScene" id=7]
+[ext_resource path="res://elements/gems/YellowGem.tscn" type="PackedScene" id=8]
+[ext_resource path="res://elements/gems/GreenGem.tscn" type="PackedScene" id=9]
 [ext_resource path="res://elements/CameraZoomChange.tscn" type="PackedScene" id=10]
+
+
+
+
+
+
 
 [sub_resource type="Curve2D" id=1]
 _data = {

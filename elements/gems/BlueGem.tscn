@@ -1,8 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://elements/BlueGem.gd" type="Script" id=1]
+[ext_resource path="res://elements/gems/BlueGem.gd" type="Script" id=1]
 [ext_resource path="res://art/soundfx/noisecreations_SFX-NCFREE02_Flabby-Burd.wav" type="AudioStream" id=2]
 [ext_resource path="res://art/platformerPack/Items/gemBlue.png" type="Texture" id=3]
+
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 19.1178

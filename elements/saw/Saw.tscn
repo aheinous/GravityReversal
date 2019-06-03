@@ -32,8 +32,8 @@ _data = {
 radius = 179.0
 
 [node name="SawBlade" type="Node2D" groups=[
-"resettable",
 "evil",
+"resettable",
 ]]
 script = ExtResource( 1 )
 

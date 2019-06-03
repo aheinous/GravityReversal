@@ -34,9 +34,9 @@ margin_right = 479.5
 
 [node name="PanelContainer" type="PanelContainer" parent="pauseScreen"]
 self_modulate = Color( 0.580392, 0.580392, 0.580392, 1 )
-margin_left = 510.0
+margin_left = 472.0
 margin_top = 713.0
-margin_right = 524.0
+margin_right = 486.0
 margin_bottom = 727.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
