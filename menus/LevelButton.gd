@@ -1,12 +1,12 @@
 extends Button
 
-var levelMetaData
+var levelInfo
 
-func setup(levelMetaData):
-	self.levelMetaData = levelMetaData
-	self.text = levelMetaData.name
-	self.disabled = not level_manager.isAvail(levelMetaData)
+func setup(levelInfo):
+	self.levelInfo = levelInfo
+	self.text = levelInfo.name
+	self.disabled = not LevelInfoManager.isLevelAvailable(levelInfo.scenePath)
 
 
 func _on_LevelButton_pressed():
-	level_manager.loadLevel(levelMetaData)
+	LevelTransitions.enterLevel(levelInfo.scenePath)

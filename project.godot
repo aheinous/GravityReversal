@@ -25,12 +25,13 @@ config/version="0.0.1"
 
 [autoload]
 
-level_manager="*res://autoload/level_manager.gd"
 MusicPlayer="*res://autoload/MusicPlayer.tscn"
 Global="*res://autoload/Global.gd"
 SceneLoader="*res://autoload/SceneLoader.gd"
 CheckpointSys="*res://autoload/CheckpointSys.gd"
 LevelTransitions="*res://autoload/LevelTransitions.gd"
+LevelInfoManager="*res://autoload/LevelInfoManager.gd"
+SaveSys="*res://autoload/SaveSys.gd"
 
 [debug]
 

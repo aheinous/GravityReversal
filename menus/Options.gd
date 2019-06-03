@@ -17,7 +17,7 @@ func _ready():
 	initVolumeSliderValues()
 
 func _exit_tree():
-	level_manager.saveGame()
+	SaveSys.saveGame()
 
 func _on_ResetButton_pressed():
 	var confirm = confirmScn.instance()
@@ -28,19 +28,10 @@ func _on_ResetButton_pressed():
 
 
 func onYesPressed():
-	level_manager.clearSaveData()
+	SaveSys.clearSaveData()
 
-
-#func _notification(what):
-#	if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
-#		goBack()
-#
-#func _process(delta):
-#	if Input.is_action_just_pressed("ui_cancel"):
-#		goBack()
 
 func goBack():
-#	get_tree().change_scene("menus/Menu.tscn")
 	queue_free()
 
 

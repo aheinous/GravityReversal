@@ -86,7 +86,8 @@ func _on_continueButton_pressed():
 
 
 func onQuitConfirmed():
-	owner.quitToMainMenu()
+	LevelTransitions.quitLevelEarly()
+	get_tree().paused = false
 
 
 func _on_quitButton_pressed():
@@ -115,7 +116,7 @@ func _on_restartButton_pressed():
 				"No")
 
 func onRestartConfirmed():
-	CheckpointSys.restartAtBeginning()
+	LevelTransitions.restartAtBeginning()
 	get_tree().paused = false
 
 
@@ -129,6 +130,6 @@ func _on_loadChkptButton_pressed():
 
 
 func onLoadChkptConfirmed():
-	CheckpointSys.restartAtBeginningOrCheckpoint()
+	LevelTransitions.restartAtCheckpointOrBeginning()
 	get_tree().paused = false
 

@@ -13,13 +13,11 @@ func _ready():
 	var buttonScene = load("res://menus/LevelButton.tscn")
 	var coinCountScene = load('res://menus/MenuCoinCount.tscn')
 	var gemIndicatorScene = load('res://menus/GemIndicator.tscn')
-	var levels = level_manager.levels
 
-	for n in range(levels.size()):
-		var metaData = levels[n]
+	for levelInfo in LevelInfoManager.levelInfoList:
 		var button = buttonScene.instance()
-		button.set_name(metaData.name + '_button')
-		button.setup(metaData)
+		button.set_name(levelInfo.name + '_button')
+		button.setup(levelInfo)
 		buttonContainer.add_child(button)
 
 		var coinCnt = coinCountScene.instance()
@@ -28,22 +26,13 @@ func _ready():
 		buttonContainer.add_child(coinCnt)
 		buttonContainer.add_child(gemsIndicator)
 
-		gemsIndicator.setGems(metaData.gems)
+		gemsIndicator.setGems(levelInfo.gems)
 
-		if metaData.maxCoinsCollected == null:
+		if levelInfo.maxCoinsCollected == null:
 			coinCnt.setBlank(true)
 		else:
-			coinCnt.setCoinCount(metaData.maxCoinsCollected, metaData.coinsAvail)
+			coinCnt.setCoinCount(levelInfo.maxCoinsCollected, levelInfo.coinsAvail)
 
-
-#
-#func _notification(what):
-#	if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
-#		goBack()
-
-#func _process(delta):
-#	if Input.is_action_just_pressed("ui_cancel"):
-#		goBack()
 
 
 func _unhandled_input(event):

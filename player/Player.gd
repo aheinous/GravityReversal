@@ -171,7 +171,7 @@ func onPress():
 	if gameSM.state in [gameSM.states.waiting, gameSM.states.moving]:
 		reverseGravity()
 	elif gameSM.state == gameSM.states.dead_awaitingRestart:
-		CheckpointSys.restartAtBeginningOrCheckpoint()
+		LevelTransitions.restartAtCheckpointOrBeginning()
 
 
 func _input(event):

@@ -43,14 +43,7 @@ func playerReachedGoal():
 	print('_on_playerReachedGoal()')
 	HUD.showMsg("Level Complete")
 	yield(HUD.get_node("msgTimer"), "timeout")
-	CheckpointSys.onLevelExit()
-	level_manager.onCurLevelComplete(coinsCollected, coinsAtStart, gems)
-
-
-func quitToMainMenu():
-	CheckpointSys.onLevelExit()
-	get_tree().change_scene("menus/Menu.tscn")
-	get_tree().paused = false
+	LevelTransitions.completeLevel(coinsCollected, coinsAtStart, gems)
 
 
 func _ready():
@@ -59,7 +52,10 @@ func _ready():
 	HUD.setCoinCount(0)
 	HUD.setGems(gems)
 	CheckpointSys.loadCheckpointData()
-	HUD.showMsg(level_manager.getCurLevelName() + ":\nSTART!")
+
+
+
+	HUD.showMsg(LevelInfoManager.getCurLevelName() + ":\nSTART!")
 
 	yield(HUD.get_node("msgTimer"), "timeout")
 	player.startMoving()

@@ -41,13 +41,13 @@ func recordEvent(obj, funcName, args=[]):
 	curEvents.push_back(event)
 	event.play(self)
 
-func restartAtBeginningOrCheckpoint():
-#	print('restartAtBeginningOrCheckpoint()')
-	get_tree().reload_current_scene()
 
-func restartAtBeginning():
+func onRestartAtCheckpointOrBeginning():
+	pass
+
+
+func onRestartAtBeginning():
 	resetState()
-	get_tree().reload_current_scene()
 
 
 func loadCheckpointData():

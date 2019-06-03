@@ -10,7 +10,6 @@
 [ext_resource path="res://art/arrow/arrow.png" type="Texture" id=8]
 [ext_resource path="res://elements/DirectionChangers.gd" type="Script" id=9]
 
-
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 32, 128, 32, 128, 96, 0, 96 )
 

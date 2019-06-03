@@ -33,3 +33,6 @@ func loadScene(path):
 	get_tree().change_scene_to(preload("res://menus/loadScreen.tscn"))
 	waitFrames = 1
 	set_process(true)
+
+func reloadScene():
+	get_tree().reload_current_scene()
