@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PM_Metal_Impact_Crash_Hit_06.wav-027316cb6d2d21f718fc18c4022bebf1.sample"
+
+[deps]
+
+source_file="res://art/soundfx/zapsplat/PM_Metal_Impact_Crash_Hit_06.wav"
+dest_files=[ "res://.import/PM_Metal_Impact_Crash_Hit_06.wav-027316cb6d2d21f718fc18c4022bebf1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/zapsplat_impacts_body_lean_hard_against_wall_16048_TRIMMED.wav-00ebbd36196e2e2ffd5d216a674ad7fd.sample"
+
+[deps]
+
+source_file="res://art/soundfx/zapsplat/zapsplat_impacts_body_lean_hard_against_wall_16048_TRIMMED.wav"
+dest_files=[ "res://.import/zapsplat_impacts_body_lean_hard_against_wall_16048_TRIMMED.wav-00ebbd36196e2e2ffd5d216a674ad7fd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

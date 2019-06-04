@@ -37,6 +37,8 @@ onready var animatedSprite = $AnimationWrapper/RobotAnimations
 #onready var animationWrapper = $AnimationWrapper
 onready var animationPlayer = $AnimationPlayer
 onready var flipNoise = $FlipNoise
+onready var smallImpactNoise = $SmallImpactNoise
+onready var heavyImpactNoise = $HeavyImpactNoise
 
 
 var moveDir = Vector2.RIGHT
@@ -137,7 +139,25 @@ func reverseGravity():
 	flipNoise.play()
 
 
+func playImpactNoise(prevVelocity, velocity):
+	if velocity.length_squared() > prevVelocity.length_squared():
+		return
+	var deltaSquared = (prevVelocity-velocity).length_squared()
+
+#	if deltaSquared == 0:
+#		return
+#	print('velocity delta: ', sqrt(deltaSquared))
+
+	if deltaSquared < 100*100:
+		return
+	elif deltaSquared < 900*900:
+		smallImpactNoise.play()
+	else:
+		heavyImpactNoise.play()
+
+
 func _physics_process(delta):
+	var prevVelocity = velocity
 	# zero velocity in moveDir direction
 	velocity -= moveDir * velocity.dot(moveDir)
 	if gameSM.state == gameSM.states.moving:
@@ -147,6 +167,11 @@ func _physics_process(delta):
 	var acceleration = GRAVITY * fallDir * delta
 	velocity += acceleration
 	velocity = move_and_slide(velocity, -fallDir)
+
+	if get_slide_count() > 0:
+		playImpactNoise(prevVelocity, velocity)
+
+
 
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/zapsplat_impact_metal_door_screwdriver_002_25750.wav-b913fffd41d35c869f5f32c190a4251d.sample"
+
+[deps]
+
+source_file="res://art/soundfx/zapsplat/zapsplat_impact_metal_door_screwdriver_002_25750.wav"
+dest_files=[ "res://.import/zapsplat_impact_metal_door_screwdriver_002_25750.wav-b913fffd41d35c869f5f32c190a4251d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

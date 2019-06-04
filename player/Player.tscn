@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://art/robotfree/png/Idle (1).png" type="Texture" id=2]
@@ -11,21 +11,21 @@
 [ext_resource path="res://art/robotfree/png/Idle (8).png" type="Texture" id=9]
 [ext_resource path="res://art/robotfree/png/Idle (9).png" type="Texture" id=10]
 [ext_resource path="res://art/robotfree/png/Idle (10).png" type="Texture" id=11]
-[ext_resource path="res://art/robotfree/png/Dead (1).png" type="Texture" id=12]
-[ext_resource path="res://art/robotfree/png/Dead (2).png" type="Texture" id=13]
-[ext_resource path="res://art/robotfree/png/Dead (3).png" type="Texture" id=14]
-[ext_resource path="res://art/robotfree/png/Dead (4).png" type="Texture" id=15]
-[ext_resource path="res://art/robotfree/png/Dead (5).png" type="Texture" id=16]
-[ext_resource path="res://art/robotfree/png/Dead (6).png" type="Texture" id=17]
-[ext_resource path="res://art/robotfree/png/Dead (7).png" type="Texture" id=18]
-[ext_resource path="res://art/robotfree/png/Dead (8).png" type="Texture" id=19]
-[ext_resource path="res://art/robotfree/png/Dead (9).png" type="Texture" id=20]
-[ext_resource path="res://art/robotfree/png/Dead (10).png" type="Texture" id=21]
-[ext_resource path="res://art/robotfree/png/JumpShoot (1).png" type="Texture" id=22]
-[ext_resource path="res://art/robotfree/png/JumpShoot (2).png" type="Texture" id=23]
-[ext_resource path="res://art/robotfree/png/JumpShoot (3).png" type="Texture" id=24]
-[ext_resource path="res://art/robotfree/png/JumpShoot (4).png" type="Texture" id=25]
-[ext_resource path="res://art/robotfree/png/JumpShoot (5).png" type="Texture" id=26]
+[ext_resource path="res://art/robotfree/png/JumpShoot (1).png" type="Texture" id=12]
+[ext_resource path="res://art/robotfree/png/JumpShoot (2).png" type="Texture" id=13]
+[ext_resource path="res://art/robotfree/png/JumpShoot (3).png" type="Texture" id=14]
+[ext_resource path="res://art/robotfree/png/JumpShoot (4).png" type="Texture" id=15]
+[ext_resource path="res://art/robotfree/png/JumpShoot (5).png" type="Texture" id=16]
+[ext_resource path="res://art/robotfree/png/Dead (1).png" type="Texture" id=17]
+[ext_resource path="res://art/robotfree/png/Dead (2).png" type="Texture" id=18]
+[ext_resource path="res://art/robotfree/png/Dead (3).png" type="Texture" id=19]
+[ext_resource path="res://art/robotfree/png/Dead (4).png" type="Texture" id=20]
+[ext_resource path="res://art/robotfree/png/Dead (5).png" type="Texture" id=21]
+[ext_resource path="res://art/robotfree/png/Dead (6).png" type="Texture" id=22]
+[ext_resource path="res://art/robotfree/png/Dead (7).png" type="Texture" id=23]
+[ext_resource path="res://art/robotfree/png/Dead (8).png" type="Texture" id=24]
+[ext_resource path="res://art/robotfree/png/Dead (9).png" type="Texture" id=25]
+[ext_resource path="res://art/robotfree/png/Dead (10).png" type="Texture" id=26]
 [ext_resource path="res://art/robotfree/png/Jump (3).png" type="Texture" id=27]
 [ext_resource path="res://art/robotfree/png/Jump (4).png" type="Texture" id=28]
 [ext_resource path="res://art/robotfree/png/Jump (5).png" type="Texture" id=29]
@@ -47,6 +47,8 @@
 [ext_resource path="res://art/robotfree/png/Run (7).png" type="Texture" id=45]
 [ext_resource path="res://art/robotfree/png/Run (8).png" type="Texture" id=46]
 [ext_resource path="res://art/soundfx/flip.wav" type="AudioStream" id=47]
+[ext_resource path="res://art/soundfx/zapsplat/zapsplat_impacts_body_lean_hard_against_wall_16048_TRIMMED.wav" type="AudioStream" id=48]
+[ext_resource path="res://art/soundfx/zapsplat/zapsplat_impact_metal_door_screwdriver_002_25750.wav" type="AudioStream" id=49]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 27.0
@@ -63,14 +65,14 @@ animations = [ {
 "name": "idle",
 "speed": 20.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "dead",
-"speed": 20.0
-}, {
-"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "jumpShoot",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "dead",
 "speed": 20.0
 }, {
 "frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
@@ -212,6 +214,16 @@ anims/flip = SubResource( 6 )
 [node name="FlipNoise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 47 )
 volume_db = -11.0
+bus = "fx"
+
+[node name="SmallImpactNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 48 )
+volume_db = -5.0
+bus = "fx"
+
+[node name="HeavyImpactNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 49 )
+volume_db = -3.0
 bus = "fx"
 
 [connection signal="area_entered" from="Sense" to="." method="_on_Sense_area_entered"]
