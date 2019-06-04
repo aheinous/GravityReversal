@@ -39,7 +39,7 @@ onready var animationPlayer = $AnimationPlayer
 onready var flipNoise = $FlipNoise
 onready var smallImpactNoise = $SmallImpactNoise
 onready var heavyImpactNoise = $HeavyImpactNoise
-
+onready var stallNoise = $StallNoise
 
 var moveDir = Vector2.RIGHT
 var fallDir = Vector2.DOWN
@@ -171,8 +171,6 @@ func _physics_process(delta):
 	if get_slide_count() > 0:
 		playImpactNoise(prevVelocity, velocity)
 
-
-
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider.is_in_group('bomb'):
@@ -182,6 +180,14 @@ func _physics_process(delta):
 		else:
 			collideWith(collision.collider)
 	selectAnimation()
+
+	if gameSM.state == gameSM.states.moving and is_on_floor() and velocity.length_squared() <= 0.01:
+		if not stallNoise.playing:
+			stallNoise.play()
+	else:
+		stallNoise.stop()
+
+
 
 
 func selectAnimation():

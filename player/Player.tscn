@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://art/robotfree/png/Idle (1).png" type="Texture" id=2]
@@ -49,6 +49,7 @@
 [ext_resource path="res://art/soundfx/flip.wav" type="AudioStream" id=47]
 [ext_resource path="res://art/soundfx/zapsplat/zapsplat_impacts_body_lean_hard_against_wall_16048_TRIMMED.wav" type="AudioStream" id=48]
 [ext_resource path="res://art/soundfx/zapsplat/zapsplat_impact_metal_door_screwdriver_002_25750.wav" type="AudioStream" id=49]
+[ext_resource path="res://art/soundfx/zapsplat/zapsplat_household_cleaning_paper_towel_rub_wipe_clean_glass_window_squeaks_005_31795_TRIMMED.wav" type="AudioStream" id=50]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 27.0
@@ -223,6 +224,11 @@ bus = "fx"
 
 [node name="HeavyImpactNoise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 49 )
+volume_db = -3.0
+bus = "fx"
+
+[node name="StallNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 50 )
 volume_db = -3.0
 bus = "fx"
 
