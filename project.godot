@@ -46,11 +46,6 @@ window/size/height=1440
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
-[logging]
-
-file_logging/enable_file_logging=true
-file_logging/log_path="user://logs/gravityReversalLogs.txt"
-
 [rendering]
 
 quality/intended_usage/framebuffer_allocation=0
