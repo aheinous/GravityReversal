@@ -1,14 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://elements/gems/BlueGem.gd" type="Script" id=1]
 [ext_resource path="res://art/soundfx/noisecreations_SFX-NCFREE02_Flabby-Burd.wav" type="AudioStream" id=2]
 [ext_resource path="res://art/platformerPack/Items/gemBlue.png" type="Texture" id=3]
 
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 19.1178
 
-[sub_resource type="ParticlesMaterial" id=2]
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.172603, 0.284932, 0.40274, 0.684932, 0.750685, 0.994521, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 0.288086, 0.288086, 0.288086, 1, 1, 1, 1, 0.934166, 1, 1, 1, 0.776471, 0, 0, 0, 0.537255, 1, 1, 1, 0.223416, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
 flag_align_y = true
 flag_disable_z = true
 spread = 180.0
@@ -20,7 +26,7 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 damping = 7.14
 scale = 5.0
-color = Color( 0.917647, 0.921569, 0.588235, 1 )
+color_ramp = SubResource( 3 )
 
 [node name="BlueGem" type="Area2D" groups=[
 "gem",
@@ -33,11 +39,11 @@ shape = SubResource( 1 )
 [node name="Particles2D" type="Particles2D" parent="."]
 z_index = -1
 emitting = false
-amount = 20
-lifetime = 0.2
+amount = 40
 one_shot = true
-explosiveness = 1.0
-process_material = SubResource( 2 )
+speed_scale = 1.2
+explosiveness = 0.79
+process_material = SubResource( 4 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
