@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://elements/saw/TextureCurveDrawer.gd" type="Script" id=1]
+[ext_resource path="res://art/freescifiplatform/sawTube.png" type="Texture" id=2]
+[ext_resource path="res://art/freescifiplatform/sawTube_endCap.png" type="Texture" id=3]
+[ext_resource path="res://art/freescifiplatform/sawTube_joint.png" type="Texture" id=4]
+
+
+
+
+[node name="TextureCurveDrawer" type="Node2D"]
+script = ExtResource( 1 )
+lineTexture = ExtResource( 2 )
+endCapTexture = ExtResource( 3 )
+jointTexture = ExtResource( 4 )
+

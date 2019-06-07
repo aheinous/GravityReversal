@@ -10,7 +10,9 @@ onready var follow = $Path/Follow
 onready var path = $Path
 onready var runningSound = $'Path/Follow/Blade/RunningSound2D'
 onready var hitSound = $'Path/Follow/Blade/HitSound2D'
+onready var curveDrawer = $TextureCurveDrawer
 
+var curve = null
 var pathDir = 1
 
 var nOverlapping = 0
@@ -27,9 +29,14 @@ func _ready():
 	for child in get_children():
 		if child is Path2D and child.name != 'Path':
 			path.curve = child.curve
+			self.curve = child.curve
 			break
 
 	reset()
+
+
+func _draw():
+	curveDrawer.drawCurve(self, curve)
 
 func reset():
 	curPauseRemaining = pauseTime

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://elements/saw/SawBlade.gd" type="Script" id=1]
 [ext_resource path="res://elements/saw/Blade.gd" type="Script" id=2]
 [ext_resource path="res://art/freescifiplatform/png/Objects/Saw.png" type="Texture" id=3]
 [ext_resource path="res://art/soundfx/TableSawBuzz-SoundBible.com-1560233300_LOOP.wav" type="AudioStream" id=4]
 [ext_resource path="res://art/soundfx/Buzzsaw-jaymz-1831379074_CUT_LOOP.wav" type="AudioStream" id=5]
+[ext_resource path="res://elements/saw/TextureCurveDrawer.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "spin"
@@ -35,6 +36,8 @@ radius = 179.0
 "evil",
 "resettable",
 ]]
+self_modulate = Color( 0.882353, 0.882353, 0.882353, 1 )
+z_index = -1
 script = ExtResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -48,9 +51,11 @@ rotate = false
 loop = false
 
 [node name="Blade" type="Area2D" parent="Path/Follow"]
+z_index = 1
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Path/Follow/Blade"]
+rotation = -2.99344
 scale = Vector2( 0.25, -0.25 )
 texture = ExtResource( 3 )
 
@@ -59,16 +64,21 @@ scale = Vector2( 0.25, 0.25 )
 shape = SubResource( 3 )
 
 [node name="RunningSound2D" type="AudioStreamPlayer2D" parent="Path/Follow/Blade"]
+position = Vector2( 768, -256 )
 stream = ExtResource( 4 )
 volume_db = -10.0
 max_distance = 1000.0
 bus = "fx"
 
 [node name="HitSound2D" type="AudioStreamPlayer2D" parent="Path/Follow/Blade"]
+position = Vector2( 256, -128 )
 stream = ExtResource( 5 )
 volume_db = -10.692
 max_distance = 1000.0
 bus = "fx"
+
+[node name="TextureCurveDrawer" parent="." instance=ExtResource( 6 )]
+textureScale = 0.4
 
 [connection signal="body_entered" from="Path/Follow/Blade" to="." method="_on_Blade_body_entered"]
 [connection signal="body_exited" from="Path/Follow/Blade" to="." method="_on_Blade_body_exited"]
