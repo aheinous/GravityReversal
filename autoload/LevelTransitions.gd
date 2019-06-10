@@ -38,14 +38,7 @@ func completeLevel(coinsCollected, coinsAtStart, gems):
 
 
 func loadNextLevel():
-	var nextLevel = LevelInfoManager.getNextLevel(curLevelPath)
-	if nextLevel == null:
-		curLevelPath = null
-		Global.getHUD().showMsg("You Beat The Game!")
-		yield(Global.getHUD().get_node("msgTimer"), "timeout")
-		SceneLoader.loadScene('menus/Menu.tscn')
-	else:
-		enterLevel(nextLevel)
+	enterLevel(LevelInfoManager.getNextLevel(curLevelPath))
 
 func getCurLevelPath():
 	return curLevelPath

@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+onready var lvlCompleteLabel = $'Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/LevelCompleteLabel'
+onready var nextButton = $'Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/NextButton'
+
 onready var runCoinCount = $'Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/runCoinCount'
 onready var runGems = $'Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/runGems'
 onready var overallCoinCount = $'Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/overallCoinCount'
@@ -14,6 +17,11 @@ func setup(coinsCollected, coinsAtStart, gems):
 	runGems.setGems(gems)
 	overallCoinCount.setCoinCount(lvlInfo.maxCoinsCollected, lvlInfo.coinsAvail)
 	overallGems.setGems(lvlInfo.gems)
+
+	if LevelInfoManager.getNextLevel() == null:
+		lvlCompleteLabel.text = 'You Beat The Game!'
+		nextButton.visible = false
+
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):

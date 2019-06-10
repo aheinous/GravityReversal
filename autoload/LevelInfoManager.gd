@@ -70,7 +70,9 @@ func onLevelCompleted(scnPath, coinsCollected, coinsAvail, gems):
 	assert(levelInfo.madeAvail)
 
 
-func getNextLevel(scnPath):
+func getNextLevel(scnPath = null):
+	if scnPath == null:
+		scnPath = LevelTransitions.getCurLevelPath()
 	for i in range(levelInfoList.size()):
 		if levelInfoList[i].scenePath == scnPath:
 			return levelInfoList[i+1].scenePath if i+1 < levelInfoList.size() else null
