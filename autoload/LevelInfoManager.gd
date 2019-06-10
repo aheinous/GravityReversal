@@ -41,6 +41,8 @@ func getLevelInfo(scnPath):
 			return levelInfo
 	assert(false)
 
+func getCurLevelInfo():
+	return getLevelInfo(LevelTransitions.getCurLevelPath())
 
 func getCurLevelName():
 	if LevelTransitions.curLevelPath == null:
