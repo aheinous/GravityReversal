@@ -2,7 +2,7 @@ extends Node2D
 
 
 export var speed := 100
-export var phase := 0.0
+export (float, 0, 1) var phase = 0.0
 export var pauseTime := 0.0
 
 onready var animationPlayer = $AnimationPlayer
