@@ -3,6 +3,8 @@ extends Node
 
 var curLevelPath = null setget , getCurLevelPath
 
+var levelCompleteMenu = preload('res://menus/LevelCompleteMenu.tscn')
+
 
 func enterLevel(scnPath):
 	curLevelPath = scnPath
@@ -29,6 +31,13 @@ func completeLevel(coinsCollected, coinsAtStart, gems):
 
 	LevelInfoManager.onLevelCompleted(curLevelPath, coinsCollected, coinsAtStart, gems)
 	SaveSys.saveGame()
+	var levelCompleteMenuInstance = levelCompleteMenu.instance()
+	get_tree().get_current_scene().add_child(levelCompleteMenuInstance)
+	levelCompleteMenuInstance.setup(coinsCollected, coinsAtStart, gems)
+
+
+
+func loadNextLevel():
 	var nextLevel = LevelInfoManager.getNextLevel(curLevelPath)
 	if nextLevel == null:
 		curLevelPath = null
