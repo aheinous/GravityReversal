@@ -67,14 +67,12 @@ shape = SubResource( 3 )
 position = Vector2( 768, -256 )
 stream = ExtResource( 4 )
 volume_db = -10.0
-max_distance = 1000.0
 bus = "fx"
 
 [node name="HitSound2D" type="AudioStreamPlayer2D" parent="Path/Follow/Blade"]
 position = Vector2( 256, -128 )
 stream = ExtResource( 5 )
 volume_db = -10.692
-max_distance = 1000.0
 bus = "fx"
 
 [node name="TextureCurveDrawer" parent="." instance=ExtResource( 6 )]
