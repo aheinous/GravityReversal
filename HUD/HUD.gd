@@ -86,7 +86,7 @@ func _on_continueButton_pressed():
 
 
 func onQuitConfirmed():
-	LevelTransitions.quitLevelEarly()
+	LevelTransitions.quitLevel()
 	get_tree().paused = false
 
 

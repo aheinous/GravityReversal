@@ -16,7 +16,7 @@ func restartAtCheckpointOrBeginning():
 	CheckpointSys.onRestartAtCheckpointOrBeginning()
 	SceneLoader.reloadScene()
 
-func quitLevelEarly():
+func quitLevel():
 	CheckpointSys.onLevelExit()
 	curLevelPath = null
 	SceneLoader.loadScene('menus/Menu.tscn')
