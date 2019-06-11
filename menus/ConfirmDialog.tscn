@@ -6,6 +6,7 @@
 [ext_resource path="res://menus/buttonFont.tres" type="DynamicFont" id=4]
 
 [node name="ConfirmDialog" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -18,24 +19,24 @@ anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 820.0
-margin_top = 466.0
+margin_top = 448.0
 margin_right = 1740.0
-margin_bottom = 973.0
+margin_bottom = 992.0
 custom_constants/separation = 100
 alignment = 1
 
 [node name="QuestionText" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_right = 920.0
-margin_bottom = 207.0
+margin_bottom = 244.0
 custom_fonts/font = ExtResource( 3 )
 text = "You sure?"
 align = 1
 autowrap = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
-margin_top = 307.0
+margin_top = 344.0
 margin_right = 920.0
-margin_bottom = 507.0
+margin_bottom = 544.0
 custom_constants/separation = 120
 alignment = 1
 

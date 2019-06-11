@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://menus/msgFont.tres" type="DynamicFont" id=2]
-[ext_resource path="res://menus/buttonFont.tres" type="DynamicFont" id=3]
-[ext_resource path="res://HUD/CoinCounter.tscn" type="PackedScene" id=4]
-[ext_resource path="res://HUD/HUDGemIndicator.tscn" type="PackedScene" id=5]
+[ext_resource path="res://HUD/CoinCounter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://HUD/HUDGemIndicator.tscn" type="PackedScene" id=4]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -24,93 +23,7 @@ pause_mode = 1
 wait_time = 2.0
 one_shot = true
 
-[node name="pauseScreen" type="MarginContainer" parent="."]
-visible = false
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -479.5
-margin_right = 479.5
-
-[node name="PanelContainer" type="PanelContainer" parent="pauseScreen"]
-self_modulate = Color( 0.580392, 0.580392, 0.580392, 1 )
-margin_left = 472.0
-margin_top = 713.0
-margin_right = 486.0
-margin_bottom = 727.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="MarginContainer" type="MarginContainer" parent="pauseScreen/PanelContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 1028.0
-margin_bottom = 1296.0
-custom_constants/margin_right = 40
-custom_constants/margin_top = 40
-custom_constants/margin_left = 40
-custom_constants/margin_bottom = 40
-
-[node name="VBoxContainer" type="VBoxContainer" parent="pauseScreen/PanelContainer/MarginContainer"]
-margin_left = 40.0
-margin_top = 40.0
-margin_right = 981.0
-margin_bottom = 1249.0
-grow_horizontal = 2
-grow_vertical = 2
-custom_constants/separation = 40
-alignment = 1
-
-[node name="pauseLabel" type="Label" parent="pauseScreen/PanelContainer/MarginContainer/VBoxContainer"]
-margin_right = 941.0
-margin_bottom = 244.0
-custom_fonts/font = ExtResource( 2 )
-text = "PAUSED"
-align = 1
-valign = 1
-autowrap = true
-
-[node name="continueButton" type="Button" parent="pauseScreen/PanelContainer/MarginContainer/VBoxContainer"]
-pause_mode = 2
-margin_top = 284.0
-margin_right = 941.0
-margin_bottom = 437.0
-custom_fonts/font = ExtResource( 3 )
-text = "Resume"
-
-[node name="restartButton" type="Button" parent="pauseScreen/PanelContainer/MarginContainer/VBoxContainer"]
-pause_mode = 2
-margin_top = 477.0
-margin_right = 941.0
-margin_bottom = 630.0
-custom_fonts/font = ExtResource( 3 )
-text = "Restart Level"
-
-[node name="loadChkptButton" type="Button" parent="pauseScreen/PanelContainer/MarginContainer/VBoxContainer"]
-pause_mode = 2
-margin_top = 670.0
-margin_right = 941.0
-margin_bottom = 823.0
-custom_fonts/font = ExtResource( 3 )
-text = " Load Checkpoint "
-
-[node name="optionsButton" type="Button" parent="pauseScreen/PanelContainer/MarginContainer/VBoxContainer"]
-pause_mode = 2
-margin_top = 863.0
-margin_right = 941.0
-margin_bottom = 1016.0
-custom_fonts/font = ExtResource( 3 )
-text = "Options"
-
-[node name="quitButton" type="Button" parent="pauseScreen/PanelContainer/MarginContainer/VBoxContainer"]
-pause_mode = 2
-margin_top = 1056.0
-margin_right = 941.0
-margin_bottom = 1209.0
-custom_fonts/font = ExtResource( 3 )
-text = "Quit To Menu"
-
-[node name="CoinCounter" parent="." instance=ExtResource( 4 )]
+[node name="CoinCounter" parent="." instance=ExtResource( 3 )]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_right = 40.0
@@ -118,15 +31,10 @@ margin_bottom = 40.0
 custom_constants/margin_top = 20
 custom_constants/margin_left = 20
 
-[node name="GemIndicator" parent="MarginContainer" instance=ExtResource( 5 )]
+[node name="GemIndicator" parent="MarginContainer" instance=ExtResource( 4 )]
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 40.0
 margin_bottom = 180.0
 
 [connection signal="timeout" from="msgTimer" to="." method="_on_msgTimer_timeout"]
-[connection signal="pressed" from="pauseScreen/PanelContainer/MarginContainer/VBoxContainer/continueButton" to="." method="_on_continueButton_pressed"]
-[connection signal="pressed" from="pauseScreen/PanelContainer/MarginContainer/VBoxContainer/restartButton" to="." method="_on_restartButton_pressed"]
-[connection signal="pressed" from="pauseScreen/PanelContainer/MarginContainer/VBoxContainer/loadChkptButton" to="." method="_on_loadChkptButton_pressed"]
-[connection signal="pressed" from="pauseScreen/PanelContainer/MarginContainer/VBoxContainer/optionsButton" to="." method="_on_optionsButton_pressed"]
-[connection signal="pressed" from="pauseScreen/PanelContainer/MarginContainer/VBoxContainer/quitButton" to="." method="_on_quitButton_pressed"]

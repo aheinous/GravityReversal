@@ -13,6 +13,9 @@ onready var coinsAtStart = get_tree().get_nodes_in_group('coin').size()
 
 onready var gems = initGems()
 
+const pauseMenuPkdScn = preload('res://menus/pauseMenu.tscn')
+var pauseMenu = null
+
 
 func initGems():
 	# WARNING: only valid before any gems are collected.
@@ -70,3 +73,23 @@ func onGem(color):
 	print("A ", color, " gem was collected.")
 	gems[color] = true
 	HUD.setGems(gems)
+
+func togglePause():
+	print('toggling pause')
+	if get_tree().paused:
+#		msgLabel.show()
+#		pauseScreen.hide()
+		pauseMenu.queue_free()
+		pauseMenu = null
+		get_tree().paused = false
+	else:
+#		msgLabel.hide()
+#		pauseScreen.show()
+		pauseMenu = pauseMenuPkdScn.instance()
+		self.add_child(pauseMenu)
+		get_tree().paused = true
+
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().set_input_as_handled()
+		togglePause()
