@@ -31,15 +31,18 @@ func resetState():
 	chkpt_angleDegrees = null
 	chkpt_upsideDown = null
 	chkpt_events = null
+	chkpt_zoom = null
+
 	curEvents = []
 
 func onLevelExit():
 	resetState()
 
-func recordEvent(obj, funcName, args=[]):
+func recordEvent(obj, funcName, args=[], playNow=true):
 	var event = ReplayableEvent.new(obj, funcName, args)
 	curEvents.push_back(event)
-	event.play(self)
+	if playNow:
+		event.play(self)
 
 
 func onRestartAtCheckpointOrBeginning():
@@ -72,5 +75,6 @@ func playerReachedCheckpoint(pos, nodePath, angleDegrees, upsideDown):
 	chkpt_nodePath = nodePath
 	chkpt_angleDegrees = angleDegrees
 	chkpt_upsideDown = upsideDown
+	chkpt_zoom = zoom
 	chkpt_events = curEvents.duplicate()
 	Global.getHUD().showMsg("Checkpoint", 0.8)

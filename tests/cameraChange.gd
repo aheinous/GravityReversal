@@ -17,3 +17,5 @@ func _on_cameraChange_area_entered(area):
 		tween.interpolate_property(player, 'zoom', player.zoom, newZoom, transitionTime, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 		tween.start()
 
+		CheckpointSys.recordEvent(player, 'setZoom', [newZoom], false)
+
