@@ -67,7 +67,7 @@ func onLevelCompleted(scnPath, coinsCollected, coinsAvail, gems):
 			levelInfo.gems[color] = levelInfo.gems[color] or gems[color]
 
 	levelInfo.completed = true
-	assert(levelInfo.madeAvail)
+	levelInfo.madeAvail = true
 
 
 func getNextLevel(scnPath = null):
