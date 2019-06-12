@@ -82,7 +82,7 @@ func getNextLevel(scnPath = null):
 func isLevelAvailable(scnPath):
 	for i in range(levelInfoList.size()):
 		if levelInfoList[i].scenePath == scnPath:
-			return i==0 or levelInfoList[i-0].completed or levelInfoList[i].madeAvail
+			return i==0 or levelInfoList[i-1].completed or levelInfoList[i].madeAvail
 	assert(false)
 
 
