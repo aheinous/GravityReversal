@@ -29,6 +29,7 @@ func reset():
 		LevelInfo.new("Young Padawan", 'levels/learnToStall.tscn'),
 		LevelInfo.new("On The Edge", 'levels/learnToPop.tscn'),
 		LevelInfo.new('Easy Street', 'levels/easyStreet.tscn'),
+		LevelInfo.new('Deep Dive', 'levels/learnToDive.tscn'),
 		LevelInfo.new('Missile Command', 'levels/missileCmd.tscn'),
 		LevelInfo.new('Saw Hallway', 'levels/SawHallway.tscn'),
 		LevelInfo.new('Floating Thru Space', 'levels/floatingThruSpace.tscn'),
