@@ -1,3 +1,3 @@
 #!/bin/bash
 
-rm ~/.local/share/godot/app_userdata/GravityReversal/savefile
+rm ~/.local/share/godot/app_userdata/Gravity\ Reversal/savefile
