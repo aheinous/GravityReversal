@@ -24,7 +24,7 @@ func quitLevel():
 	SceneLoader.loadScene('menus/Menu.tscn')
 
 func completeLevel(coinsCollected, coinsAtStart, gems):
-	CheckpointSys.onLevelExit()
+#	CheckpointSys.onLevelExit()
 	if curLevelPath == null: # scene loaded directly
 		SceneLoader.loadScene('menus/Menu.tscn')
 		return
@@ -38,6 +38,7 @@ func completeLevel(coinsCollected, coinsAtStart, gems):
 
 
 func loadNextLevel():
+	CheckpointSys.onLevelExit()
 	enterLevel(LevelInfoManager.getNextLevel(curLevelPath))
 
 func getCurLevelPath():

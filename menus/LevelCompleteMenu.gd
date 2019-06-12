@@ -39,3 +39,7 @@ func _on_NextButton_pressed():
 
 func _on_QuitButton_pressed():
 	LevelTransitions.quitLevel()
+
+
+func _on_LastCheckpointButton_pressed():
+	LevelTransitions.restartAtCheckpointOrBeginning()
