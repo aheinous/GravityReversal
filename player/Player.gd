@@ -73,7 +73,8 @@ func _ready():
 	gameSM.setState(gameSM.states.waiting)
 
 func startMoving():
-	gameSM.setState(gameSM.states.moving)
+	if gameSM.state == gameSM.states.waiting:
+		gameSM.setState(gameSM.states.moving)
 
 
 
