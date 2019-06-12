@@ -150,10 +150,9 @@ func playImpactNoise(prevVelocity, velocity):
 
 	if deltaSquared < 100*100:
 		return
-	elif deltaSquared < 900*900:
-		smallImpactNoise.play()
-	else:
-		heavyImpactNoise.play()
+	smallImpactNoise.play()
+#	if deltaSquared < 900*900:
+#		heavyImpactNoise.play()
 
 
 func _physics_process(delta):
