@@ -1,13 +1,10 @@
 extends Node
 
 
-var curLevelPath = null setget , getCurLevelPath
-
 var levelCompleteMenu = preload('res://menus/LevelCompleteMenu.tscn')
 
 
 func enterLevel(scnPath):
-	curLevelPath = scnPath
 	SceneLoader.loadScene(scnPath)
 
 func restartAtBeginning():
@@ -20,17 +17,10 @@ func restartAtCheckpointOrBeginning():
 
 func quitLevel():
 	CheckpointSys.onLevelExit()
-	curLevelPath = null
 	SceneLoader.loadScene('menus/Menu.tscn')
 
 func completeLevel(coinsCollected, coinsAtStart, gems):
-#	CheckpointSys.onLevelExit()
-	if curLevelPath == null: # scene loaded directly
-		CheckpointSys.onLevelExit()
-		SceneLoader.loadScene('menus/Menu.tscn')
-		return
-
-	LevelInfoManager.onLevelCompleted(curLevelPath, coinsCollected, coinsAtStart, gems)
+	LevelInfoManager.onLevelCompleted(getCurLevelPath(), coinsCollected, coinsAtStart, gems)
 	SaveSys.saveGame()
 	var levelCompleteMenuInstance = levelCompleteMenu.instance()
 	get_tree().get_current_scene().add_child(levelCompleteMenuInstance)
@@ -40,7 +30,8 @@ func completeLevel(coinsCollected, coinsAtStart, gems):
 
 func loadNextLevel():
 	CheckpointSys.onLevelExit()
-	enterLevel(LevelInfoManager.getNextLevel(curLevelPath))
+	enterLevel(LevelInfoManager.getNextLevel())
 
 func getCurLevelPath():
-	return curLevelPath
+	assert(get_tree().current_scene.filename.begins_with('res://levels/'))
+	return get_tree().current_scene.filename
