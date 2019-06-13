@@ -2,13 +2,20 @@ extends CanvasLayer
 
 onready var msgLabel = $msgLabel
 onready var msgTimer = $msgTimer
-onready var coinCntLbl = $CoinCounter/Panel/HBoxContainer/Number
+onready var coinCntLbl = $CoinCounter/ColorRect/HBoxContainer/Number
 onready var gemIndicator = $MarginContainer/GemIndicator
+onready var deathCounterLbl = $DeathCounter/Number
 
 
 func setCoinCount(cnt):
 	print('setCoinCount(', cnt, ')')
 	coinCntLbl.text = str(cnt)
+
+func setDeathCount(cnt):
+	print('setDeathCount(', cnt, ')')
+	deathCounterLbl.text = str(cnt)
+
+
 
 func _ready():
 	clearMsg()

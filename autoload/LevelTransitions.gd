@@ -6,14 +6,19 @@ var levelCompleteMenu = preload('res://menus/LevelCompleteMenu.tscn')
 
 func enterLevel(scnPath):
 	SceneLoader.loadScene(scnPath)
+	LevelPersistent.onEnterLevel()
 
 func restartAtBeginning():
-	CheckpointSys.onRestartAtBeginning()
+	CheckpointSys.resetState()
+	LevelPersistent.onEnterLevel()
 	SceneLoader.reloadScene()
 
 func restartAtCheckpointOrBeginning():
-	CheckpointSys.onRestartAtCheckpointOrBeginning()
-	SceneLoader.reloadScene()
+
+	if CheckpointSys.hasCheckpoint():
+		SceneLoader.reloadScene()
+	else:
+		restartAtBeginning()
 
 func quitLevel():
 	CheckpointSys.onLevelExit()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://menus/msgFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://HUD/CoinCounter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://HUD/HUDGemIndicator.tscn" type="PackedScene" id=4]
+[ext_resource path="res://HUD/DeathCounter.tscn" type="PackedScene" id=5]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -36,5 +37,11 @@ margin_left = 20.0
 margin_top = 20.0
 margin_right = 40.0
 margin_bottom = 180.0
+
+[node name="DeathCounter" parent="." instance=ExtResource( 5 )]
+margin_left = -290.0
+margin_top = 160.0
+margin_right = 2270.0
+margin_bottom = 1600.0
 
 [connection signal="timeout" from="msgTimer" to="." method="_on_msgTimer_timeout"]

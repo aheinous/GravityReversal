@@ -44,17 +44,13 @@ func recordEvent(obj, funcName, args=[], playNow=true):
 		event.play(self)
 
 
-func onRestartAtCheckpointOrBeginning():
-	pass
 
-
-func onRestartAtBeginning():
-	resetState()
+func hasCheckpoint():
+	return chkpt_pos != null
 
 
 func loadCheckpointData():
-#	print('loadCheckpoint()')
-	if chkpt_pos == null:
+	if not hasCheckpoint():
 		print('No checkpoint, restart at beginning')
 		resetState()
 		return

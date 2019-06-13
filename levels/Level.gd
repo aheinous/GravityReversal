@@ -54,6 +54,7 @@ func _ready():
 	MusicPlayer.setSong(self.songScn)
 	HUD.setCoinCount(0)
 	HUD.setGems(gems)
+	HUD.setDeathCount(LevelPersistent.getDeathCount())
 	CheckpointSys.loadCheckpointData()
 
 

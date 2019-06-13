@@ -65,6 +65,7 @@ func onGameStateTransition(newState, prevState):
 			animatedSprite.play("dead")
 			animationPlayer.queue("DeathPhysCollision")
 			owner.playerDied()
+			LevelPersistent.incDeathCount()
 		gameSM.states.finished:
 			owner.playerReachedGoal()
 

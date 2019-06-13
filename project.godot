@@ -32,6 +32,7 @@ CheckpointSys="*res://autoload/CheckpointSys.gd"
 LevelTransitions="*res://autoload/LevelTransitions.gd"
 LevelInfoManager="*res://autoload/LevelInfoManager.gd"
 SaveSys="*res://autoload/SaveSys.gd"
+LevelPersistent="*res://autoload/LevelPersistent.gd"
 
 [debug]
 
