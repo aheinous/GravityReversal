@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 onready var lvlCompleteLabel = $'Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/LevelCompleteLabel'
-onready var nextButton = $'Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/NextButton'
+onready var nextButton = $'Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/Buttons/NextButton'
 
 onready var runCoinCount = $'Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/runCoinCount'
 onready var runGems = $'Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/runGems'
