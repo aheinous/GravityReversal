@@ -78,11 +78,11 @@ extents = Vector2( 32, 282.2 )
 [sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 32, 282.2 )
 
-[node name="Level" instance=ExtResource( 1 )]
+[node name="Level" index="0" instance=ExtResource( 1 )]
 songPath = "res://songs/CoolOne.tscn"
 
 [node name="Player" parent="." index="0"]
-position = Vector2( 21120, -2624 )
+position = Vector2( 960, 992 )
 zoom = 0.6
 
 [node name="Saws" parent="." index="1"]
