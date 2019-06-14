@@ -1,38 +1,20 @@
 extends Control
 
-#onready var buttonContainer = $ScrollContainer/CenterContainer/MarginContainer/LevelGrid
-#onready var buttonContainer = $ScrollContainer/MarginContainer/LevelGrid
 onready var buttonContainer = $ScrollContainer/CenterContainer/MarginContainer/VBoxContainer/LevelGrid
 
+onready var levelListContainer = $ScrollContainer/CenterContainer/MarginContainer/VBoxContainer/LevelList
 
 func _ready():
-	for child in buttonContainer.get_children():
-		buttonContainer.remove_child(child)
+	var levelStatScene = preload('res://menus/levelStatIndicator.tscn')
+	for child in levelListContainer.get_children():
+		levelListContainer.remove_child(child)
 		child.queue_free()
 
-	var buttonScene = load("res://menus/LevelButton.tscn")
-	var coinCountScene = load('res://menus/MenuCoinCount.tscn')
-	var gemIndicatorScene = load('res://menus/GemIndicator.tscn')
-
 	for levelInfo in LevelInfoManager.levelInfoList:
-		var button = buttonScene.instance()
-		button.set_name(levelInfo.name + '_button')
-		button.setup(levelInfo)
-		buttonContainer.add_child(button)
-
-		var coinCnt = coinCountScene.instance()
-		var gemsIndicator = gemIndicatorScene.instance()
-
-		buttonContainer.add_child(coinCnt)
-		buttonContainer.add_child(gemsIndicator)
-
-		gemsIndicator.setGems(levelInfo.gems)
-
-		if levelInfo.maxCoinsCollected == null:
-			coinCnt.setBlank(true)
-		else:
-			coinCnt.setCoinCount(levelInfo.maxCoinsCollected, levelInfo.coinsAvail)
-
+		var levelStats = levelStatScene.instance()
+		levelListContainer.add_child(levelStats)
+		levelStats.set_name(levelInfo.name + '_levelStats')
+		levelStats.setupButton(levelInfo)
 
 
 func _unhandled_input(event):

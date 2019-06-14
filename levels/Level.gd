@@ -46,7 +46,7 @@ func playerReachedGoal():
 	print('_on_playerReachedGoal()')
 #	HUD.showMsg("Level Complete")
 #	yield(HUD.get_node("msgTimer"), "timeout")
-	LevelTransitions.completeLevel(coinsCollected, coinsAtStart, gems)
+	LevelTransitions.completeLevel(coinsCollected, coinsAtStart, gems, LevelPersistent.getDeathCount()==0)
 
 
 func _ready():

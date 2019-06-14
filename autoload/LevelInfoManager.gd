@@ -6,6 +6,7 @@ class LevelInfo:
 	var maxCoinsCollected
 	var coinsAvail
 	var gems = null
+	var noDeaths = false
 	var completed = false
 	var madeAvail = false
 
@@ -52,7 +53,7 @@ func getCurLevelName():
 	return getLevelInfo(LevelTransitions.getCurLevelPath()).name
 
 
-func onLevelCompleted(scnPath, coinsCollected, coinsAvail, gems):
+func onLevelCompleted(scnPath, coinsCollected, coinsAvail, gems, noDeaths):
 	# update level info
 	var levelInfo = getLevelInfo(scnPath)
 
@@ -63,10 +64,12 @@ func onLevelCompleted(scnPath, coinsCollected, coinsAvail, gems):
 		levelInfo.coinsAvail = coinsAvail
 		levelInfo.maxCoinsCollected = coinsCollected
 		levelInfo.gems = gems
+		levelInfo.noDeaths = noDeaths
 	else:
 		levelInfo.maxCoinsCollected = max(levelInfo.maxCoinsCollected, coinsCollected)
 		for color in gems.keys():
 			levelInfo.gems[color] = levelInfo.gems[color] or gems[color]
+		levelInfo.noDeaths = levelInfo.noDeaths or noDeaths
 
 	levelInfo.completed = true
 	levelInfo.madeAvail = true
@@ -94,6 +97,7 @@ func saveGame(saveData):
 		saveData[levelInfo.scenePath + ': maxCoinsCollected'] = levelInfo.maxCoinsCollected
 		saveData[levelInfo.scenePath + ': coinsAvail'] = levelInfo.coinsAvail
 		saveData[levelInfo.scenePath + ': gems'] = levelInfo.gems
+		saveData[levelInfo.scenePath + ': noDeaths'] = levelInfo.noDeaths
 		saveData[levelInfo.scenePath + ': completed'] = levelInfo.completed
 		saveData[levelInfo.scenePath + ': madeAvail'] = isLevelAvailable(levelInfo.scenePath)
 
@@ -102,5 +106,6 @@ func loadGame(saveData):
 		levelInfo.maxCoinsCollected = saveData.get(levelInfo.scenePath + ': maxCoinsCollected')
 		levelInfo.coinsAvail = saveData.get(levelInfo.scenePath + ': coinsAvail')
 		levelInfo.gems = saveData.get(levelInfo.scenePath + ': gems')
+		levelInfo.noDeaths = saveData.get(levelInfo.scenePath + ': noDeaths', false)
 		levelInfo.completed = saveData.get(levelInfo.scenePath + ': completed', false)
 		levelInfo.madeAvail = saveData.get(levelInfo.scenePath + ": madeAvail", false)

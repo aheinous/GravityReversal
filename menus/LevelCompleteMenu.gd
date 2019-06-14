@@ -3,20 +3,17 @@ extends CanvasLayer
 onready var lvlCompleteLabel = $'Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/LevelCompleteLabel'
 onready var nextButton = $'Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/Buttons/NextButton'
 
-onready var runCoinCount = $'Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/runCoinCount'
-onready var runGems = $'Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/runGems'
-onready var overallCoinCount = $'Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/overallCoinCount'
-onready var overallGems = $'Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/overallGems'
+
+onready var runStats = $Control/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/thisRunStats
+onready var overallStats = $Control/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/overallStats
 
 
-
-func setup(coinsCollected, coinsAtStart, gems):
+func setup(coinsCollected, coinsAtStart, gems, noDeaths):
 	var lvlInfo = LevelInfoManager.getCurLevelInfo()
 
-	runCoinCount.setCoinCount(coinsCollected, coinsAtStart)
-	runGems.setGems(gems)
-	overallCoinCount.setCoinCount(lvlInfo.maxCoinsCollected, lvlInfo.coinsAvail)
-	overallGems.setGems(lvlInfo.gems)
+	runStats.setupLabel("This Run", coinsCollected, coinsAtStart, gems, noDeaths)
+	overallStats.setupLabel("Overall", lvlInfo.maxCoinsCollected, lvlInfo.coinsAvail, lvlInfo.gems, lvlInfo.noDeaths)
+
 
 	if LevelInfoManager.getNextLevel() == null:
 		lvlCompleteLabel.text = 'You Beat The Game!'

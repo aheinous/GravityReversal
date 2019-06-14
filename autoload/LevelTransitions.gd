@@ -24,12 +24,12 @@ func quitLevel():
 	CheckpointSys.onLevelExit()
 	SceneLoader.loadScene('menus/Menu.tscn')
 
-func completeLevel(coinsCollected, coinsAtStart, gems):
-	LevelInfoManager.onLevelCompleted(getCurLevelPath(), coinsCollected, coinsAtStart, gems)
+func completeLevel(coinsCollected, coinsAtStart, gems, noDeaths):
+	LevelInfoManager.onLevelCompleted(getCurLevelPath(), coinsCollected, coinsAtStart, gems, noDeaths)
 	SaveSys.saveGame()
 	var levelCompleteMenuInstance = levelCompleteMenu.instance()
 	get_tree().get_current_scene().add_child(levelCompleteMenuInstance)
-	levelCompleteMenuInstance.setup(coinsCollected, coinsAtStart, gems)
+	levelCompleteMenuInstance.setup(coinsCollected, coinsAtStart, gems, noDeaths)
 
 
 
