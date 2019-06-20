@@ -25,6 +25,8 @@ func setupButton(levelInfo):
 
 	levelPath = levelInfo.scenePath
 
+	button.disabled = not levelInfo.isAvailable()
+
 	if levelInfo.completed:
 		coinCnt.setCoinCount(levelInfo.maxCoinsCollected, levelInfo.coinsAvail)
 		gemsIndicator.setGems(levelInfo.gems)

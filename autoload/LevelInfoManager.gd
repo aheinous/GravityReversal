@@ -16,6 +16,8 @@ class LevelInfo:
 		self.maxCoinsCollected = maxCoinsCollected
 		self.coinsAvail = coinsAvail
 
+	func isAvailable():
+		return LevelInfoManager.isLevelAvailable(scenePath)
 
 var levelInfoList = null
 
