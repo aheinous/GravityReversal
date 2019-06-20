@@ -8,6 +8,8 @@ onready var sndfx = $AudioStreamPlayer
 
 export var color = 'blue'
 
+var consumed = false
+
 
 
 func _ready():
@@ -32,7 +34,8 @@ func registerGem():
 
 
 func _on_Coin_area_entered(area):
-	if area.is_in_group('player'):
+	if area.is_in_group('player') and not consumed:
+		consumed = true
 		particles.emitting = true
 		sndfx.play()
 		CheckpointSys.recordEvent(self, 'registerGem')

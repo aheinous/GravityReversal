@@ -5,6 +5,8 @@ onready var particles = $Particles2D
 onready var animation = $CoinAnimation
 onready var sndfx = $AudioStreamPlayer
 
+var consumed = false
+
 
 func registerCoin():
 	animation.visible = false
@@ -14,7 +16,8 @@ func registerCoin():
 
 
 func _on_Coin_area_entered(area):
-	if area.is_in_group('player'):
+	if area.is_in_group('player') and not consumed:
+		consumed = true
 		particles.emitting = true
 		sndfx.play()
 		CheckpointSys.recordEvent(self, 'registerCoin')
