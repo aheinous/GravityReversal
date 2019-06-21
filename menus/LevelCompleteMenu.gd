@@ -1,7 +1,8 @@
 extends CanvasLayer
 
-onready var lvlCompleteLabel = $'Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/LevelCompleteLabel'
-onready var nextButton = $'Control/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/Buttons/NextButton'
+onready var lvlCompleteLabel = $'Control/MarginContainer/MarginContainer/VBoxContainer/LevelCompleteLabel'
+
+onready var nextButton = $'Control/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/Buttons/NextButton'
 
 
 onready var runStats = $Control/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/thisRunStats
@@ -17,7 +18,7 @@ func setup(coinsCollected, coinsAtStart, gems, noDeaths):
 
 	if LevelInfoManager.getNextLevel() == null:
 		lvlCompleteLabel.text = 'You Beat The Game!'
-		nextButton.visible = false
+		nextButton.disabled = true
 
 
 func _unhandled_input(event):
