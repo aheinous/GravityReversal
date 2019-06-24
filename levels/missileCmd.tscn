@@ -13,17 +13,17 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 256 )
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 32, 256 )
-
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32, 128 )
+extents = Vector2( 32, 256 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 32, 128 )
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 32, 128 )
+
 [node name="Level" index="0" instance=ExtResource( 1 )]
-songPath = "res://songs/TitleSongPlus.tscn"
+songPath = "res://songs/CoolOne.tscn"
 
 [node name="Player" parent="." index="0"]
 position = Vector2( 608, 1728 )
@@ -420,7 +420,7 @@ position = Vector2( 10176, 3392 )
 newZoom = 1.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoomChanges/CameraZoomChange2" index="1"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -430,12 +430,12 @@ position = Vector2( 4928, 3040 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPoints/CheckPoint" index="0"]
 position = Vector2( 0, -32 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="CheckPoint2" parent="CheckPoints" index="1" instance=ExtResource( 9 )]
 position = Vector2( 9248, 3392 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPoints/CheckPoint2" index="0"]
 position = Vector2( 0, -32 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 

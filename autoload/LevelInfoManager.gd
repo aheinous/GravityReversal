@@ -27,16 +27,16 @@ func _ready():
 
 func reset():
   levelInfoList = [
-		LevelInfo.new('Tutorial', 'res://levels/tutorial.tscn'),
-		LevelInfo.new("Baby's First Steps", 'res://levels/learnToFloat.tscn'),
-		LevelInfo.new("Young Padawan", 'res://levels/learnToStall.tscn'),
-		LevelInfo.new("On The Edge", 'res://levels/learnToPop.tscn'),
-		LevelInfo.new('Easy Street', 'res://levels/easyStreet.tscn'),
-		LevelInfo.new('Deep Dive', 'res://levels/learnToDive.tscn'),
-		LevelInfo.new('Missile Command', 'res://levels/missileCmd.tscn'),
-		LevelInfo.new('Saw Hallway', 'res://levels/SawHallway.tscn'),
-		LevelInfo.new('Floating Thru Space', 'res://levels/floatingThruSpace.tscn'),
-		LevelInfo.new('Red Space', 'res://levels/redSpace.tscn'),
+		LevelInfo.new('Tutorial', 'res://levels/tutorial.tscn'),					# CoolOne
+		LevelInfo.new("Baby's First Steps", 'res://levels/learnToFloat.tscn'),		# titleSongPlus
+		LevelInfo.new("Young Padawan", 'res://levels/learnToStall.tscn'),			# ultimatum
+		LevelInfo.new("On The Edge", 'res://levels/learnToPop.tscn'),				# CoolOne
+		LevelInfo.new('Easy Street', 'res://levels/easyStreet.tscn'),				# letsRock
+		LevelInfo.new('Deep Dive', 'res://levels/learnToDive.tscn'),				# titleSongPlus
+		LevelInfo.new('Missile Command', 'res://levels/missileCmd.tscn'),			# CoolOne
+		LevelInfo.new('Saw Hallway', 'res://levels/SawHallway.tscn'),				# let's rock
+		LevelInfo.new('Floating Thru Space', 'res://levels/floatingThruSpace.tscn'),# ultimatum
+		LevelInfo.new('Red Space', 'res://levels/redSpace.tscn'),					# CoolOne
 	]
 
 
