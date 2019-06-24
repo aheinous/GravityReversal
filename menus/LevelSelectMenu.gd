@@ -1,8 +1,6 @@
 extends Control
 
-onready var buttonContainer = $ScrollContainer/CenterContainer/MarginContainer/VBoxContainer/LevelGrid
-
-onready var levelListContainer = $ScrollContainer/CenterContainer/MarginContainer/VBoxContainer/LevelList
+onready var levelListContainer = $ScrollContainer/MarginContainer/VBoxContainer/LevelList
 
 func _ready():
 	var levelStatScene = preload('res://menus/levelStatIndicator.tscn')

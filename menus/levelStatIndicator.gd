@@ -1,10 +1,10 @@
 extends Control
 
-onready var label = $MarginContainer/VBoxContainer/Label
-onready var button = $MarginContainer/VBoxContainer/Button
-onready var coinCnt = $MarginContainer/VBoxContainer/HBoxContainer/MenuCoinCount
-onready var gemsIndicator = $MarginContainer/VBoxContainer/HBoxContainer/GemIndicator
-onready var noDeathIndicator = $MarginContainer/VBoxContainer/HBoxContainer/NoDeathsIndicator
+onready var label = $MarginContainer/CenterContainer/VBoxContainer/Label
+onready var button = $MarginContainer/CenterContainer/VBoxContainer/Button
+onready var coinCnt = $MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/MenuCoinCount
+onready var gemsIndicator = $MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/GemIndicator
+onready var noDeathIndicator = $MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/NoDeathsIndicator
 
 
 var levelPath = null
