@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Yahoo-SoundBible.com-1888534056.wav-330e2386eb993e18ff7e737247813cf5.sample"
+
+[deps]
+
+source_file="res://art/soundfx/Yahoo-SoundBible.com-1888534056.wav"
+dest_files=[ "res://.import/Yahoo-SoundBible.com-1888534056.wav-330e2386eb993e18ff7e737247813cf5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

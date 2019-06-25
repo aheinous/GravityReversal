@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://elements/gems/BlueGem.gd" type="Script" id=1]
-[ext_resource path="res://art/soundfx/noisecreations_SFX-NCFREE02_Flabby-Burd.wav" type="AudioStream" id=2]
+[ext_resource path="res://art/soundfx/shooting_star-Mike_Koenig-1132888100.wav" type="AudioStream" id=2]
 [ext_resource path="res://art/platformerPack/Items/gemBlue.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -47,6 +47,7 @@ process_material = SubResource( 4 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+volume_db = 4.5
 bus = "fx"
 
 [node name="Sprite" type="Sprite" parent="."]

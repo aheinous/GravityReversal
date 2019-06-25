@@ -40,6 +40,7 @@ onready var flipNoise = $FlipNoise
 onready var smallImpactNoise = $SmallImpactNoise
 onready var heavyImpactNoise = $HeavyImpactNoise
 onready var stallNoise = $StallNoise
+onready var levelCompleteNoise = $LevelCompleteNoise
 
 var moveDir = Vector2.RIGHT
 var fallDir = Vector2.DOWN
@@ -67,6 +68,7 @@ func onGameStateTransition(newState, prevState):
 			owner.playerDied()
 			LevelPersistent.incDeathCount()
 		gameSM.states.finished:
+			levelCompleteNoise.play()
 			owner.playerReachedGoal()
 
 
