@@ -17,17 +17,18 @@ margin_right = 479.5
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
 self_modulate = Color( 0.580392, 0.580392, 0.580392, 1 )
-margin_top = 68.0
-margin_right = 1035.0
-margin_bottom = 1371.0
+margin_left = 36.0
+margin_top = 162.0
+margin_right = 922.0
+margin_bottom = 1278.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 1028.0
-margin_bottom = 1296.0
+margin_right = 879.0
+margin_bottom = 1109.0
 custom_constants/margin_right = 40
 custom_constants/margin_top = 40
 custom_constants/margin_left = 40
@@ -36,16 +37,16 @@ custom_constants/margin_bottom = 40
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
 margin_left = 40.0
 margin_top = 40.0
-margin_right = 981.0
-margin_bottom = 1249.0
+margin_right = 832.0
+margin_bottom = 1062.0
 grow_horizontal = 2
 grow_vertical = 2
 custom_constants/separation = 40
 alignment = 1
 
 [node name="pauseLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
-margin_right = 941.0
-margin_bottom = 244.0
+margin_right = 792.0
+margin_bottom = 242.0
 custom_fonts/font = ExtResource( 2 )
 text = "PAUSED"
 align = 1
@@ -54,41 +55,41 @@ autowrap = true
 
 [node name="continueButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 pause_mode = 2
-margin_top = 284.0
-margin_right = 941.0
-margin_bottom = 437.0
+margin_top = 282.0
+margin_right = 792.0
+margin_bottom = 398.0
 custom_fonts/font = ExtResource( 3 )
 text = "Resume"
 
 [node name="restartButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 pause_mode = 2
-margin_top = 477.0
-margin_right = 941.0
-margin_bottom = 630.0
+margin_top = 438.0
+margin_right = 792.0
+margin_bottom = 554.0
 custom_fonts/font = ExtResource( 3 )
 text = "Restart Level"
 
 [node name="loadChkptButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 pause_mode = 2
-margin_top = 670.0
-margin_right = 941.0
-margin_bottom = 823.0
+margin_top = 594.0
+margin_right = 792.0
+margin_bottom = 710.0
 custom_fonts/font = ExtResource( 3 )
 text = " Load Checkpoint "
 
 [node name="optionsButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 pause_mode = 2
-margin_top = 863.0
-margin_right = 941.0
-margin_bottom = 1016.0
+margin_top = 750.0
+margin_right = 792.0
+margin_bottom = 866.0
 custom_fonts/font = ExtResource( 3 )
 text = "Options"
 
 [node name="quitButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 pause_mode = 2
-margin_top = 1056.0
-margin_right = 941.0
-margin_bottom = 1209.0
+margin_top = 906.0
+margin_right = 792.0
+margin_bottom = 1022.0
 custom_fonts/font = ExtResource( 3 )
 text = "Quit To Menu"
 

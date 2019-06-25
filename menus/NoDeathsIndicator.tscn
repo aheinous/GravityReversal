@@ -18,28 +18,28 @@ margin_right = 600.0
 margin_bottom = 210.0
 
 [node name="Label" type="Label" parent="."]
-margin_left = 20.0
-margin_top = 45.0
-margin_right = 441.0
-margin_bottom = 155.0
+margin_left = 4.61713
+margin_top = 45.95
+margin_right = 468.617
+margin_bottom = 155.95
 custom_fonts/font = ExtResource( 2 )
 text = "No Deaths:"
 
 [node name="YesTexture" type="TextureRect" parent="."]
-margin_left = 455.0
-margin_top = 45.0
-margin_right = 1095.0
-margin_bottom = 673.0
+visible = false
+margin_left = 464.044
+margin_top = 40.478
+margin_right = 1104.04
+margin_bottom = 668.478
 rect_scale = Vector2( 0.2, 0.2 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource( 3 )
 
 [node name="NoTexture" type="TextureRect" parent="."]
-visible = false
-margin_left = 455.0
+margin_left = 467.188
 margin_top = 65.0
-margin_right = 1095.0
+margin_right = 1107.19
 margin_bottom = 693.0
 rect_scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 4 )
