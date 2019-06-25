@@ -24,15 +24,16 @@ scroll_horizontal_enabled = false
 script = ExtResource( 3 )
 
 [node name="CenterContainer" type="CenterContainer" parent="ScrollContainer"]
-margin_right = 2548.0
-margin_bottom = 6691.0
+margin_right = 2560.0
+margin_bottom = 1440.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/CenterContainer"]
-margin_left = 244.0
-margin_right = 2304.0
-margin_bottom = 6691.0
+margin_left = 250.0
+margin_top = 516.0
+margin_right = 2310.0
+margin_bottom = 924.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 30
@@ -44,7 +45,7 @@ custom_constants/margin_bottom = 30
 margin_left = 30.0
 margin_top = 30.0
 margin_right = 2030.0
-margin_bottom = 6661.0
+margin_bottom = 378.0
 size_flags_horizontal = 3
 alignment = 1
 
@@ -60,68 +61,11 @@ align = 1
 [node name="Attributions" type="Label" parent="ScrollContainer/CenterContainer/MarginContainer/VBoxContainer"]
 margin_top = 248.0
 margin_right = 2000.0
-margin_bottom = 6631.0
+margin_bottom = 348.0
 rect_min_size = Vector2( 2000, 0 )
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 1 )
-text = "Made by Alex Haynes
-
-Made with the Godot Game Engine:
-https://godotengine.org/
-This is the Godot Licence:
-Copyright (c) 2007-2019 Juan Linietsky, Ariel Manzur.
-Copyright (c) 2014-2019 Godot Engine contributors (cf. AUTHORS.md)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the \"Software\"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-
-Coin art free from from Lexassets:
- https://www.gamedevmarket.net/member/Lexassets/
-
-Missile from:
-https://craftpix.net/freebies/free-space-shooter-game-objects/
-
-Space backgrounds from:
-https://dinvstudio.itch.io/dynamic-space-background-lite-free
-
-Bomb:
-\"Free Game Items Pack #2\" Olga Bikmullina (http://ahninniah.graphics) Licensed under Creative Commons: By Attribution 3.0 http://creativecommons.org/licenses/by/3.0/
-
-Skull:
-	Designed by Alvaro_cabrera / Freepik
-	www.freepik.com
-
-Additional sound effects from https://www.zapsplat.com
-
-Music:
-	Reusenoise  (DNB Mix) by spinningmerkaba (c) copyright 2017 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/jlbrock44/56531
-	
-	\"Let's rock\", \"Ultimatum\", \"PM_ATG_3_110BPM_B\", and \"PM_ATG_3_110BPM_E\" from https://www.zapsplat.com/
-	
-Gems from https://www.kenney.nl/assets/platformer-pack-redux
-
-Robot main character from: https://opengameart.org/content/the-robot-free-sprite
-
-Buzz saw sound from TableSawBuzz-SoundBible.com-1560233300_LOOP.wav: original by Mike Koenig from http://soundbible.com/1100-Table-Saw-Buzz.html
-	
-	
-"
+text = "lorem ipsum"
 align = 3
 autowrap = true
 
