@@ -39,6 +39,7 @@ func _draw():
 	curveDrawer.drawCurve(self, curve)
 
 func reset():
+	follow.offset = 0
 	curPauseRemaining = pauseTime
 	var totalPeriodTime = 2*pauseTime + 2*path.curve.get_baked_length()/speed
 	_physics_process(totalPeriodTime * phase)
