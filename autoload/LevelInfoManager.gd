@@ -44,15 +44,15 @@ func getLevelInfo(scnPath):
 	for levelInfo in levelInfoList:
 		if levelInfo.scenePath == scnPath:
 			return levelInfo
-	assert(false)
+	return null
+
 
 func getCurLevelInfo():
 	return getLevelInfo(LevelTransitions.getCurLevelPath())
 
 func getCurLevelName():
-	if LevelTransitions.getCurLevelPath() == null:
-		return 'level name not found'
-	return getLevelInfo(LevelTransitions.getCurLevelPath()).name
+	var info = getLevelInfo(LevelTransitions.getCurLevelPath())
+	return 'level name not found' if info==null else info.name
 
 
 func onLevelCompleted(scnPath, coinsCollected, coinsAvail, gems, noDeaths):
