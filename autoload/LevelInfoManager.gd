@@ -37,6 +37,7 @@ func reset():
 		LevelInfo.new('Saw Hallway', 'res://levels/SawHallway.tscn'),				# let's rock
 		LevelInfo.new('Floating Thru Space', 'res://levels/floatingThruSpace.tscn'),# ultimatum
 		LevelInfo.new('Red Space', 'res://levels/redSpace.tscn'),					# CoolOne
+		LevelInfo.new('Plan 9', 'res://levels/plan9.tscn'),				# let's rock
 	]
 
 
