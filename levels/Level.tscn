@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
@@ -31,6 +31,9 @@ points = PoolVector2Array( 0, 32, 128, 32, 128, 96, 0, 96 )
 } ]
 0/z_index = 0
 
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 0, 0, 256, 0, 256, 256, 0, 256 )
+
 [sub_resource type="TileSet" id=3]
 0/name = "bomb.png 0"
 0/texture = ExtResource( 6 )
@@ -40,7 +43,13 @@ points = PoolVector2Array( 0, 32, 128, 32, 128, 96, 0, 96 )
 0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
-0/shapes = [  ]
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 0/z_index = 0
 
 [sub_resource type="TileSet" id=4]
@@ -128,7 +137,6 @@ scale = Vector2( 0.25, 0.25 )
 tile_set = SubResource( 3 )
 cell_size = Vector2( 256, 256 )
 format = 1
-tile_data = PoolIntArray( 720928, 0, 0, 983078, 0, 0 )
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
