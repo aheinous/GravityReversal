@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bomb.png-2616314fe11137a2f20d04dabd0c2a72.stex"
+path="res://.import/bomb.png-24f80b70f28f115e35658647310dfa39.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/game_items_pack_2_free/PNG/64px/bomb.png"
-dest_files=[ "res://.import/bomb.png-2616314fe11137a2f20d04dabd0c2a72.stex" ]
+source_file="res://art/game_items_pack_2_free/PNG/256px/bomb.png"
+dest_files=[ "res://.import/bomb.png-24f80b70f28f115e35658647310dfa39.stex" ]
 
 [params]
 
