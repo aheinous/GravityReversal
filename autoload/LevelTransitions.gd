@@ -38,5 +38,5 @@ func loadNextLevel():
 	enterLevel(LevelInfoManager.getNextLevel())
 
 func getCurLevelPath():
-	assert(get_tree().current_scene.filename.begins_with('res://levels/'))
+	assert(get_tree().current_scene.filename.begins_with('res://'))
 	return get_tree().current_scene.filename
