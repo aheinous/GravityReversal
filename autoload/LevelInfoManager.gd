@@ -56,19 +56,39 @@ func getCurLevelName():
 	return 'level name not found' if info==null else info.name
 
 
+
+static func keysEqual(dictA, dictB):
+	return dictA.has_all(dictB.keys()) and dictA.size() == dictB.size()
+
+
 func onLevelCompleted(scnPath, coinsCollected, coinsAvail, gems, noDeaths):
+	print('Level Completed: ', scnPath)
+
 	# update level info
 	var levelInfo = getLevelInfo(scnPath)
 
+	print('\told level info: ', levelInfo.maxCoinsCollected, '/', levelInfo.coinsAvail, ' ', levelInfo.gems, 'noDeaths: ', levelInfo.noDeaths)
+	print('\tthis run info:  ', coinsCollected, '/', coinsAvail, ' ', gems, 'noDeaths: ', noDeaths)
+
 	# if level never completed or that which is available differs (ie different version of level)
+
+#	print(levelInfo.maxCoinsCollected == null)
+#	print(levelInfo.coinsAvail != coinsAvail)
+#	print(levelInfo.gems.keys() != gems.keys())
+#	print(!keysEqual(levelInfo.gems, gems))
+
+
+
 	if (levelInfo.maxCoinsCollected == null
 			or levelInfo.coinsAvail != coinsAvail
-			or levelInfo.gems.keys() != gems.keys()):
+			or !keysEqual(levelInfo.gems, gems)):
+		print('first completion or level changed since last completion')
 		levelInfo.coinsAvail = coinsAvail
 		levelInfo.maxCoinsCollected = coinsCollected
 		levelInfo.gems = gems
 		levelInfo.noDeaths = noDeaths
 	else:
+		print('not first completion')
 		levelInfo.maxCoinsCollected = max(levelInfo.maxCoinsCollected, coinsCollected)
 		for color in gems.keys():
 			levelInfo.gems[color] = levelInfo.gems[color] or gems[color]
@@ -76,6 +96,8 @@ func onLevelCompleted(scnPath, coinsCollected, coinsAvail, gems, noDeaths):
 
 	levelInfo.completed = true
 	levelInfo.madeAvail = true
+
+	print('\tnew level info: ', levelInfo.maxCoinsCollected, '/', levelInfo.coinsAvail, ' ', levelInfo.gems, 'noDeaths: ', levelInfo.noDeaths)
 
 
 func getNextLevel(scnPath = null):
