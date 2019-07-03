@@ -27,7 +27,7 @@ func _ready():
 
 func reset():
   levelInfoList = [
-		LevelInfo.new('Tutorial', 'res://levels/tutorial.tscn'),					# CoolOne
+		LevelInfo.new('Intro', 'res://levels/tutorial.tscn'),					# CoolOne
 		LevelInfo.new("Baby's First Steps", 'res://levels/learnToFloat.tscn'),		# titleSongPlus
 		LevelInfo.new("Young Padawan", 'res://levels/learnToStall.tscn'),			# ultimatum
 		LevelInfo.new("On The Edge", 'res://levels/learnToPop.tscn'),				# CoolOne
