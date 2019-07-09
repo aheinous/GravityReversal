@@ -1,4 +1,5 @@
 .DS_Store
 *~
-.import/
-export_presets.cfg
+gravityReversal/.import/
+gravityReversal/export_presets.cfg
+.directory
