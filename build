@@ -1,0 +1,43 @@
+#!/usr/bin/python3
+
+
+import os
+import subprocess
+import shutil
+import re
+import sys
+
+gamedir = 'gravityReversal'
+enginedir = 'godotengine'
+# enginepath = 'godotengine/bin/godot.x11.opt.tools.64'
+enginepath = '/home/alex/bin/godot_versions/Godot_v3.1.1-stable_x11.64'
+
+
+def runCmd(args, directory='.'):
+    subprocess.run(args, cwd=directory, check=True)
+
+
+def buildEngine():
+    runCmd(['scons', '-j', '8', 'platform=x11', 'target=release_debug'], directory=enginedir)
+
+def buildAPK(cfg, name, code, apkPath):
+    print('building version: cfg: {}, code: {}, name: {} --> {}'.format(cfg, code, name, apkPath))
+    # write export_presets.cfg
+    with open('export_presets.cfg.pytemplate', 'r') as template, \
+            open( gamedir + '/export_presets.cfg', 'w') as cfgfile:
+        cfgfile.write(''.join(template.readlines()).format(name=name, code=code))
+
+
+
+    # actual build
+    runCmd([enginepath, '--debug', '--editor', gamedir + '/project.godot', '--export', cfg, 'tmp.apk'])
+    # this move worksaround a godot bug with certain output paths
+    shutil.move(gamedir + '/tmp.apk', apkPath)
+
+
+if __name__ == '__main__':
+    if len(sys.argv) != 4:
+        print('usage: {} <name> <code> <apk path>'.format(sys.argv[0]))
+        sys.exit(1)
+    buildEngine()
+    buildAPK('Android', sys.argv[1], sys.argv[2], sys.argv[3])

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd $(dirname "$0")
+cd gravityReversal
+../godotengine/bin/godot.x11.opt.tools.64 -e
