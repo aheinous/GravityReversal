@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://elements/saw/SawBlade.gd" type="Script" id=1]
 [ext_resource path="res://elements/saw/Blade.gd" type="Script" id=2]
 [ext_resource path="res://art/freescifiplatform/png/Objects/Saw.png" type="Texture" id=3]
 [ext_resource path="res://art/soundfx/TableSawBuzz-SoundBible.com-1560233300_LOOP.wav" type="AudioStream" id=4]
 [ext_resource path="res://art/soundfx/Buzzsaw-jaymz-1831379074_CUT_LOOP.wav" type="AudioStream" id=5]
-[ext_resource path="res://elements/saw/TextureCurveDrawer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://elements/saw/VisibilityNotifier2D.gd" type="Script" id=6]
+[ext_resource path="res://elements/saw/TextureCurveDrawer.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "spin"
@@ -33,8 +34,8 @@ _data = {
 radius = 179.0
 
 [node name="SawBlade" type="Node2D" groups=[
-"evil",
 "resettable",
+"evil",
 ]]
 self_modulate = Color( 0.882353, 0.882353, 0.882353, 1 )
 z_index = -1
@@ -75,8 +76,13 @@ stream = ExtResource( 5 )
 volume_db = -10.692
 bus = "fx"
 
-[node name="TextureCurveDrawer" parent="." instance=ExtResource( 6 )]
+[node name="TextureCurveDrawer" parent="." instance=ExtResource( 7 )]
 textureScale = 0.4
 
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+rect = Rect2( -50, -50, 100, 100 )
+script = ExtResource( 6 )
 [connection signal="body_entered" from="Path/Follow/Blade" to="." method="_on_Blade_body_entered"]
 [connection signal="body_exited" from="Path/Follow/Blade" to="." method="_on_Blade_body_exited"]
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

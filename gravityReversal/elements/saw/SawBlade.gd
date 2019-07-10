@@ -11,6 +11,7 @@ onready var path = $Path
 onready var runningSound = $'Path/Follow/Blade/RunningSound2D'
 onready var hitSound = $'Path/Follow/Blade/HitSound2D'
 onready var curveDrawer = $TextureCurveDrawer
+onready var visibilityNotifier = $VisibilityNotifier2D
 
 var curve = null
 var pathDir = 1
@@ -32,7 +33,28 @@ func _ready():
 			self.curve = child.curve
 			break
 
+	initVisibiltyNotifierRect()
 	reset()
+
+
+func initVisibiltyNotifierRect():
+	var minx = INF
+	var miny = INF
+	var maxx = -INF
+	var maxy = -INF
+	for i in range(self.curve.get_point_count()):
+		var pt = self.curve.get_point_position(i)
+		minx = min(minx, pt.x)
+		miny = min(miny, pt.y)
+		maxx = max(maxx, pt.x)
+		maxy = max(maxy, pt.y)
+	minx -= 50
+	miny -= 50
+	maxx += 50
+	maxy += 50
+	visibilityNotifier.rect = Rect2(minx, miny, maxx-minx, maxy-miny)
+
+
 
 
 func _draw():
@@ -102,3 +124,11 @@ func _on_Blade_body_exited(body):
 	nOverlapping -= 1
 	if nOverlapping == 0:
 		hitSound.stop()
+
+
+func _on_VisibilityNotifier2D_screen_entered():
+	pass # Replace with function body.
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	pass # Replace with function body.
