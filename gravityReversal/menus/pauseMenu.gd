@@ -53,6 +53,7 @@ func _on_loadChkptButton_pressed():
 
 
 func onLoadChkptConfirmed():
+	LevelPersistent.incDeathCount()
 	LevelTransitions.restartAtCheckpointOrBeginning()
 	get_tree().paused = false
 
