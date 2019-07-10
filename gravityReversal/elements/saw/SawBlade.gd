@@ -100,13 +100,11 @@ func _on_Blade_body_exited(body):
 
 
 func _on_VisibilityNotifier2D_screen_entered():
-	print('entered')
 	set_physics_process(true)
 	if nOverlapping >= 1:
 		hitSound.play()
 
 
 func _on_VisibilityNotifier2D_screen_exited():
-	print('exited')
 	set_physics_process(false)
 	hitSound.stop()
