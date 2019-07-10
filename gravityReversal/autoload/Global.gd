@@ -16,9 +16,22 @@ var time = 0.0 setget , getTime
 func getTime():
 	return time
 
+var _levelStartTime = 0
+
+func resetLevelTime():
+	_levelStartTime = getTime()
+
+func getLevelTime():
+	return getTime() - _levelStartTime
+
+var lastPrint = -1
 
 func _physics_process(delta):
 	time += delta
+	if time > lastPrint + 1:
+		print('time: ', time)
+		print('level time: ', getLevelTime())
+		lastPrint = time
 
 
 func fakeEscapePress():
