@@ -14,14 +14,11 @@ onready var curveDrawer = $TextureCurveDrawer
 onready var visibilityNotifier = $VisibilityNotifier2D
 
 var curve = null
-var pathDir = 1
-
 var nOverlapping = 0
 
-enum State {FWD_PAUSE, FWD, REV_PAUSE, REV}
-
-var state = State.FWD_PAUSE
-var curPauseRemaining
+var timeOffset = 0
+var moveDuration
+var totalPeriodDuration
 
 func _ready():
 	animationPlayer.play('spin')
@@ -33,6 +30,8 @@ func _ready():
 			self.curve = child.curve
 			break
 
+	moveDuration = path.curve.get_baked_length()/speed
+	totalPeriodDuration = 2*pauseTime + 2*moveDuration
 	initVisibiltyNotifierRect()
 	reset()
 
@@ -53,60 +52,35 @@ func initVisibiltyNotifierRect():
 	maxx += 50
 	maxy += 50
 	visibilityNotifier.rect = Rect2(minx, miny, maxx-minx, maxy-miny)
-
-
+	if visibilityNotifier.is_on_screen():
+		_on_VisibilityNotifier2D_screen_entered();
+	else:
+		_on_VisibilityNotifier2D_screen_exited();
 
 
 func _draw():
 	curveDrawer.drawCurve(self, curve)
 
+
 func reset():
-	follow.offset = 0
-	curPauseRemaining = pauseTime
-	var totalPeriodTime = 2*pauseTime + 2*path.curve.get_baked_length()/speed
-	_physics_process(totalPeriodTime * phase)
+	timeOffset = Global.getLevelTime() + totalPeriodDuration*phase
+
 
 func _physics_process(delta):
-	while delta > 0:
-		var startOffset = follow.offset
-		match state:
-			State.FWD_PAUSE:
-				if curPauseRemaining >= delta:
-					curPauseRemaining -= delta
-					delta = 0
-				else:
-					delta -= curPauseRemaining
-					curPauseRemaining = 0
-				if curPauseRemaining <= 0.0:
-					state = State.FWD
-					curPauseRemaining = pauseTime
-			State.FWD:
-				follow.offset += speed*delta
-				if follow.unit_offset >= 1:
-					follow.unit_offset = 1
-					delta -= (follow.offset-startOffset) / speed
-					state = State.REV_PAUSE
-				else:
-					delta = 0
-			State.REV_PAUSE:
-				if curPauseRemaining >= delta:
-					curPauseRemaining -= delta
-					delta = 0
-				else:
-					delta -= curPauseRemaining
-					curPauseRemaining = 0
-				if curPauseRemaining <= 0.0:
-					state = State.REV
-					curPauseRemaining = pauseTime
-			State.REV:
-				follow.offset -= speed*delta
-				if follow.unit_offset <= 0:
-					follow.unit_offset = 0
-					delta -= (startOffset-follow.offset) / speed
-					state = State.FWD_PAUSE
-				else:
-					delta = 0
+	updateSawPos()
 
+func updateSawPos():
+
+	var timeSincePeriodStart = fposmod(Global.getLevelTime()+timeOffset, totalPeriodDuration)
+
+	if timeSincePeriodStart <= pauseTime:
+		follow.unit_offset = 0
+	elif timeSincePeriodStart <= pauseTime + moveDuration:
+		follow.unit_offset = (timeSincePeriodStart-pauseTime)/moveDuration
+	elif timeSincePeriodStart <= 2*pauseTime + moveDuration:
+		follow.unit_offset = 1
+	else:
+		follow.unit_offset = 1 - (timeSincePeriodStart-2*pauseTime-moveDuration)/moveDuration
 
 
 func _on_Blade_body_entered(body):
@@ -119,7 +93,6 @@ func _on_Blade_body_entered(body):
 	hitSound.play()
 
 
-
 func _on_Blade_body_exited(body):
 	nOverlapping -= 1
 	if nOverlapping == 0:
@@ -127,8 +100,13 @@ func _on_Blade_body_exited(body):
 
 
 func _on_VisibilityNotifier2D_screen_entered():
-	pass # Replace with function body.
+	print('entered')
+	set_physics_process(true)
+	if nOverlapping >= 1:
+		hitSound.play()
 
 
 func _on_VisibilityNotifier2D_screen_exited():
-	pass # Replace with function body.
+	print('exited')
+	set_physics_process(false)
+	hitSound.stop()
