@@ -12,6 +12,6 @@ func _ready():
 #func _process(delta):
 #	pass
 
-
-func _draw():
-	draw_rect(self.rect, Color(1,0,0), false)
+#
+#func _draw():
+#	draw_rect(self.rect, Color(1,0,0), false)
