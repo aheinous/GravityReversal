@@ -18,8 +18,17 @@ func getTime():
 
 var _levelStartTime = 0
 
-func resetLevelTime():
+
+var randomPhases = {}
+
+func getRandomPhase(n):
+	if not n in randomPhases:
+		randomPhases[n] = randf()
+	return randomPhases[n]
+
+func onLevelReady():
 	_levelStartTime = getTime()
+	randomPhases = {}
 
 func getLevelTime():
 	return getTime() - _levelStartTime

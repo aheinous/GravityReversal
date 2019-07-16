@@ -4,6 +4,7 @@ extends Node2D
 export var speed := 100
 export (float, 0, 1) var phase = 0.0
 export var pauseTime := 0.0
+export var randPhaseGrp := 0
 
 onready var animationPlayer = $AnimationPlayer
 onready var follow = $Path/Follow
@@ -29,6 +30,9 @@ func _ready():
 			path.curve = child.curve
 			self.curve = child.curve
 			break
+
+	phase += Global.getRandomPhase(randPhaseGrp)
+	phase = fmod(phase, 1.0)
 
 	moveDuration = path.curve.get_baked_length()/speed
 	totalPeriodDuration = 2*pauseTime + 2*moveDuration

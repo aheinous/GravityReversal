@@ -29,5 +29,4 @@ position = Vector2( 32, 32 )
 stream = ExtResource( 3 )
 max_distance = 1500.0
 bus = "fx"
-
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

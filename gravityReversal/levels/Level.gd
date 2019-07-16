@@ -51,7 +51,7 @@ func playerReachedGoal():
 
 
 func _ready():
-	Global.resetLevelTime()
+	Global.onLevelReady()
 	MusicPlayer.setSong(self.songScn)
 	HUD.setCoinCount(0)
 	HUD.setGems(gems)

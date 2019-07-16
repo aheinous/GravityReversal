@@ -3,6 +3,7 @@ extends Node2D
 export var missleSpeed : float = 1000
 export var interval : float = 1
 export var phase : float = 0
+export var randPhaseGrp := 0
 
 
 const missleScene = preload('res://elements/Missle.tscn')
@@ -12,12 +13,8 @@ onready var timer = $Timer
 onready var launchSound = $LaunchSoundPlayer2D
 
 func _ready():
-	var startPhase = phase
-	phase = fmod(phase, 1.0)
-	if phase < 0:
-		phase += 1.0
-	print('startPhase, phase: %f, %f' % [startPhase, phase])
-	assert(phase >= 0 and phase < 1)
+	phase += Global.getRandomPhase(randPhaseGrp)
+	phase = fposmod(phase, 1.0)
 	reset()
 
 
