@@ -1,6 +1,10 @@
 extends Node
 
 
+
+func _init():
+	randomize()
+
 func _notification(what):
 
 #	print('global._notification( ', what, ' )')
@@ -22,6 +26,8 @@ var _levelStartTime = 0
 var randomPhases = {}
 
 func getRandomPhase(n):
+	if n == -1:
+		return randf()
 	if not n in randomPhases:
 		randomPhases[n] = randf()
 	return randomPhases[n]
