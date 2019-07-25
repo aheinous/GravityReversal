@@ -3,6 +3,5 @@
 [ext_resource path="res://art/fonts/Nova_Flat/NovaFlat.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 300
+size = 240
 font_data = ExtResource( 1 )
-
