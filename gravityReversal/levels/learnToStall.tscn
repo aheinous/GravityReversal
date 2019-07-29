@@ -9,32 +9,27 @@
 [ext_resource path="res://elements/CheckPoint.tscn" type="PackedScene" id=7]
 [ext_resource path="res://elements/backgrounds/BlueBackground.tscn" type="PackedScene" id=8]
 
-
-
-
-
-
 [sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -256, 0, 0, 0, 0, 0, 192, 0 )
 }
 
-[sub_resource type="Curve2D" id=6]
+[sub_resource type="Curve2D" id=2]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -352, 0, 0, 0, 0, 0, 224, 0 )
 }
 
-[sub_resource type="Curve2D" id=4]
+[sub_resource type="Curve2D" id=3]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 0, -192, 0, 0, 0, 0, 0, 192 )
 }
 
-[sub_resource type="Curve2D" id=5]
+[sub_resource type="Curve2D" id=4]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 0, 192, 0, 0, 0, 0, 0, -256 )
 }
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 32, 300 )
 
 [node name="Level" index="0" instance=ExtResource( 1 )]
@@ -56,7 +51,7 @@ position = Vector2( 9952, 608 )
 speed = 400
 
 [node name="Path2D" type="Path2D" parent="Saws/SawBlade2" index="2"]
-curve = SubResource( 6 )
+curve = SubResource( 2 )
 
 [node name="SawBlade3" parent="Saws" index="2" instance=ExtResource( 2 )]
 position = Vector2( 12576, 320 )
@@ -64,7 +59,7 @@ speed = 300
 pauseTime = 0.3
 
 [node name="Path2D" type="Path2D" parent="Saws/SawBlade3" index="2"]
-curve = SubResource( 4 )
+curve = SubResource( 3 )
 
 [node name="SawBlade4" parent="Saws" index="3" instance=ExtResource( 2 )]
 position = Vector2( 16672, 192 )
@@ -72,7 +67,7 @@ speed = 300
 pauseTime = 0.3
 
 [node name="Path2D" type="Path2D" parent="Saws/SawBlade4" index="2"]
-curve = SubResource( 5 )
+curve = SubResource( 4 )
 
 [node name="SawBlade5" parent="Saws" index="4" instance=ExtResource( 2 )]
 position = Vector2( 17248, 192 )
@@ -80,7 +75,7 @@ speed = 300
 pauseTime = 0.3
 
 [node name="Path2D" type="Path2D" parent="Saws/SawBlade5" index="2"]
-curve = SubResource( 5 )
+curve = SubResource( 4 )
 
 [node name="SawBlade6" parent="Saws" index="5" instance=ExtResource( 2 )]
 position = Vector2( 18144, 205.1 )
@@ -88,7 +83,7 @@ speed = 300
 pauseTime = 0.3
 
 [node name="Path2D" type="Path2D" parent="Saws/SawBlade6" index="2"]
-curve = SubResource( 5 )
+curve = SubResource( 4 )
 
 [node name="Finish" parent="." index="2"]
 tile_data = PoolIntArray( 393543, 1610612736, 0, 393544, 1610612736, 0, 393545, 1610612736, 0, 393546, 1610612736, 0, 393547, 1610612736, 0, 393548, 1610612736, 0, 393549, 1610612736, 0, 393550, 1610612736, 0, 393551, 1610612736, 0, 393552, 1610612736, 0, 393553, 1610612736, 0, 393554, 1610612736, 0, 393555, 1610612736, 0, 393556, 1610612736, 0, 393557, 1610612736, 0, 393558, 0, 0, 393559, 0, 0, 393560, 0, 0, 393561, 0, 0, 393562, 0, 0, 393563, 0, 0, 393564, 0, 0, 393565, 0, 0, 393566, 0, 0, 393567, 0, 0, 393568, 0, 0 )
@@ -101,9 +96,6 @@ tile_data = PoolIntArray( -1114111, 0, 0, -1114110, 0, 0, -1114109, 0, 0, -11141
 
 [node name="DirectionChangers" parent="." index="9"]
 tile_data = PoolIntArray( -1114134, 1610612736, 0, -1179484, 0, 0, -1048350, 1610612736, 0, -982814, 1610612736, 0, -851985, -1073741824, 0, -917278, 1610612736, 0, -786273, -1073741824, 0, -262179, 0, 0, 169, 0, 0, 328036, 1610612736, 0, 589803, -1073741824, 0 )
-
-[node name="Coins" parent="." index="11"]
-editor/display_folded = true
 
 [node name="Coin" parent="Coins" index="0" instance=ExtResource( 3 )]
 position = Vector2( 5024, 544 )
@@ -324,21 +316,18 @@ position = Vector2( 22691, 352 )
 [node name="GreenGem" parent="Gems" index="2" instance=ExtResource( 6 )]
 position = Vector2( 14432, -928 )
 
-[node name="CheckPoints" parent="." index="16"]
-editor/display_folded = true
-
 [node name="CheckPoint" parent="CheckPoints" index="0" instance=ExtResource( 7 )]
 position = Vector2( 7648, 416 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPoints/CheckPoint" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
 [node name="CheckPoint2" parent="CheckPoints" index="1" instance=ExtResource( 7 )]
 position = Vector2( 10880, 384 )
 upsideDown = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPoints/CheckPoint2" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
 [node name="CheckPoint3" parent="CheckPoints" index="2" instance=ExtResource( 7 )]
 position = Vector2( 15456, 160 )
@@ -346,7 +335,7 @@ upsideDown = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPoints/CheckPoint3" index="0"]
 position = Vector2( 0, 160 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -356,7 +345,7 @@ position = Vector2( 20224, 96 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPoints/CheckPoint4" index="0"]
 position = Vector2( 0, 160 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -366,7 +355,7 @@ position = Vector2( 288, 323 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPoints/CheckPoint5" index="0"]
 position = Vector2( 0, -0.00012207 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -376,7 +365,7 @@ position = Vector2( -1376, -256 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPoints/CheckPoint6" index="0"]
 position = Vector2( 0, -0.00012207 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -386,10 +375,9 @@ position = Vector2( 10656, -160 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPoints/CheckPoint7" index="0"]
 position = Vector2( 0, -0.00012207 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="BlueBackground" parent="." index="17" instance=ExtResource( 8 )]
-
