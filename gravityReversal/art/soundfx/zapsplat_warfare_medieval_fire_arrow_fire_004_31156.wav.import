@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/zapsplat_warfare_medieval_fire_arrow_fire_004_31156.wav-09e448db460431008ccfb88f6b580088.sample"
+
+[deps]
+
+source_file="res://art/soundfx/zapsplat_warfare_medieval_fire_arrow_fire_004_31156.wav"
+dest_files=[ "res://.import/zapsplat_warfare_medieval_fire_arrow_fire_004_31156.wav-09e448db460431008ccfb88f6b580088.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

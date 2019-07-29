@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/zapsplat_cartoon_ufo_hover_26529.wav-76af508e7371031e6db08d37187f95ed.sample"
+
+[deps]
+
+source_file="res://art/soundfx/zapsplat_cartoon_ufo_hover_26529.wav"
+dest_files=[ "res://.import/zapsplat_cartoon_ufo_hover_26529.wav-76af508e7371031e6db08d37187f95ed.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

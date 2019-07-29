@@ -41,6 +41,11 @@ onready var smallImpactNoise = $SmallImpactNoise
 onready var heavyImpactNoise = $HeavyImpactNoise
 onready var stallNoise = $StallNoise
 onready var levelCompleteNoise = $LevelCompleteNoise
+onready var dirChangeNoise = $DirChangeNoise
+onready var hangNoise = $HangNoise
+onready var goNoise = $GoNoise
+
+
 
 var moveDir = Vector2.RIGHT
 var fallDir = Vector2.DOWN
@@ -53,12 +58,15 @@ var gameSM = StateMachine.new(
 		[
 			'waiting',
 			'moving',
+			'hanging',
 			'dead',
 			'finished',
 			'dead_awaitingRestart'
 		])
 
 
+var doneStates = [gameSM.states.dead, gameSM.states.finished, gameSM.states.dead_awaitingRestart]
+var stillStates = [gameSM.states.waiting, gameSM.states.hanging]
 
 func onGameStateTransition(newState, prevState):
 	match newState:
@@ -70,6 +78,16 @@ func onGameStateTransition(newState, prevState):
 		gameSM.states.finished:
 			levelCompleteNoise.play()
 			owner.playerReachedGoal()
+		gameSM.states.hanging:
+			velocity= Vector2.ZERO
+			hangNoise.play()
+		gameSM.states.moving:
+			if prevState == gameSM.states.hanging:
+				goNoise.play()
+
+	match prevState:
+		gameSM.states.hanging:
+			hangNoise.stop()
 
 
 func _ready():
@@ -161,14 +179,19 @@ func playImpactNoise(prevVelocity, velocity):
 
 func _physics_process(delta):
 	var prevVelocity = velocity
-	# zero velocity in moveDir direction
-	velocity -= moveDir * velocity.dot(moveDir)
-	if gameSM.state == gameSM.states.moving:
-		# set veloctiy to WALK_SPEED in moveDir direction
-		velocity += moveDir * WALK_SPEED
 
-	var acceleration = GRAVITY * fallDir * delta
-	velocity += acceleration
+	if gameSM.state == gameSM.states.hanging:
+		velocity = Vector2.ZERO
+	else:
+		# zero velocity in moveDir direction
+		velocity -= moveDir * velocity.dot(moveDir)
+		if gameSM.state == gameSM.states.moving:
+			# set veloctiy to WALK_SPEED in moveDir direction
+			velocity += moveDir * WALK_SPEED
+
+		var acceleration = GRAVITY * fallDir * delta
+		velocity += acceleration
+
 	velocity = move_and_slide(velocity, -fallDir)
 
 	if get_slide_count() > 0:
@@ -202,7 +225,7 @@ func selectAnimation():
 
 
 func onPress():
-	if gameSM.state in [gameSM.states.waiting, gameSM.states.moving]:
+	if gameSM.state in [gameSM.states.waiting, gameSM.states.moving, gameSM.states.hanging]:
 		reverseGravity()
 	elif gameSM.state == gameSM.states.dead_awaitingRestart:
 		LevelTransitions.restartAtCheckpointOrBeginning()
@@ -284,6 +307,20 @@ func changeDirectionToAngle(angleDeg):
 	setMovement(angleDeg, upsideDown, true)
 
 
+
+func onDirChangerHit(angleDeg):
+	if self.angleDegrees == angleDeg:
+		return
+	if gameSM.state in doneStates:
+		return
+	dirChangeNoise.play()
+	changeDirectionToAngle(angleDeg)
+	gameSM.setState(gameSM.states.hanging)
+	yield(get_tree().create_timer(1), "timeout")
+	if gameSM.state in doneStates:
+		return
+	gameSM.setState(gameSM.states.moving)
+
 func setZoom(newZoom):
 	zoom = newZoom
 	$CameraCenter.position = CAMERA_CENTER_DEFAULT * zoom
@@ -296,5 +333,5 @@ func getZoom():
 func _on_Sense_area_entered(area):
 	# print('_on_Sense_area_entered(area): area = ', area)
 	if area.is_in_group("directionChanger"):
-		changeDirectionToAngle(area.rotation_degrees)
+		onDirChangerHit(area.rotation_degrees)
 
