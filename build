@@ -21,13 +21,14 @@ def buildEngine():
     runCmd(['scons', '-j', '8', 'platform=x11', 'target=release_debug'], directory=enginedir)
 
 def buildAPK(cfg, name, code, apk32_path, apk64_path):
+    code = int(code)
     print('building version: cfg: {}, code: {}, name: {} --> {}, {}'.format(cfg, code, name, apk32_path, apk64_path))
 
 
     # write export_presets.cfg
     with open('export_presets.cfg.pytemplate', 'r') as template, \
         open( gamedir + '/export_presets.cfg', 'w') as cfgfile:
-        cfgfile.write(''.join(template.readlines()).format(name=name, code=code, enableArm32='true', enableArm64='false'))
+        cfgfile.write(''.join(template.readlines()).format(name=name, code=(code*10), enableArm32='true', enableArm64='false'))
 
     # actual build
     runCmd([enginepath, '--debug', '--editor', gamedir + '/project.godot', '--export', cfg, 'tmp32.apk'])
@@ -39,7 +40,7 @@ def buildAPK(cfg, name, code, apk32_path, apk64_path):
     # write export_presets.cfg
     with open('export_presets.cfg.pytemplate', 'r') as template, \
         open( gamedir + '/export_presets.cfg', 'w') as cfgfile:
-        cfgfile.write(''.join(template.readlines()).format(name=name, code=code, enableArm32='false', enableArm64='true'))
+        cfgfile.write(''.join(template.readlines()).format(name=name, code=(code*10+1), enableArm32='false', enableArm64='true'))
 
     # actual build
     runCmd([enginepath, '--debug', '--editor', gamedir + '/project.godot', '--export', cfg, 'tmp64.apk'])
