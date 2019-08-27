@@ -1,7 +1,7 @@
 extends Area2D
 
 
-onready var particles = $Particles2D
+var particles
 onready var sprite = $Sprite
 onready var sndfx = $AudioStreamPlayer
 
@@ -13,6 +13,13 @@ var consumed = false
 
 
 func _ready():
+	if OS.get_current_video_driver() == OS.VIDEO_DRIVER_GLES2:
+		print("GLES2")
+		particles = $CPUParticles2D
+	else:
+		print("GLES3")
+		particles = $Particles2D
+
 	match color:
 		'blue':
 			particles.modulate = Color(0, 0.3, 1)

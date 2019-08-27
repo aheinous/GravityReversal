@@ -3,30 +3,27 @@
 [ext_resource path="res://elements/gems/BlueGem.gd" type="Script" id=1]
 [ext_resource path="res://art/soundfx/shooting_star-Mike_Koenig-1132888100.wav" type="AudioStream" id=2]
 [ext_resource path="res://art/platformerPack/Items/gemBlue.png" type="Texture" id=3]
+[ext_resource path="res://elements/gems/gem_particle_color_ramp.tres" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 19.1178
 
-[sub_resource type="Gradient" id=2]
-offsets = PoolRealArray( 0, 0.172603, 0.284932, 0.40274, 0.684932, 0.750685, 0.994521, 1 )
-colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 0.288086, 0.288086, 0.288086, 1, 1, 1, 1, 0.934166, 1, 1, 1, 0.776471, 0, 0, 0, 0.537255, 1, 1, 1, 0.223416, 0, 0, 0, 0 )
-
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
-
-[sub_resource type="ParticlesMaterial" id=4]
+[sub_resource type="ParticlesMaterial" id=2]
 flag_align_y = true
 flag_disable_z = true
 spread = 180.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 120.0
 initial_velocity_random = 0.5
-angular_velocity = 3.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 damping = 7.14
 scale = 5.0
-color_ramp = SubResource( 3 )
+color_ramp = ExtResource( 4 )
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.180805, 0.286204, 0.405313, 0.678663, 0.736075, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 0.286275, 0.286275, 0.286275, 1, 1, 1, 1, 0.933333, 1, 1, 1, 0.776471, 0, 0, 0, 0.537255, 1, 1, 1, 0.223529 )
 
 [node name="BlueGem" type="Area2D" groups=[
 "gem",
@@ -43,7 +40,7 @@ amount = 40
 one_shot = true
 speed_scale = 1.2
 explosiveness = 0.79
-process_material = SubResource( 4 )
+process_material = SubResource( 2 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
@@ -53,4 +50,18 @@ bus = "fx"
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 40
+one_shot = true
+speed_scale = 1.2
+explosiveness = 0.79
+flag_align_y = true
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 120.0
+initial_velocity_random = 0.5
+damping = 7.14
+scale_amount = 5.0
+color_ramp = SubResource( 3 )
 [connection signal="area_entered" from="." to="." method="_on_Coin_area_entered"]

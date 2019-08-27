@@ -10,6 +10,7 @@
 [ext_resource path="res://art/CoinsByLexassets/PNG/GOLD/MEDIUM/MEDIUM_0006_Capa-7.png" type="Texture" id=8]
 [ext_resource path="res://art/CoinsByLexassets/PNG/GOLD/MEDIUM/MEDIUM_0007_Capa-8.png" type="Texture" id=9]
 [ext_resource path="res://art/soundfx/noisecreations_SFX-NCFREE02_Flabby-Burd.wav" type="AudioStream" id=10]
+[ext_resource path="res://elements/CoinParticleGradient.tres" type="Gradient" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -22,14 +23,10 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=2]
 radius = 19.1178
 
-[sub_resource type="Gradient" id=3]
-offsets = PoolRealArray( 0, 0.382867, 0.998252, 1 )
-colors = PoolColorArray( 1, 0.867188, 0, 1, 1, 0.867188, 0, 1, 1, 0.866667, 0, 0, 1, 1, 1, 1 )
+[sub_resource type="GradientTexture" id=3]
+gradient = ExtResource( 11 )
 
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
-
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=4]
 flag_align_y = true
 flag_disable_z = true
 spread = 180.0
@@ -41,7 +38,7 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 damping = 7.14
 scale = 5.0
-color_ramp = SubResource( 4 )
+color_ramp = SubResource( 3 )
 
 [node name="Coin" type="Area2D" groups=[
 "coin",
@@ -52,7 +49,7 @@ script = ExtResource( 1 )
 scale = Vector2( 0.9, 0.9 )
 frames = SubResource( 1 )
 animation = "rotate"
-frame = 2
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -65,10 +62,24 @@ amount = 20
 lifetime = 0.35
 one_shot = true
 explosiveness = 1.0
-process_material = SubResource( 5 )
+process_material = SubResource( 4 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = -1
+emitting = false
+amount = 20
+lifetime = 0.35
+one_shot = true
+explosiveness = 1.0
+flag_align_y = true
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 120.0
+initial_velocity_random = 0.5
+scale_amount = 5.0
+color_ramp = ExtResource( 11 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
 bus = "fx"
-
 [connection signal="area_entered" from="." to="." method="_on_Coin_area_entered"]
