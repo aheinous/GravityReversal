@@ -1,13 +1,16 @@
 extends Area2D
 
 
-onready var sparkEmitter = $'Particles2D'
+var sparkEmitter
 
 var nOverlapping = 0
 
 
 func _ready():
-	pass
+	if OS.get_current_video_driver() == OS.VIDEO_DRIVER_GLES2:
+		sparkEmitter = $CPUParticles2D
+	else:
+		sparkEmitter = $Particles2D
 
 
 
