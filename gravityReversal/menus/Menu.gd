@@ -1,10 +1,12 @@
 extends Control
 
-
+onready var quitButton = $CenterContainer/VBoxContainer/VBoxContainer/QuitButton
 
 func _ready():
 	var songScn = preload("res://songs/TitleSong.tscn")
 	MusicPlayer.setSong(songScn)
+	if OS.get_name() == "HTML5":
+		quitButton.hide()
 
 func _on_NewGameButton_pressed():
 	LevelTransitions.enterLevel(LevelInfoManager.levelInfoList[0].scenePath)
