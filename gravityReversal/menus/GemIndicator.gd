@@ -2,10 +2,11 @@ extends Panel
 
 
 
+
 onready var indicators = {
- 	'blue' : $hbox/Blue,
- 	'green' : $hbox/Green,
- 	'red' : $hbox/Red,
+	'blue' : $hbox/Blue,
+	'green' : $hbox/Green,
+	'red' : $hbox/Red,
 	'yellow' : $hbox/Yellow
 }
 

@@ -3,16 +3,16 @@ extends Control
 
 
 onready var indicators = {
- 	'blue' : $hbox/BlueRect/Blue,
- 	'green' : $hbox/GreenRect/Green,
- 	'red' : $hbox/RedRect/Red,
+	'blue' : $hbox/BlueRect/Blue,
+	'green' : $hbox/GreenRect/Green,
+	'red' : $hbox/RedRect/Red,
 	'yellow' : $hbox/YellowRect/Yellow
 }
 
 onready var indicatorContainers = {
- 	'blue' : $hbox/BlueRect,
- 	'green' : $hbox/GreenRect,
- 	'red' : $hbox/RedRect,
+	'blue' : $hbox/BlueRect,
+	'green' : $hbox/GreenRect,
+	'red' : $hbox/RedRect,
 	'yellow' : $hbox/YellowRect
 }
 
