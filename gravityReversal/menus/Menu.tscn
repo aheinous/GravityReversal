@@ -24,51 +24,51 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 359.0
-margin_top = 140.0
+margin_top = 146.0
 margin_right = 2200.0
-margin_bottom = 1299.0
+margin_bottom = 1293.0
 custom_constants/separation = 50
 alignment = 1
 
 [node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_right = 1841.0
-margin_bottom = 585.0
+margin_bottom = 581.0
 custom_fonts/font = ExtResource( 3 )
 text = "Anti-Gravity 
 Space Robot 2D"
 align = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
-margin_top = 635.0
+margin_top = 631.0
 margin_right = 1841.0
-margin_bottom = 1159.0
+margin_bottom = 1147.0
 custom_constants/separation = 20
 alignment = 2
 
 [node name="NewGameButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
 margin_right = 1841.0
-margin_bottom = 116.0
+margin_bottom = 114.0
 custom_fonts/font = ExtResource( 4 )
 text = "New Game"
 
 [node name="LevelSelectButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
-margin_top = 136.0
+margin_top = 134.0
 margin_right = 1841.0
-margin_bottom = 252.0
+margin_bottom = 248.0
 custom_fonts/font = ExtResource( 4 )
 text = "Level Select"
 
 [node name="OptionsButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
-margin_top = 272.0
+margin_top = 268.0
 margin_right = 1841.0
-margin_bottom = 388.0
+margin_bottom = 382.0
 custom_fonts/font = ExtResource( 4 )
 text = "Options"
 
 [node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
-margin_top = 408.0
+margin_top = 402.0
 margin_right = 1841.0
-margin_bottom = 524.0
+margin_bottom = 516.0
 custom_fonts/font = ExtResource( 4 )
 text = "Quit Game"
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/NewGameButton" to="." method="_on_NewGameButton_pressed"]

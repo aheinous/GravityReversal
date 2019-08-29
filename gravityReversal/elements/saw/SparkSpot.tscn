@@ -5,7 +5,7 @@
 [ext_resource path="res://elements/saw/SparkSpot_particlesColorGradient_.tres" type="Gradient" id=3]
 [ext_resource path="res://elements/saw/SparkSpot_particlesColorGradient.tres" type="Texture" id=4]
 
-[sub_resource type="GradientTexture" id=1]
+[sub_resource type="GradientTexture" id=4]
 gradient = ExtResource( 3 )
 
 [sub_resource type="ParticlesMaterial" id=2]
@@ -22,7 +22,7 @@ orbit_velocity_random = 0.0
 tangential_accel = 12.37
 scale = 0.2
 scale_random = 0.1
-color_ramp = SubResource( 1 )
+color_ramp = SubResource( 4 )
 hue_variation_random = 1.0
 
 [sub_resource type="CircleShape2D" id=3]
