@@ -7,7 +7,7 @@ var levelCompleteMenu = preload('res://menus/LevelCompleteMenu.tscn')
 func enterLevel(scnPath):
 	if OS.get_name() == "HTML5":
 		MusicPlayer.setSong(null)
-		yield(get_tree().create_timer(.05), "timeout")
+		yield(get_tree().create_timer(0.2), "timeout")
 	SceneLoader.loadScene(scnPath)
 	LevelPersistent.onEnterLevel()
 
