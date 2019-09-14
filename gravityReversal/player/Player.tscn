@@ -1,57 +1,58 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
-[ext_resource path="res://art/robotfree/png/Idle (1).png" type="Texture" id=2]
-[ext_resource path="res://art/robotfree/png/Idle (2).png" type="Texture" id=3]
-[ext_resource path="res://art/robotfree/png/Idle (3).png" type="Texture" id=4]
-[ext_resource path="res://art/robotfree/png/Idle (4).png" type="Texture" id=5]
-[ext_resource path="res://art/robotfree/png/Idle (5).png" type="Texture" id=6]
-[ext_resource path="res://art/robotfree/png/Idle (6).png" type="Texture" id=7]
-[ext_resource path="res://art/robotfree/png/Idle (7).png" type="Texture" id=8]
-[ext_resource path="res://art/robotfree/png/Idle (8).png" type="Texture" id=9]
-[ext_resource path="res://art/robotfree/png/Idle (9).png" type="Texture" id=10]
-[ext_resource path="res://art/robotfree/png/Idle (10).png" type="Texture" id=11]
-[ext_resource path="res://art/robotfree/png/JumpMelee (1).png" type="Texture" id=12]
-[ext_resource path="res://art/robotfree/png/JumpMelee (2).png" type="Texture" id=13]
-[ext_resource path="res://art/robotfree/png/JumpMelee (3).png" type="Texture" id=14]
-[ext_resource path="res://art/robotfree/png/JumpMelee (4).png" type="Texture" id=15]
-[ext_resource path="res://art/robotfree/png/JumpMelee (5).png" type="Texture" id=16]
-[ext_resource path="res://art/robotfree/png/JumpMelee (6).png" type="Texture" id=17]
-[ext_resource path="res://art/robotfree/png/JumpMelee (7).png" type="Texture" id=18]
-[ext_resource path="res://art/robotfree/png/JumpMelee (8).png" type="Texture" id=19]
-[ext_resource path="res://art/robotfree/png/Run (1).png" type="Texture" id=20]
-[ext_resource path="res://art/robotfree/png/Run (2).png" type="Texture" id=21]
-[ext_resource path="res://art/robotfree/png/Run (3).png" type="Texture" id=22]
-[ext_resource path="res://art/robotfree/png/Run (4).png" type="Texture" id=23]
-[ext_resource path="res://art/robotfree/png/Run (5).png" type="Texture" id=24]
-[ext_resource path="res://art/robotfree/png/Run (6).png" type="Texture" id=25]
-[ext_resource path="res://art/robotfree/png/Run (7).png" type="Texture" id=26]
-[ext_resource path="res://art/robotfree/png/Run (8).png" type="Texture" id=27]
-[ext_resource path="res://art/robotfree/png/Dead (1).png" type="Texture" id=28]
-[ext_resource path="res://art/robotfree/png/Dead (2).png" type="Texture" id=29]
-[ext_resource path="res://art/robotfree/png/Dead (3).png" type="Texture" id=30]
-[ext_resource path="res://art/robotfree/png/Dead (4).png" type="Texture" id=31]
-[ext_resource path="res://art/robotfree/png/Dead (5).png" type="Texture" id=32]
-[ext_resource path="res://art/robotfree/png/Dead (6).png" type="Texture" id=33]
-[ext_resource path="res://art/robotfree/png/Dead (7).png" type="Texture" id=34]
-[ext_resource path="res://art/robotfree/png/Dead (8).png" type="Texture" id=35]
-[ext_resource path="res://art/robotfree/png/Dead (9).png" type="Texture" id=36]
-[ext_resource path="res://art/robotfree/png/Dead (10).png" type="Texture" id=37]
-[ext_resource path="res://art/robotfree/png/Jump (3).png" type="Texture" id=38]
-[ext_resource path="res://art/robotfree/png/Jump (4).png" type="Texture" id=39]
-[ext_resource path="res://art/robotfree/png/Jump (5).png" type="Texture" id=40]
-[ext_resource path="res://art/robotfree/png/Jump (6).png" type="Texture" id=41]
-[ext_resource path="res://art/robotfree/png/JumpShoot (1).png" type="Texture" id=42]
-[ext_resource path="res://art/robotfree/png/JumpShoot (2).png" type="Texture" id=43]
-[ext_resource path="res://art/robotfree/png/JumpShoot (3).png" type="Texture" id=44]
-[ext_resource path="res://art/robotfree/png/JumpShoot (4).png" type="Texture" id=45]
-[ext_resource path="res://art/robotfree/png/JumpShoot (5).png" type="Texture" id=46]
-[ext_resource path="res://art/soundfx/flip.wav" type="AudioStream" id=47]
-[ext_resource path="res://art/soundfx/zapsplat/zapsplat_impacts_body_lean_hard_against_wall_16048_TRIMMED.wav" type="AudioStream" id=48]
-[ext_resource path="res://art/soundfx/Yahoo-SoundBible.com-1888534056.wav" type="AudioStream" id=49]
-[ext_resource path="res://art/soundfx/dirChange1.wav" type="AudioStream" id=50]
-[ext_resource path="res://art/soundfx/zapsplat_cartoon_ufo_hover_26529.wav" type="AudioStream" id=51]
-[ext_resource path="res://art/soundfx/zapsplat_warfare_medieval_fire_arrow_fire_004_31156.wav" type="AudioStream" id=52]
+[ext_resource path="res://art/capsuleVert.png" type="Texture" id=2]
+[ext_resource path="res://art/robotfree/png/Idle (1).png" type="Texture" id=3]
+[ext_resource path="res://art/robotfree/png/Idle (2).png" type="Texture" id=4]
+[ext_resource path="res://art/robotfree/png/Idle (3).png" type="Texture" id=5]
+[ext_resource path="res://art/robotfree/png/Idle (4).png" type="Texture" id=6]
+[ext_resource path="res://art/robotfree/png/Idle (5).png" type="Texture" id=7]
+[ext_resource path="res://art/robotfree/png/Idle (6).png" type="Texture" id=8]
+[ext_resource path="res://art/robotfree/png/Idle (7).png" type="Texture" id=9]
+[ext_resource path="res://art/robotfree/png/Idle (8).png" type="Texture" id=10]
+[ext_resource path="res://art/robotfree/png/Idle (9).png" type="Texture" id=11]
+[ext_resource path="res://art/robotfree/png/Idle (10).png" type="Texture" id=12]
+[ext_resource path="res://art/robotfree/png/Dead (1).png" type="Texture" id=13]
+[ext_resource path="res://art/robotfree/png/Dead (2).png" type="Texture" id=14]
+[ext_resource path="res://art/robotfree/png/Dead (3).png" type="Texture" id=15]
+[ext_resource path="res://art/robotfree/png/Dead (4).png" type="Texture" id=16]
+[ext_resource path="res://art/robotfree/png/Dead (5).png" type="Texture" id=17]
+[ext_resource path="res://art/robotfree/png/Dead (6).png" type="Texture" id=18]
+[ext_resource path="res://art/robotfree/png/Dead (7).png" type="Texture" id=19]
+[ext_resource path="res://art/robotfree/png/Dead (8).png" type="Texture" id=20]
+[ext_resource path="res://art/robotfree/png/Dead (9).png" type="Texture" id=21]
+[ext_resource path="res://art/robotfree/png/Dead (10).png" type="Texture" id=22]
+[ext_resource path="res://art/robotfree/png/Jump (3).png" type="Texture" id=23]
+[ext_resource path="res://art/robotfree/png/Jump (4).png" type="Texture" id=24]
+[ext_resource path="res://art/robotfree/png/Jump (5).png" type="Texture" id=25]
+[ext_resource path="res://art/robotfree/png/Jump (6).png" type="Texture" id=26]
+[ext_resource path="res://art/robotfree/png/JumpShoot (1).png" type="Texture" id=27]
+[ext_resource path="res://art/robotfree/png/JumpShoot (2).png" type="Texture" id=28]
+[ext_resource path="res://art/robotfree/png/JumpShoot (3).png" type="Texture" id=29]
+[ext_resource path="res://art/robotfree/png/JumpShoot (4).png" type="Texture" id=30]
+[ext_resource path="res://art/robotfree/png/JumpShoot (5).png" type="Texture" id=31]
+[ext_resource path="res://art/robotfree/png/JumpMelee (1).png" type="Texture" id=32]
+[ext_resource path="res://art/robotfree/png/JumpMelee (2).png" type="Texture" id=33]
+[ext_resource path="res://art/robotfree/png/JumpMelee (3).png" type="Texture" id=34]
+[ext_resource path="res://art/robotfree/png/JumpMelee (4).png" type="Texture" id=35]
+[ext_resource path="res://art/robotfree/png/JumpMelee (5).png" type="Texture" id=36]
+[ext_resource path="res://art/robotfree/png/JumpMelee (6).png" type="Texture" id=37]
+[ext_resource path="res://art/robotfree/png/JumpMelee (7).png" type="Texture" id=38]
+[ext_resource path="res://art/robotfree/png/JumpMelee (8).png" type="Texture" id=39]
+[ext_resource path="res://art/robotfree/png/Run (1).png" type="Texture" id=40]
+[ext_resource path="res://art/robotfree/png/Run (2).png" type="Texture" id=41]
+[ext_resource path="res://art/robotfree/png/Run (3).png" type="Texture" id=42]
+[ext_resource path="res://art/robotfree/png/Run (4).png" type="Texture" id=43]
+[ext_resource path="res://art/robotfree/png/Run (5).png" type="Texture" id=44]
+[ext_resource path="res://art/robotfree/png/Run (6).png" type="Texture" id=45]
+[ext_resource path="res://art/robotfree/png/Run (7).png" type="Texture" id=46]
+[ext_resource path="res://art/robotfree/png/Run (8).png" type="Texture" id=47]
+[ext_resource path="res://art/soundfx/flip.wav" type="AudioStream" id=48]
+[ext_resource path="res://art/soundfx/zapsplat/zapsplat_impacts_body_lean_hard_against_wall_16048_TRIMMED.wav" type="AudioStream" id=49]
+[ext_resource path="res://art/soundfx/Yahoo-SoundBible.com-1888534056.wav" type="AudioStream" id=50]
+[ext_resource path="res://art/soundfx/dirChange1.wav" type="AudioStream" id=51]
+[ext_resource path="res://art/soundfx/zapsplat_cartoon_ufo_hover_26529.wav" type="AudioStream" id=52]
+[ext_resource path="res://art/soundfx/zapsplat_warfare_medieval_fire_arrow_fire_004_31156.wav" type="AudioStream" id=53]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 27.0
@@ -61,41 +62,65 @@ height = 40.0
 radius = 26.0
 height = 39.0
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.613682, 1 )
+colors = PoolColorArray( 0.763566, 0.629345, 0.629345, 1, 0, 0, 0, 1, 0.238281, 0.660797, 1, 1 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0 ), 0.0, 5.48145, 0, 0, Vector2( 0.903265, 0.8696 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 2.70174, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+flag_align_y = true
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 350.0
+angular_velocity = 5.49036e-12
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 4 )
+
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "idle",
 "speed": 20.0
 }, {
-"frames": [ ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": false,
+"name": "dead",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
 "loop": true,
 "name": "jump",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ) ],
+"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
 "loop": true,
 "name": "jumpShoot",
 "speed": 20.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ) ],
 "loop": true,
 "name": "jumpMelee",
 "speed": 20.0
 }, {
-"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
+"frames": [ ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ) ],
 "loop": true,
 "name": "run",
 "speed": 24.0
-}, {
-"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ) ],
-"loop": false,
-"name": "dead",
-"speed": 20.0
 } ]
 
-[sub_resource type="Animation" id=4]
-resource_name = "DeathPhysCollision"
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath("PhysCollision:position")
 tracks/0/interp = 1
@@ -121,8 +146,7 @@ tracks/1/keys = {
 "values": [ 0.0, 90.0 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "exFlip"
+[sub_resource type="Animation" id=10]
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimationWrapper:rotation_degrees")
 tracks/0/interp = 1
@@ -136,7 +160,7 @@ tracks/0/keys = {
 "values": [ 0.0, 180.0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=11]
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimationWrapper/RobotAnimations:rotation_degrees")
 tracks/0/interp = 1
@@ -183,6 +207,7 @@ script = ExtResource( 1 )
 [node name="Sense" type="Area2D" parent="." groups=[
 "player",
 ]]
+visible = false
 position = Vector2( -586.646, -471.908 )
 
 [node name="SenseCollision" type="CollisionShape2D" parent="Sense"]
@@ -191,36 +216,57 @@ position = Vector2( 586.646, 471.908 )
 shape = SubResource( 1 )
 
 [node name="PhysCollision" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 2 )
 
 [node name="CameraCenter" type="Position2D" parent="."]
+visible = false
 position = Vector2( 700, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="CameraCenter"]
+visible = false
 current = true
 smoothing_enabled = true
 editor_draw_drag_margin = true
+
+[node name="hangParticles2D" type="Particles2D" parent="."]
+amount = 15
+lifetime = 0.3
+process_material = SubResource( 7 )
+texture = ExtResource( 2 )
+
+[node name="hangCPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 15
+lifetime = 0.3
+texture = ExtResource( 2 )
+flag_align_y = true
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 350.0
+scale_amount_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
 
 [node name="AnimationWrapper" type="Node2D" parent="."]
 
 [node name="RobotAnimations" type="AnimatedSprite" parent="AnimationWrapper"]
 position = Vector2( 4.27368, -2.1853 )
 scale = Vector2( 0.2, 0.2 )
-frames = SubResource( 3 )
+frames = SubResource( 8 )
 animation = "idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/DeathPhysCollision = SubResource( 4 )
-anims/exFlip = SubResource( 5 )
-anims/flip = SubResource( 6 )
+anims/DeathPhysCollision = SubResource( 9 )
+anims/exFlip = SubResource( 10 )
+anims/flip = SubResource( 11 )
 
 [node name="FlipNoise" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 47 )
+stream = ExtResource( 48 )
 volume_db = -11.0
 bus = "fx"
 
 [node name="SmallImpactNoise" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 48 )
+stream = ExtResource( 49 )
 volume_db = -5.0
 bus = "fx"
 
@@ -233,16 +279,16 @@ volume_db = -3.0
 bus = "fx"
 
 [node name="LevelCompleteNoise" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 49 )
+stream = ExtResource( 50 )
 
 [node name="DirChangeNoise" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 50 )
+stream = ExtResource( 51 )
 volume_db = -9.5
 
 [node name="HangNoise" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 51 )
+stream = ExtResource( 52 )
 volume_db = -3.0
 
 [node name="GoNoise" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 52 )
+stream = ExtResource( 53 )
 [connection signal="area_entered" from="Sense" to="." method="_on_Sense_area_entered"]

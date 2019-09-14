@@ -44,6 +44,7 @@ onready var levelCompleteNoise = $LevelCompleteNoise
 onready var dirChangeNoise = $DirChangeNoise
 onready var hangNoise = $HangNoise
 onready var goNoise = $GoNoise
+var hangParticles
 
 
 
@@ -81,6 +82,7 @@ func onGameStateTransition(newState, prevState):
 		gameSM.states.hanging:
 			velocity= Vector2.ZERO
 			hangNoise.play()
+			hangParticles.emitting = true
 		gameSM.states.moving:
 			if prevState == gameSM.states.hanging:
 				goNoise.play()
@@ -88,9 +90,14 @@ func onGameStateTransition(newState, prevState):
 	match prevState:
 		gameSM.states.hanging:
 			hangNoise.stop()
+			hangParticles.emitting = false
 
 
 func _ready():
+	if OS.get_current_video_driver() == OS.VIDEO_DRIVER_GLES2:
+		hangParticles = $hangCPUParticles2D
+	else:
+		hangParticles = $hangParticles2D
 	gameSM.setState(gameSM.states.waiting)
 
 func startMoving():
