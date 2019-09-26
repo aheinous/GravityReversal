@@ -22,14 +22,7 @@ def _buildEngine():
     _runCmd(['scons', '-j', '8', 'platform=x11', 'target=release_debug'], directory=enginedir)
 
 
-
 def _writeCfg_AndroidARM32(vname, code):
-    # with open('export_presets.cfg.pytemplate', 'r') as template, \
-    #         open( gamedir + '/export_presets.cfg', 'w') as cfgfile:
-    #     cfgfile.write(''.join(template.readlines()).format(
-    #             name=vname, code=(code*10), enableArm32='true', enableArm64='false'))
-
-
     projectCfg = _readGodotCfg(projectCfgPath)
     exportPresets = _readGodotCfg(exportPresetsPath)
 
@@ -40,24 +33,11 @@ def _writeCfg_AndroidARM32(vname, code):
     exportPresets['preset.0.options']['architectures/armeabi-v7a'] = 'true'
     exportPresets['preset.0.options']['architectures/arm64-v8a'] = 'false'
 
-
     _writeGodotCfg(projectCfgPath, projectCfg)
     _writeGodotCfg(exportPresetsPath, exportPresets)
 
 
-
-
-
-
-
-
-
 def _writeCfg_AndroidARM64(vname, code):
-#     with open('export_presets.cfg.pytemplate', 'r') as template, \
-#             open( gamedir + '/export_presets.cfg', 'w') as cfgfile:
-#         cfgfile.write(''.join(template.readlines()).format(
-#                 name=vname, code=(code*10+1), enableArm32='false', enableArm64='true'))
-
     projectCfg = _readGodotCfg(projectCfgPath)
     exportPresets = _readGodotCfg(exportPresetsPath)
 
@@ -68,15 +48,17 @@ def _writeCfg_AndroidARM64(vname, code):
     exportPresets['preset.0.options']['architectures/armeabi-v7a'] = 'false'
     exportPresets['preset.0.options']['architectures/arm64-v8a'] = 'true'
 
+    _writeGodotCfg(projectCfgPath, projectCfg)
+    _writeGodotCfg(exportPresetsPath, exportPresets)
 
-    _writeGodotCfg(projectCfgPath)
-    _writeGodotCfg(exportPresetsPath)
+def _writeCfg_HTML5(vname):
+    projectCfg = _readGodotCfg(projectCfgPath)
+    exportPresets = _readGodotCfg(exportPresetsPath)
 
+    projectCfg['rendering']['quality/driver/driver_name'] = '"GLES2"'
 
-
-
-
-
+    _writeGodotCfg(projectCfgPath, projectCfg)
+    _writeGodotCfg(exportPresetsPath, exportPresets)
 
 
 def _actualBuild(cfg, path):
@@ -94,9 +76,9 @@ def _getVars(tag, path):
                     path=path, name=var['vname'], code=var['androidCode'])
     var['apk64_path'] = '{path}/Android/gravityReversal_{name}_{code}_arm64.apk'.format(
                     path=path, name=var['vname'], code=var['androidCode'])
+    var['html5_path'] = '{path}/HTML5/gravityReversal_{name}_HTML5'.format(
+                    path=path, name=var['vname'])
     return var
-
-
 
 
 def _readGodotCfg(path):
@@ -111,23 +93,13 @@ def _readGodotCfg(path):
         parser.read_string(s)
         return parser
 
+
 def _writeGodotCfg(path, parser):
     with io.StringIO() as strbuff, open(path, 'w') as f:
         parser.write(strbuff)
         for ln in strbuff.getvalue().splitlines():
             if ln.find('[_dummy_section_]') == -1:
                 f.write(ln+"\n")
-
-
-
-# def setGLESVersion(v):
-#     assert(v==3 or v==2)
-
-#     parser = _readGodotCfg(projectCfgPath)
-#     parser['rendering']['quality/driver/driver_name'] = 'GLES' + str(v)
-#     _writeGodotCfg(projectCfgPath, parser)
-
-
 
 
 def alreadyBuilt(tag, path):
@@ -137,14 +109,15 @@ def alreadyBuilt(tag, path):
             return False
     return True
 
+
 def build(tag, path):
     field = _getVars(tag, path)
 
     os.makedirs(os.path.dirname(field['apk32_path']), exist_ok=True)
     os.makedirs(os.path.dirname(field['apk64_path']), exist_ok=True)
+    os.makedirs(os.path.dirname(field['html5_path']), exist_ok=True)
 
-
-    # _buildEngine()
+    _buildEngine()
 
     _writeCfg_AndroidARM32(field['vname'], field['androidCode'])
     _actualBuild("Android", field['apk32_path'])
@@ -152,6 +125,9 @@ def build(tag, path):
     _writeCfg_AndroidARM64(field['vname'], field['androidCode'])
     _actualBuild("Android", field['apk64_path'])
 
+    # _writeCfg_HTML5(field['vname'])
+    # _actualBuild("HTML5", field['html5_path'])
 
 
-
+if __name__ == '__main__':
+    build('v123.456_789', '/home/alex/buildtest')
