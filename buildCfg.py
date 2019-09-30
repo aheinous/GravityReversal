@@ -90,6 +90,7 @@ def _readGodotCfg(path):
             s += ln
 
         parser = configparser.ConfigParser()
+        parser.optionxform = lambda option : option
         parser.read_string(s)
         return parser
 
@@ -117,7 +118,7 @@ def build(tag, path):
     os.makedirs(os.path.dirname(field['apk64_path']), exist_ok=True)
     os.makedirs(os.path.dirname(field['html5_path']), exist_ok=True)
 
-    _buildEngine()
+    # _buildEngine()
 
     _writeCfg_AndroidARM32(field['vname'], field['androidCode'])
     _actualBuild("Android", field['apk32_path'])
@@ -125,8 +126,8 @@ def build(tag, path):
     _writeCfg_AndroidARM64(field['vname'], field['androidCode'])
     _actualBuild("Android", field['apk64_path'])
 
-    # _writeCfg_HTML5(field['vname'])
-    # _actualBuild("HTML5", field['html5_path'])
+    _writeCfg_HTML5(field['vname'])
+    _actualBuild("HTML5", field['html5_path'])
 
 
 if __name__ == '__main__':
