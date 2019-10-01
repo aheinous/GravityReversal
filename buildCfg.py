@@ -43,8 +43,8 @@ def _writeCfg_AndroidARM64(vname, code):
 
     projectCfg['rendering']['quality/driver/driver_name'] = '"GLES3"'
 
-    exportPresets['preset.0.options']['version/name'] = vname
-    exportPresets['preset.0.options']['version/code'] = code
+    exportPresets['preset.0.options']['version/name'] = '"' + vname + '"'
+    exportPresets['preset.0.options']['version/code'] = str(code)
     exportPresets['preset.0.options']['architectures/armeabi-v7a'] = 'false'
     exportPresets['preset.0.options']['architectures/arm64-v8a'] = 'true'
 
