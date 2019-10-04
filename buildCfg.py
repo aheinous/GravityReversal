@@ -5,6 +5,8 @@ import re
 import sys
 import configparser
 import io
+import zipfile
+import glob
 
 
 gamedir = 'gravityReversal'
@@ -62,9 +64,24 @@ def _writeCfg_HTML5(vname):
 
 
 def _actualBuild(cfg, path):
-    _runCmd([enginepath, '--debug', '--editor', gamedir + '/project.godot', '--export', cfg, 'tmp.apk'])
-    # this move worksaround a godot bug with certain output paths
-    shutil.move(gamedir + '/tmp.apk', path)
+    if cfg == "HTML5":
+        outdir = os.path.dirname(path)
+        outfile = os.path.basename(path)
+        startdir = os.getcwd()
+        _runCmd([enginepath, '--debug', '--editor', gamedir + '/project.godot', '--export', cfg, outdir+'/index.html'])
+        os.chdir(outdir)
+        zf = zipfile.ZipFile(outfile, 'w')
+        for fname in glob.glob('index.*'):
+            zf.write(fname)
+
+
+        zf.close()
+        os.chdir(startdir)
+
+    else:
+        _runCmd([enginepath, '--debug', '--editor', gamedir + '/project.godot', '--export', cfg, 'tmp.apk'])
+        # this move worksaround a godot bug with certain output paths
+        shutil.move(gamedir + '/tmp.apk', path)
 
 
 def _getVars(tag, path):
@@ -76,7 +93,7 @@ def _getVars(tag, path):
                     path=path, name=var['vname'], code=var['androidCode'])
     var['apk64_path'] = '{path}/Android/gravityReversal_{name}_{code}_arm64.apk'.format(
                     path=path, name=var['vname'], code=var['androidCode'])
-    var['html5_path'] = '{path}/HTML5/gravityReversal_{name}_HTML5'.format(
+    var['html5_path'] = '{path}/HTML5/gravityReversal_{name}_HTML5/gravityReversal_{name}_web.zip'.format(
                     path=path, name=var['vname'])
     return var
 
@@ -118,7 +135,7 @@ def build(tag, path):
     os.makedirs(os.path.dirname(field['apk64_path']), exist_ok=True)
     os.makedirs(os.path.dirname(field['html5_path']), exist_ok=True)
 
-    # _buildEngine()
+    _buildEngine()
 
     _writeCfg_AndroidARM32(field['vname'], field['androidCode'])
     _actualBuild("Android", field['apk32_path'])
