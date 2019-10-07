@@ -31,7 +31,7 @@ func reset():
 		LevelInfo.new("Baby's First Steps", 'res://levels/learnToFloat.tscn'),		# titleSongPlus
 		LevelInfo.new("Young Padawan", 'res://levels/learnToStall.tscn'),			# ultimatum
 		LevelInfo.new("On The Edge", 'res://levels/learnToPop.tscn'),				# CoolOne
-		LevelInfo.new('Easy Street', 'res://levels/easyStreet.tscn'),				# letsRock
+#		LevelInfo.new('Easy Street', 'res://levels/easyStreet.tscn'),				# letsRock
 		LevelInfo.new('Deep Dive', 'res://levels/learnToDive.tscn'),				# titleSongPlus
 		LevelInfo.new('Missile Command', 'res://levels/missileCmd.tscn'),			# CoolOne
 		LevelInfo.new('Saw Hallway', 'res://levels/SawHallway.tscn'),				# let's rock
