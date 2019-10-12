@@ -122,7 +122,7 @@ def _writeGodotCfg(path, parser):
 
 def alreadyBuilt(tag, path):
     field = _getVars(tag, path)
-    for output in (field['apk32_path'], field['apk64_path']):
+    for output in (field['apk32_path'], field['apk64_path'], field['html5_path']):
         if not os.path.isfile(output):
             return False
     return True
