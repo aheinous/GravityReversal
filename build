@@ -21,7 +21,7 @@ exportPresetsPath = gamedir + '/export_presets.cfg'
 def _runCmd(args, directory='.'):
 	subprocess.run(args, cwd=directory, check=True)
 
-def runCmdAndGetOutput(args, directory='.', check=True):
+def _runCmdAndGetOutput(args, directory='.', check=True):
 	output = subprocess.run(args, cwd=directory, check=check, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True).stdout
 	print(output)
 	return output
@@ -157,31 +157,54 @@ def build(tag, path):
 
 
 def onBadArgs():
-	print("Usage: {} [<release-name>] <output-dir>".format(sys.argv[0]))
+	print("Usage: {} [--force] [<release-name>] <output-dir>".format(sys.argv[0]))
 	sys.exit(1)
 
+def cleanUpAfterSelf():
+	_runCmd(['git', 'checkout', 'gravityReversal/export_presets.cfg'])
+	_runCmd(['git', 'checkout', 'gravityReversal/project.godot'])
 
+
+def isClean():
+	s = _runCmdAndGetOutput(['git', 'status', '--porcelain'])
+	s += _runCmdAndGetOutput(['git', 'clean', '-dfxn'])
+	if len(s) == 0 or s.isspace():
+		return True
+	return False
 
 if __name__ == '__main__':
 	# build('v123.456_789', '/home/alex/buildtest')
 
 	tag = None
 	outdir = None
+	force = False
+
+	args = sys.argv[1:]
+	if args[0] == '--force':
+		force = True
+		del args[0]
 
 
-	if len(sys.argv) == 1:
-		print('not enough sys.argv')
+
+
+	if len(args) == 0:
+		print('not enough args')
 		onBadArgs()
-	elif len(sys.argv) == 2:
-		outdir = sys.argv[1]
-		tag = runCmdAndGetOutput(['git', 'describe', '--tags', '--exact-match'], check=False)
+	elif len(args) == 1:
+		outdir = args[0]
+		tag = _runCmdAndGetOutput(['git', 'describe', '--tags', '--exact-match'], check=False)
 		if tag.startswith('fatal:'):
 			onBadArgs()
-	elif len(sys.argv) == 3:
-		tag = sys.argv[1]
-		outdir = sys.argv[2]
+	elif len(args) == 2:
+		tag = args[0]
+		outdir = args[1]
+
+	if not force and not isClean():
+		print('error: not clean. Either run git clean -dfx; git checkout ., clean your shit up somehow else, or run with --force')
+		sys.exit(1)
 
 	build(tag, outdir)
+	cleanUpAfterSelf()
 
 
 
