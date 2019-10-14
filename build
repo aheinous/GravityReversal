@@ -179,18 +179,17 @@ if __name__ == '__main__':
 	outdir = None
 	force = False
 
+	if len(sys.argv) <= 1:
+		print('not enough args')
+		onBadArgs()
+
+
 	args = sys.argv[1:]
 	if args[0] == '--force':
 		force = True
 		del args[0]
 
-
-
-
-	if len(args) == 0:
-		print('not enough args')
-		onBadArgs()
-	elif len(args) == 1:
+	if len(args) == 1:
 		outdir = args[0]
 		tag = _runCmdAndGetOutput(['git', 'describe', '--tags', '--exact-match'], check=False)
 		if tag.startswith('fatal:'):
